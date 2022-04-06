@@ -1,0 +1,10 @@
+-- base a whole piece on this one
+
+-- more drone-like
+d10 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.2) )
+  $ n "3 3 2 4 1"
+  # s "gw_cut"
+  # shape "0.4"
+  # speed "-0.4 0.3 -0.4"
+  # vowel "o i o"
+  -- # gain (fast 3 $ 2*sine)

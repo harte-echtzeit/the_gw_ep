@@ -1,0 +1,25 @@
+ -- this could be a great intro / backdrop
+
+-- test some sounds of the universe aka gravitational waves
+d1 $ jux rev $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 64) $ n "9" # s "gw_cut!23"
+  # cut (irand 56)
+  # vowel "<a u o>"
+  # room (fast (irand 4) $ square)
+  # gain 1.2
+  # hpf (slow 2 $ sine)
+  # pan (fast 5 $ cosine)
+
+
+-- this goes well along with the firt backdrop -> might has to be work against it = play live
+
+-- iterate through cutted gravitational waves
+d4 $ sometimes ((# squiz 2) . (# fast 3 (vowel "i a o u")) . (# lpf 300)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
+  $ n "1 .. 9"
+  # s "gw_cut"
+  # pan (fast 3 $ sine)
+  # room (irand 4)
+  # legato 16
+  # speed (irand 8)
+  # gain (fast 6 $ tri)
+
+  

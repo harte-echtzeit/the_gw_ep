@@ -1,0 +1,82 @@
+{- this is the draft of an experimental dance piece for the GW EP based on some sketches
+--> chrs/harte_echtzeit 2022-03-26 -}
+
+
+-- INTRO only!!!
+-- evil drone (breaks sometimes JACK ;-))
+d1 $ off 0.25 ((# vowel "a") .(# room 1.2) )
+  $ n "4!53 3!23"
+  # s "gw_cut"
+  # gain "0 0.2 0.4 0.2 0"
+  # shape 0.8
+
+
+-- additionally we need some drone and noise like sounds!
+
+d2 $ sometimes (jux rev) $ every 3 (superimpose ((chop 124) . (# pan square) ))
+  $ s "[gw_cut:7(11,16)]*2"
+  # speed "12.5 10.5 12"
+  # gain "0.5 0.7 0.6"
+  # vowel "o o i a"
+  # hpf 1200
+  # nudge "0.05"
+  # distort (fast 2 $ saw)
+  # squiz 2
+  # shape 0.6
+  # room 0.2
+
+
+
+-- this could be a great intro / backdrop
+
+-- test some sounds of the universe aka gravitational waves
+d3 $ jux rev $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 64) $ n "9" # s "gw_cut!23"
+  # cut (irand 56)
+  # vowel "<a u i>"
+  # room (fast (irand 4) $ square)
+  # gain 0.8
+  # hpf (slow 2 $ sine)
+  # pan (fast 5 $ cosine)
+
+
+-- this goes well along with the firt backdrop -> might has to be work against it = play live
+
+-- iterate through cutted gravitational waves
+d4 $ sometimes ((# squiz 2) . (# fast 3 (vowel "i a u")) . (# lpf 300)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
+  $ n "1 .. 9"
+  # s "gw_cut"
+  # pan (fast 3 $ sine)
+  # room (irand 4)
+  # legato 16
+  # speed (irand 12)
+  # gain (fast 6 $ 0.6 * tri)
+
+-- here we need some beat kind of thing to drive the piece (not loud +  background)
+
+-- dance
+d5 $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
+  $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
+  -- n "[2(8,16). 3(8,16)]"
+  -- # s "gw_cut"
+  # speed "[-23 -26 -23]"
+  # shape "0.5 0.3 0.5"
+  # squiz "6 3 4"
+  # gain 0.3
+
+
+-- more nerveous background noise (very quiet!!!!)
+d6 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
+  $ s "[gw_cut:7(9,16)]*2"
+  # speed "8.5 10.5 12"
+  # gain "0.3 0.4 0.3"
+  # vowel "a o i a"
+  # hpf 1200
+  # nudge "0.05"
+  # distort (fast 2 $ saw)
+  # squiz 2
+  # shape 0.7
+  # room 0.2
+
+
+
+hush

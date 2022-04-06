@@ -1,0 +1,52 @@
+{- this is the draft of an ambient piece for the GW EP based on some sketches
+--> chrs/harte_echtzeit 2022-03-26 -}
+
+
+-- base a whole piece on this one
+
+-- more drone-like
+d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
+  $ n "3 3 2 4 1"
+  # s "gw_cut"
+  # shape "0.4 0.3 0.4"
+  # speed "-0.4 0.3 -0.4"
+  # vowel "a i a"
+  # gain (fast 3 $ 2*sine)
+  -- # gain 0.8
+
+
+ -- drone drone drone
+d2 $ n "8 10 8 10"
+  # s "gw_cut"
+  # speed "-0.4 0.2 -0.4"
+  # vowel "a i? o u"
+  -- # legato 3
+  # nudge "[0.01]*5"
+  # djf 0.4
+  # gain 0.2
+
+--- might use this beat in the background and switch on and off repeatedly
+
+-- dark dance
+d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
+  $ n "5!2 3!2"
+  # s "gw_cut"
+  # speed 0.4
+  # shape 0.8
+  # gain 0.3
+
+-- more nerveous background noise (very quiet!!!!)
+d6 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
+  $ s "[gw_cut:7(11,16)]*2"
+  # speed "12.5 10.5 12"
+  # gain "0.4 0.6 0.4"
+  # vowel "u o i a"
+  # hpf 1200
+  # nudge "0.05"
+  # distort (fast 2 $ saw)
+  # squiz 2
+  # shape 0.6
+  # room 0.2
+
+
+hush

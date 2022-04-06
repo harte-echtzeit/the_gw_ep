@@ -1,0 +1,62 @@
+{- this is the draft of a dance piece for the GW EP based on some sketches
+--> chrs/harte_echtzeit 2022-03-26 -}
+
+-- a light start
+-- very simple beat
+d1 $ superimpose (# speed "-2.5")
+  $ n "7 6 7 5"
+  # s "gw_cut"
+  -- # speed "-0.4 0.3 -0.4"
+  # vowel "a i? o u"
+  # speed 3
+  # gain 1.4
+  -- # legato 3
+  -- # nudge "0.8"
+
+
+-- beat the drum (drum like sounds are samples 5-7 + 9)
+d2 $ n "6(11,16)"
+  # s "gw_cut"
+  # speed "-1.6 -1.55 -1.6"
+  # squiz "1 5 1"
+  # shape 0.6
+  # gain 0.7
+
+
+ -- use the same beat as in ambient here more prominent
+  -- dark dance
+d5 $ off 0.2 ((# speed "-0.5") . (# room 0.9))
+  $ n "5!2 3!2 5!2"
+  # s "gw_cut"
+  # speed 0.4
+  # shape 0.7
+  # gain 0.7
+  
+  
+--- we need a synth line here!
+
+-- dance
+d3 $ sometimes ((jux rev). (# pan (fast 12 $ tri)))
+  $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
+  -- n "[2(8,16). 3(8,16)]"
+  -- # s "gw_cut"
+  # speed "[-23 -27 -23]"
+  # shape "0.5 0.3 0.5"
+  # squiz "6 3 4"
+  # gain "0.6 0.8 0.48"
+
+
+--leave out, maybe?!
+ -- synth line
+d4 $ chop 334
+  $  n "8"
+  # s "gw_cut"
+  # shape 0.6
+  # gain 1.1
+
+hush
+
+
+
+
+
