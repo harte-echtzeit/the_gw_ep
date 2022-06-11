@@ -1,0 +1,50 @@
+{- second experimental track for the GW-EP
+chrs/harte echtzeit 2022-06-11
+-> plan: use very quiet and weird sounds to overlay each other and get steadily louder until its nearly only noise; then untangle again and fade out
+-}
+
+-- some quiet, weird and mysterious sounds --> only use in very quite parts of the track!
+-- more nerveous background noise (very quiet!!!!) -> goes well with d3 + d4
+d1 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
+  $ s "[gw_cut:7(9,16)]*2"
+  # speed "8.5 12.5 14"
+  # gain "0.3 0.4 0.3"
+  # vowel "u o i u"
+  # hpf 600
+  # nudge "0.05"
+  # distort (fast 4 $ saw)
+  # squiz 3
+  # shape 0.7
+  # room 0.2
+
+d2 $ jux rev $ fast 1.5 $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 42) $ n "9" # s "gw_cut!23"
+  # cut (irand 32)
+  # vowel "<a u o>"
+  # room (fast (irand 6) $ square)
+  # gain 0.6
+  # hpf (slow 1 $ sine)
+  # pan (fast 3 $ cosine)
+
+
+-- NEW quiet but constant, low humming noise
+d3 $ striate 160 $ fast 1 $  s "gw_cut:5*4 gw_cut:6*6 gw_cut:7*8"
+  # hpf 600
+  # speed "-0.8"
+  # vowel (choose["a, o, u, i"])
+  # waveloss "40 .. 80"
+  # gain 1.4
+
+-- now back to percussions? --> kind of
+-- may use for a second experimental track!
+d4 $ fast "2 4" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3))) $ n "1 2 [3 4 3?] 4"
+  # s "gw_cut"
+  # bpf "500 1200"
+  -- # hpf 800
+  # gain 0.5
+  # shape "0.1 0.3 0.4 0.2"
+  # crush "2 3"
+  # speed "-1.5"
+  # legato 16
+  # djf "0.6 0.8 0.7 0.9"
+
+hush

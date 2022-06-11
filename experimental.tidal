@@ -1,5 +1,18 @@
 {- this is the draft of an experimental dance piece for the GW EP based on some sketches
---> chrs/harte_echtzeit 2022-03-26 -}
+--> chrs/harte_echtzeit 2022-03-26
+--> 2nd edit 2022-06-11
+
+notes for playin:
+- d1 -> short dramatic intro 
+- flapping sounds from d2 to get going and drive the whole piece
+- d3 rather quiet, bubbling sounds
+- d4 a dance beat, do not use very prominently!
+- d5 more or less melodic driver
+- d6 percussion to drive
+- add some (short) interesting noises from time to time (bubbling and dramatic drones)
+- find some sort of percussion/beat-like structure in the middle to have a climax -> especially around between min 4 and 6 
+- maybe try to shorten the track towards 5-6 mins
+-}
 
 
 -- INTRO only!!!
@@ -12,71 +25,61 @@ d1 $ off 0.25 ((# vowel "a") .(# room 1.2) )
 
 
 -- additionally we need some drone and noise like sounds!
+-- major 'flapping theme' of the track
 
 d2 $ sometimes (jux rev) $ every 3 (superimpose ((chop 124) . (# pan square) ))
   $ s "[gw_cut:7(11,16)]*2"
-  # speed "12.5 10.5 12"
-  # gain "0.5 0.7 0.6"
-  # vowel "o o i a"
-  # hpf 1200
+  # speed "14.5 10.5 12"
+  # gain "0.3 0.5 0.2"
+  # vowel "a o i u"
+  # hpf 1000
   # nudge "0.05"
-  # distort (fast 2 $ saw)
+  # distort (fast 3 $ saw)
   # squiz 2
-  # shape 0.6
-  # room 0.2
-
-
-
--- this could be a great intro / backdrop
-
--- test some sounds of the universe aka gravitational waves
-d3 $ jux rev $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 64) $ n "9" # s "gw_cut!23"
-  # cut (irand 56)
-  # vowel "<a u i>"
-  # room (fast (irand 4) $ square)
-  # gain 0.8
-  # hpf (slow 2 $ sine)
-  # pan (fast 5 $ cosine)
-
+  # shape 0.3
+  # room 0.3
 
 -- this goes well along with the firt backdrop -> might has to be work against it = play live
-
--- iterate through cutted gravitational waves
-d4 $ sometimes ((# squiz 2) . (# fast 3 (vowel "i a u")) . (# lpf 300)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
+-- interesting, bubbling sounds but also rather quiet -> combine with d3
+d3 $ sometimes ((# squiz 4) . (# fast 3 (vowel "o a u")) . (# lpf 300)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
   $ n "1 .. 9"
   # s "gw_cut"
   # pan (fast 3 $ sine)
-  # room (irand 4)
+  # room (irand 5)
   # legato 16
-  # speed (irand 12)
-  # gain (fast 6 $ 0.6 * tri)
+  # speed (irand 16)
+  # gain (fast 3 $ 0.5 * sine)
 
 -- here we need some beat kind of thing to drive the piece (not loud +  background)
 
 -- dance
-d5 $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
+-- synth line of the track -> good with d1 but keep quiet! (is also used in dance track)
+d4 $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
   -- n "[2(8,16). 3(8,16)]"
   -- # s "gw_cut"
   # speed "[-23 -26 -23]"
   # shape "0.5 0.3 0.5"
-  # squiz "6 3 4"
-  # gain 0.3
+  # squiz "5 3 2"
+  # gain 0.35
 
 
--- more nerveous background noise (very quiet!!!!)
-d6 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
-  $ s "[gw_cut:7(9,16)]*2"
-  # speed "8.5 10.5 12"
-  # gain "0.3 0.4 0.3"
-  # vowel "a o i a"
-  # hpf 1200
-  # nudge "0.05"
-  # distort (fast 2 $ saw)
-  # squiz 2
-  # shape 0.7
-  # room 0.2
+-- NEW more slow-mo (nice constant backround)
+-- end track with this fading out!
+d5 $ swingBy (1/5) 6 $ zoom (0.2, 0.75) $ s "gw_cut:2 gw_cut:8"
+  # lpf 200
+  # speed "0.8"
+  # gain 0.6
 
-
+   
+-- some rather strange beats and percussions
+d6 $ sometimes  ( (# squiz 4)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6"
+  # s "gw_cut"
+  # speed "-1.4 -1.6 -1.4"
+  # gain 0.8
+  # bpf "500 900"
+  # pan sine
+  # waveloss "30..80"
+  # nudge "1.1 1.4 1.2"
 
 hush

@@ -33,7 +33,7 @@ d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
   # s "gw_cut"
   # speed 0.4
   # shape 0.8
-  # gain 0.3
+  # gain 0.8
 
 -- more nerveous background noise (very quiet!!!!)
 d6 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
