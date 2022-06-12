@@ -17,11 +17,13 @@ notes for playin:
 
 -- INTRO only!!!
 -- evil drone (breaks sometimes JACK ;-))
-d1 $ off 0.25 ((# vowel "a") .(# room 1.2) )
+d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
   $ n "4!53 3!23"
   # s "gw_cut"
   # gain "0 0.2 0.4 0.2 0"
   # shape 0.8
+  -- # squiz 3
+  -- # lpf 200
 
 
 -- additionally we need some drone and noise like sounds!
