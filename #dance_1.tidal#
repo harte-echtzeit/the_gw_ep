@@ -1,0 +1,79 @@
+{- this is the draft of a dance piece for the GW EP based on some sketches
+--> chrs/harte_echtzeit 2022-03-26
+--> second iteration 2022-06-11
+start with 1-3 -> later fade out 2 for fade in 4
+
+-}
+
+
+ -- use the same beat as in ambient here more prominent
+  -- dark dance
+d1 $ off 0.2 ((# speed "-0.5") . (# room 0.4))
+  $ n "5!2 3!2"
+  # s "gw_cut"
+  # speed 0.4
+  # shape 0.8
+  # gain 0.9
+
+
+-- now back to percussions? --> kind of
+-- may use for a second experimental track!
+d2 $ fast "2 4" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3))) $ n "1 2 [3 4 3?] 4"
+  # s "gw_cut"
+  # bpf "800 1800"
+  -- # hpf 800
+  # gain 0.8
+  # shape "0.2 0.4 0.5 0.3"
+  # crush "2 4"
+  # speed "-1.5"
+  # legato 16
+  # djf "0.3 0.4 0.1 0.5"
+
+--- we need a synth line here!
+-- dance
+d3 $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
+  $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
+  -- n "[2(8,16). 3(8,16)]"
+  -- # s "gw_cut"
+  # speed "[-23 -20 -26]"
+  # shape "0.2 0.5 0.2"
+  # squiz "5 2 4"
+  # gain "0.6 0.9 0.7"
+
+
+-- beat the drum (drum like sounds are samples 5-7 + 9)
+d4 $ n "6(11,16)"
+  # s "gw_cut"
+  # speed "-1.6 -1.55 -1.6"
+  # squiz "1 5 1"
+  # shape 0.6
+  # gain 0.2
+
+
+
+hush
+
+
+-- a light start
+-- very simple beat
+-- LEAVE OUT
+d1 $ superimpose (# speed "-2.5")
+  $ n "7 6 7 5"
+  # s "gw_cut"
+  -- # speed "-0.4 0.3 -0.4"
+  # vowel "a i? o u"
+  # speed 3
+  # gain 1.4
+  -- # legato 3
+  -- # nudge "0.8"
+
+--leave out, maybe?!
+ -- synth line
+d4 $ chop 334
+  $  n "8"
+  # s "gw_cut"
+  # shape 0.6
+  # gain 1.1
+
+
+
