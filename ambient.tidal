@@ -23,7 +23,7 @@ d2 $ n "8 10 8 10"
   -- # legato 3
   # nudge "[0.01]*5"
   # djf 0.4
-  # gain 0.2
+  # gain 0.8
 
 --- might use this beat in the background and switch on and off repeatedly
 
@@ -36,7 +36,7 @@ d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
   # gain 0.8
 
 -- more nerveous background noise (very quiet!!!!)
-d6 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
+d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
   $ s "[gw_cut:7(11,16)]*2"
   # speed "12.5 10.5 12"
   # gain "0.4 0.6 0.4"
@@ -47,6 +47,37 @@ d6 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
   # squiz 2
   # shape 0.6
   # room 0.2
+
+-- more beat like structure
+d5
+  $ slow 1.2
+  $ every 1 ((jux rev) . (# room 0.2). (# sz 0.5))
+  $ n "{2*9, 3*7}"
+  # s "gw_cut"
+  -- # vowel "i"
+  # cut 23
+  # lpf 500
+  -- # shape "0.5 0.2 0.4"
+  # speed "3.9 4.6 3.7 4.2 4.9"
+  # gain 0.8
+
+-- splice the slice --> beat
+d6
+  $ fast 1.0
+  -- $ every 2 (# room 0.1)
+  -- $ jux rev
+  -- $ splice 6 "4 2 ~ 3 5 6"
+  $ slice 11 "10 7 ~ 11 6 2 9"
+  $ n "{2, 4}"
+  # s "gw_cut"
+  # vowel "o"
+  -- # xsdelay 0.1
+  -- # tsdelay 0.4
+  -- # smear 0.4
+  -- # hpf 100
+  # ring 7 # ringf 50 # ringdf 1200
+  # shape "0.7 0.5 0.8"
+  # gain 0.6
 
 
 hush
