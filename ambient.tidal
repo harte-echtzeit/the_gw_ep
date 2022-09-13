@@ -8,12 +8,13 @@
 d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
   $ n "3 3 2 4 1"
   # s "gw_cut"
-  # shape "0.4 0.3 0.4"
+  # shape "0.4 0.2 0.4"
   # speed "-0.4 0.3 -0.4"
-  # vowel "a i a"
+  # vowel "u i o"
   # gain (fast 3 $ 2*sine)
   -- # gain 0.8
 
+d1 $ silence
 
  -- drone drone drone
 d2 $ n "8 10 8 10"
@@ -25,6 +26,9 @@ d2 $ n "8 10 8 10"
   # djf 0.4
   # gain 0.8
 
+
+d2 $ silence
+
 --- might use this beat in the background and switch on and off repeatedly
 
 -- dark dance
@@ -33,8 +37,10 @@ d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
   # s "gw_cut"
   # speed 0.4
   # shape 0.8
-  # gain 0.8
+  # gain 0.4
 
+d3 $ silence
+  
 -- more nerveous background noise (very quiet!!!!)
 d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
   $ s "[gw_cut:7(11,16)]*2"
@@ -48,6 +54,8 @@ d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
   # shape 0.6
   # room 0.2
 
+d4 $ silence
+
 -- more beat like structure
 d5
   $ slow 1.2
@@ -58,8 +66,10 @@ d5
   # cut 23
   # lpf 500
   -- # shape "0.5 0.2 0.4"
-  # speed "3.9 4.6 3.7 4.2 4.9"
-  # gain 0.8
+  # speed "3.9 4.6 4.7 4.2 4.9"
+  # gain 0.99
+
+d5 $ silence
 
 -- splice the slice --> beat
 d6
@@ -70,14 +80,16 @@ d6
   $ slice 11 "10 7 ~ 11 6 2 9"
   $ n "{2, 4}"
   # s "gw_cut"
-  # vowel "o"
+  # vowel "o i o a"
   -- # xsdelay 0.1
   -- # tsdelay 0.4
   -- # smear 0.4
   -- # hpf 100
-  # ring 7 # ringf 50 # ringdf 1200
-  # shape "0.7 0.5 0.8"
-  # gain 0.6
+  -- # ring 7 # ringf 50 # ringdf 1200
+  # shape "0.2 0.4 0.8"
+  -- # krush 3.9
+  # gain 0.9
 
+d6 $ silence
 
 hush
