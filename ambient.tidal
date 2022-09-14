@@ -8,20 +8,20 @@
 d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
   $ n "3 3 2 4 1"
   # s "gw_cut"
-  # shape "0.4 0.2 0.4"
+  # shape "0.6 0.2 0.4"
   # speed "-0.4 0.3 -0.4"
-  # vowel "u i o"
-  # gain (fast 3 $ 0.85*sine)
-  -- # gain 0.7
+  # vowel "u i a"
+  # gain (fast 3 $ 0.9*sine)
+  -- # gain 0.6
 
 d1 $ silence
 
  -- drone drone drone
 d2 $ n "8 10 8 10"
   # s "gw_cut"
-  # speed "-0.6 0.2 -0.4"
+  # speed "-0.4 0.2 -0.4"
   # vowel "a i? o u"
-  -- # legato 3
+  -- # legato 0.999
   # nudge "[0.01]*5"
   # djf 0.3
   # gain 0.2
@@ -36,8 +36,9 @@ d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
   $ n "5!2 3!2"
   # s "gw_cut"
   # speed 0.4
-  # shape 0.8
-  # gain 0.6
+  # shape 0.5
+  -- # smear 0.4
+  # gain 0.2
 
 d3 $ silence
   
@@ -45,29 +46,30 @@ d3 $ silence
 d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
   $ s "[gw_cut:7(11,16)]*2"
   # speed "12.5 10.5 12"
-  # gain "0.1 0.2 0.1"
-  # vowel "a o i a"
+  # gain "0.2 0.3 0.1"
+  # vowel "a o i u"
   # hpf 1200
   # nudge "0.05"
   # distort (fast 2 $ saw)
-  # squiz 2
+  # squiz 4
   # shape 0.3
-  # room 0.2 # sz 0.2
+  # room 0.4 # sz 0.2
 
 d4 $ silence
 
--- more beat like structure (leave out for the moemnt)
-d5
-  $ slow 1.2
-  $ every 1 ((jux rev) . (# room 0.2). (# sz 0.5))
-  $ n "{2*9, 3*7}"
+
+d5 $ fast 0.25
+  $ ghost
+  $ stut 4 0.2 0.8
+  $ slice 20 "8 7 8"
+  $ n "2"
   # s "gw_cut"
-  -- # vowel "i"
-  # cut 23
-  # lpf 500
-  -- # shape "0.5 0.2 0.4"
-  # speed "3.9 4.6 4.7 4.2 4.9"
-  # gain 0.6
+  # speed "1.2 0.6 1 1.4"
+  # lpf 1800
+  # fshift "80 100 90 120"
+  -- # smear 0.1
+  # krush 0.2
+  # gain 0.3
 
 d5 $ silence
 
@@ -87,25 +89,28 @@ d6
   -- # smear 0.4
   -- # hpf 100
   -- # ring 7 # ringf 50 # ringdf 1200
-  # shape "0.2 0.4 0.8"
+  # shape "0.1 0.5 0.8"
   -- # krush 1.9
-  # gain 0.9
+  # gain 0.3
 
 d6 $ silence
 
 
-d5 $ fast 0.25
-  $ ghost
-  $ stut 4 0.2 0.8
-  $ slice 20 "8 7 8"
-  $ n "2"
-  # s "gw_cut"
-  # speed "1.2 0.8 1 1.4"
-  # lpf 1800
-  # fshift "80 100 90 120"
-  -- # smear 0.1
-  -- # krush 0.2
-  # gain 0.8
-
-  
 hush
+
+
+
+
+
+-- more beat like structure (leave out for the moemnt)
+d5
+  $ slow 1.2
+  $ every 1 ((jux rev) . (# room 0.2). (# sz 0.5))
+  $ n "{2*9, 3*7}"
+  # s "gw_cut"
+  -- # vowel "i"
+  # cut 23
+  # lpf 500
+  -- # shape "0.5 0.2 0.4"
+  # speed "3.9 4.6 4.7 4.2 4.9"
+  # gain 0.6
