@@ -1,10 +1,8 @@
 {- this is the draft of an ambient piece for the GW EP based on some sketches
---> chrs/harte_echtzeit 2022-03-26 -}
+--> chrs/harte_echtzeit 2022-03-26 +  2022-09-13+14 -}
 
 
--- base a whole piece on this one
-
--- more drone-like
+-- base a whole piece on this one --> convey somewhat mysterious and dark feeling
 d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
   $ n "3 3 2 4 1"
   # s "gw_cut"
@@ -16,7 +14,9 @@ d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
 
 d1 $ silence
 
- -- drone drone drone
+
+
+-- drone drone drone
 d2 $ n "8 10 8 10"
   # s "gw_cut"
   # speed "-0.4 0.2 -0.4"
@@ -73,7 +73,8 @@ d5 $ fast 0.25
 
 d5 $ silence
 
--- splice the slice --> beat
+
+-- D6 is second base theme of the track --> some clicking but also dark, bassy tones (no real beat, but more backdrop)
 d6
   $ fast 1.0
   -- $ every 2 (# room 0.1)
@@ -97,6 +98,46 @@ d6 $ silence
 
 
 hush
+
+
+{- EDITING NOTES
+
+D1
+- X begining clicks more pronounced (louder or eq)
+- X bass a bit more in background (eq)
+- X slightly less vol from 01:30 when D6 comes in to give it more room
+- X get kind of backround noise more pronounced? = mysterious
+- vol down ramp from min 03:00 to 337 in order to give D2 more presence
+- make more dramatic vol ramp up at the end (min 7:30 - end) in order to convey dramatic approach of GW towards earth = end LOUD
+
+
+D6
+- X increase bass sub tones much more(eq)
+- why is there a gap? -> fits nice (first short clima, than break = leave it)
+- RE-take to make it a bit more interesting? -> play with code some more
+- may be let play until end do emphasize drama with that bass sub-tone
+
+X D2
+- X louder beginning vs D1 + louder over all
+- increase bass subtones from 04:20
+- X increase loudness from 05:00 but check with other layers
+
+X D3
+-X keep in background but may decrease bass (make it clearer-> EQ)
+-X maybe sligthly louder
+
+D4
+- X slight increase in lodness overall
+- copy that part and play it earlier as well (ca min 2:15 - 2:30)
+
+D5
+- clearer high freqs
+- maybe sustain longer(towards end) and crush towards end (+loud) in order to support dramatic end!
+- RE-take!
+
+
+-}
+
 
 
 
