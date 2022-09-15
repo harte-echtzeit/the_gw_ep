@@ -64,12 +64,14 @@ d5 $ fast 0.25
   $ slice 20 "8 7 8"
   $ n "2"
   # s "gw_cut"
-  # speed "1.2 0.6 1 1.4"
+  # speed "1.2 0.5 1 1.4"
   # lpf 1800
   # fshift "80 100 90 120"
-  -- # smear 0.1
-  # krush 0.2
-  # gain 0.3
+  # smear 0.5
+  # comb 0.6
+  -- # krush 0.1
+  # crush 5
+  # gain 1.3
 
 d5 $ silence
 
@@ -111,11 +113,11 @@ D1
 - make more dramatic vol ramp up at the end (min 7:30 - end) in order to convey dramatic approach of GW towards earth = end LOUD
 
 
-D6
+X D6
 - X increase bass sub tones much more(eq)
-- why is there a gap? -> fits nice (first short clima, than break = leave it)
-- RE-take to make it a bit more interesting? -> play with code some more
-- may be let play until end do emphasize drama with that bass sub-tone
+- X why is there a gap? -> fits nice (first short clima, than break = leave it)
+- may not? RE-take to make it a bit more interesting? -> play with code some more
+- X may be let play until end do emphasize drama with that bass sub-tone
 
 X D2
 - X louder beginning vs D1 + louder over all
@@ -126,14 +128,14 @@ X D3
 -X keep in background but may decrease bass (make it clearer-> EQ)
 -X maybe sligthly louder
 
-D4
+X D4
 - X slight increase in lodness overall
-- copy that part and play it earlier as well (ca min 2:15 - 2:30)
+- X copy that part and play it earlier as well (ca min 2:15 - 2:30)
 
-D5
-- clearer high freqs
-- maybe sustain longer(towards end) and crush towards end (+loud) in order to support dramatic end!
-- RE-take!
+X D5
+- X clearer high freqs
+- X maybe sustain longer(towards end) and crush towards end (+loud) in order to support dramatic end!
+- X RE-take!
 
 
 -}
