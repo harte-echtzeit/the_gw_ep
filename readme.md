@@ -7,7 +7,7 @@ This file will soon contain some information on the tracks and planned EP. All b
 {to be told}
 - connection of science and art
 - How can the following Einstein quotes be related to this project?
-> “It occurred to me by intuition, and music was the driving force behind that intuition. My discovery was the result of musical perception."
+> “It occurred to me by intuition, and music was the driving force behind that intuition. My discovery was the result of musical perception."  
 > `“A new idea comes suddenly and in a rather intuitive way, but intuition is nothing but the outcome of earlier intellectual experience."
 - new kind of sciences needs new kind of communication --> live coding as a possible way?
 - are GW comparable with field recordings?
