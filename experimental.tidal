@@ -15,6 +15,20 @@ notes for playin:
 -}
 
 
+{-
+3rd edit and notes for demo recording
+- pick up loud noisy part with d1 and d2 from track 01 and let it slowly dissolve
+- d1 short, d2 gets slower and fainter
+- but d2 stays constant in whole track!
+- let d3 take over bubbling more silent but with some very slow d2 flapping
+- from about Min 3-4 (half time) enter more melodic parts -> first d5
+- than d6
+- in backround some d4 synth line for one time perioid of about a minute
+- and sometimes d1 kicks in repeatably but short (<10sec)
+- the piece ends with d6 and a bit of d2 in some noisy but still beaty structure (which conveys some hardship but also succes on horizon) 
+-}
+
+
 -- INTRO only!!!
 -- evil drone (breaks sometimes JACK ;-))
 d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
@@ -25,21 +39,26 @@ d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
   -- # squiz 3
   -- # lpf 200
 
+d1 $ silence
 
 -- additionally we need some drone and noise like sounds!
 -- major 'flapping theme' of the track
 
-d2 $ sometimes (jux rev) $ every 3 (superimpose ((chop 124) . (# pan square) ))
+d2 $ slow 0.9
+  $ sometimes (jux rev) $ every 3 (superimpose ((chop 124) . (# pan square) ))
   $ s "[gw_cut:7(11,16)]*2"
   # speed "14.5 10.5 12"
-  # gain "0.3 0.5 0.2"
+  # gain "0.1 0.3 0.1"
   # vowel "a o i u"
-  # hpf 1000
+  # hpf 800
   # nudge "0.05"
   # distort (fast 3 $ saw)
   # squiz 2
   # shape 0.3
   # room 0.3
+
+d2 $ silence
+
 
 -- this goes well along with the firt backdrop -> might has to be work against it = play live
 -- interesting, bubbling sounds but also rather quiet -> combine with d3
@@ -50,7 +69,9 @@ d3 $ sometimes ((# squiz 4) . (# fast 3 (vowel "o a u")) . (# lpf 300)) $ someti
   # room (irand 5)
   # legato 16
   # speed (irand 16)
-  # gain (fast 3 $ 0.5 * sine)
+  # gain (fast 3 $ 0.4 * sine)
+
+d3 $ silence
 
 -- here we need some beat kind of thing to drive the piece (not loud +  background)
 
@@ -65,6 +86,7 @@ d4 $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
   # squiz "5 3 2"
   # gain 0.35
 
+d4 $ silence
 
 -- NEW more slow-mo (nice constant backround)
 -- end track with this fading out!
@@ -73,15 +95,19 @@ d5 $ swingBy (1/5) 6 $ zoom (0.2, 0.75) $ s "gw_cut:2 gw_cut:8"
   # speed "0.8"
   # gain 0.6
 
+d5 $ silence
    
 -- some rather strange beats and percussions
 d6 $ sometimes  ( (# squiz 4)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6"
   # s "gw_cut"
   # speed "-1.4 -1.6 -1.4"
-  # gain 0.8
+  # gain 0.6
   # bpf "500 900"
   # pan sine
   # waveloss "30..80"
   # nudge "1.1 1.4 1.2"
+
+d6 $ silence
+
 
 hush

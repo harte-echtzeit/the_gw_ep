@@ -17,25 +17,45 @@ d1 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
   # shape 0.7
   # room 0.2
 
-d2 $ jux rev $ fast 1.5 $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 42) $ n "9" # s "gw_cut!23"
+d1 $ silence
+
+-- these are some rather unrhythmic clicks, kicks and drum like-structures
+-- can make an odd interplay in the middle of the track -> sounds a bit broken but also pleasant sometimes
+-- use ghost to maipulate it completly!
+-- use of `echo` will speed up slightly
+d2
+  -- $ echo 3 0.6 0.2
+  $ jux rev
+  $ fast 1.5
+  $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 42) $ n "9"
+  # s "gw_cut!23"
   # cut (irand 32)
-  # vowel "<a u o>"
+  # vowel "<a u o i>"
   # room (fast (irand 6) $ square)
   # gain 0.6
+  -- # djf 0.2
   # hpf (slow 1 $ sine)
   # pan (fast 3 $ cosine)
 
+d2 $ silence
 
 -- NEW quiet but constant, low humming noise
-d3 $ striate 160 $ fast 1 $  s "gw_cut:5*4 gw_cut:6*6 gw_cut:7*8"
+-- great backround noise!
+-- CPU heavy, be careful with fast
+d3 $ striate 160 $ fast 1.2 $  s "gw_cut:5*4 gw_cut:6*6 gw_cut:7*8"
   # hpf 600
   # speed "-0.8"
-  # vowel (choose["a, o, u, i"])
+  # vowel (choose["a, o, u"])
   # waveloss "40 .. 80"
-  # gain 1.4
+  # gain 1.1
+  -- # room 0.1 #sz 0.7
+  # fshift "<-200 150 300>"
+
+d3 $ silence
 
 -- now back to percussions? --> kind of
 -- may use for a second experimental track!
+-- maybe a main driver of the track
 d4 $ fast "2 4" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3))) $ n "1 2 [3 4 3?] 4"
   # s "gw_cut"
   # bpf "500 1200"
@@ -46,5 +66,7 @@ d4 $ fast "2 4" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crus
   # speed "-1.5"
   # legato 16
   # djf "0.6 0.8 0.7 0.9"
+
+d4 $ silence
 
 hush
