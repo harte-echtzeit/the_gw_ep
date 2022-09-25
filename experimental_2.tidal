@@ -3,6 +3,7 @@ chrs/harte echtzeit 2022-06-11
 -> plan: use very quiet and weird sounds to overlay each other and get steadily louder until its nearly only noise; then untangle again and fade out
 -}
 
+-- a comment 
 -- some quiet, weird and mysterious sounds --> only use in very quite parts of the track!
 -- more nerveous background noise (very quiet!!!!) -> goes well with d3 + d4
 d1 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
