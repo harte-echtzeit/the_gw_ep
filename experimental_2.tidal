@@ -26,8 +26,9 @@ d1 $ silence
 -- use of `echo` will speed up slightly
 d2
   -- $ echo 3 0.6 0.2
+  -- $ ghost
   $ jux rev
-  $ fast 1.5
+  $ fast 2.5
   $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 42) $ n "9"
   # s "gw_cut!23"
   # cut (irand 32)
@@ -35,8 +36,8 @@ d2
   # room (fast (irand 6) $ square)
   # gain 0.6
   -- # djf 0.2
-  # hpf (slow 1 $ sine)
-  # pan (fast 3 $ cosine)
+  # hpf (slow 0.5 $ sine)
+  # pan (fast 12 $ cosine)
 
 d2 $ silence
 
@@ -57,11 +58,11 @@ d3 $ silence
 -- now back to percussions? --> kind of
 -- may use for a second experimental track!
 -- maybe a main driver of the track
-d4 $ fast "2 4" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3))) $ n "1 2 [3 4 3?] 4"
+d4 $ fast "2 3" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3))) $ n "1 2 [3 4 3?] 4"
   # s "gw_cut"
-  # bpf "500 1200"
+  # bpf "200 1200"
   -- # hpf 800
-  # gain 0.5
+  # gain 0.6
   # shape "0.1 0.3 0.4 0.2"
   # crush "2 3"
   # speed "-1.5"

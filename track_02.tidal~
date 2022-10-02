@@ -1,0 +1,45 @@
+{-
+new arrangement of 'experimental tracks' based on 'experimental.tidal' + 'experimental_2.tidal'
+transforms noted storylines with the different tracks
+2022-10-02
+-}
+
+{-
+notes on live playing:
+
+- d1+d2 start in parallel to transform the loud/noisy ending of track 01
+- d6 takes over as a rhythmic structure to transport enthusiastic work and quest for GW
+- d6 gets transformed to be a bit more dirtier and
+- d3(formaly exp02) kicks in to make an unpleasent/broken feeling
+- fades out slowly and gets slower in playback
+- ends with d2 (from exp02
+-}
+
+
+-- INTRO only!!!
+-- evil drone (breaks sometimes JACK ;-))
+d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
+  $ n "4!53 3!23"
+  # s "gw_cut"
+  # gain "0 0.2 0.4 0.2 0"
+  # shape 0.8
+  -- # squiz 3
+  -- # lpf 200
+
+d1 $ silence
+
+-- major 'flapping theme' of the track = transports listener from track 01 to here
+d2 $ slow 0.9
+  $ sometimes (jux rev) $ every 3 (superimpose ((chop 124) . (# pan square) ))
+  $ s "[gw_cut:7(11,16)]*2"
+  # speed "14.5 10.5 12"
+  # gain "0.1 0.3 0.1"
+  # vowel "a o i u"
+  # hpf 800
+  # nudge "0.05"
+  # distort (fast 3 $ saw)
+  # squiz 2
+  # shape 0.3
+  # room 0.3
+
+d2 $ silence

@@ -26,6 +26,16 @@ notes for playin:
 - in backround some d4 synth line for one time perioid of about a minute
 - and sometimes d1 kicks in repeatably but short (<10sec)
 - the piece ends with d6 and a bit of d2 in some noisy but still beaty structure (which conveys some hardship but also succes on horizon) 
+
+
+storyline/goal:
+- working title 'Hanford nights / nightshift'
+- with a lot of excitement, determination and effort tools are built to search for GWs (loud, somewhat melodic not dissonant)
+- after a first wave of projects and funding (original Ligo) a bit of disillusion creeps in (quieter, dissonant and a bit depressing)
+- but soon new efforts are beeing planned and new scientific and enginnering hardship/effort are beeing taken (growing louder and more melodic again)
+- strange distant signals are discovered, it is realized that it is the phenomenom, that was long searched for (short pause in near silence, faint and later growing bubling sounds)
+- signals become stronger, filtering, modelling and comparison with signals from second site support successful discovery (rhythmic and joyfull -> paving the way to the dance track)
+
 -}
 
 
@@ -70,6 +80,7 @@ d3 $ sometimes ((# squiz 4) . (# fast 3 (vowel "o a u")) . (# lpf 300)) $ someti
   # legato 16
   # speed (irand 16)
   # gain (fast 3 $ 0.4 * sine)
+
 
 d3 $ silence
 
