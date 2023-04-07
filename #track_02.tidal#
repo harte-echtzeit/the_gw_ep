@@ -1,0 +1,99 @@
+{- TRACK-02
+new arrangement of 'experimental tracks' based on 'experimental.tidal' + 'experimental_2.tidal'
+transforms noted storylines with the different tracks
+2022-10-02
+-}
+
+{-
+notes on live playing:
+
+- d1+d2 start in parallel to transform the loud/noisy ending of track 01
+- d3 (old d3) takes over as a rhythmic structure to transport enthusiastic work and quest for GW
+- d3 gets transformed to be a bit more dirtier and
+- d4(formaly d3-exp02) kicks in to make an unpleasent/broken feeling
+- fades out slowly and gets slower in playback
+- ends with d5 (from d2- exp02)
+-}
+
+
+-- INTRO only!!!
+-- evil drone (breaks sometimes JACK ;-))
+d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
+  $ n "4!53 3!23"
+  # s "gw_cut"
+  # gain "0 0.2 0.4 0.2 0"
+  # shape 0.8
+  -- # squiz 3
+  -- # lpf 200
+
+d1 $ silence
+
+-- major 'flapping theme' of the track = transports listener from track 01 to here
+d2 $ slow 0.9
+  $ sometimes (jux rev) $ every 3 (superimpose ((chop 124) . (# pan square) ))
+  $ s "[gw_cut:7(11,16)]*2"
+  # speed "14.5 10.5 12"
+  # gain "0.6 0.7 0.6"
+  # vowel "a o i i"
+  # hpf 800
+  # nudge "0.05"
+  # distort (fast 3 $ saw)
+  # squiz 2
+  # shape 0.3
+  # room 0.3
+
+d2 $ silence
+
+
+-- some rather strange beats and percussions
+d3 $ sometimes  ( (# squiz 3)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6"
+  # s "gw_cut"
+  # speed "-1.4 -1.6 -1.4"
+  # gain 0.4
+  -- # vowel "a u"
+  # bpf "300 900"
+  # pan cosine
+  # waveloss "20..60"
+  # krush 2
+  -- # comb 0.9
+  # nudge "1.1 1.4 1.2"
+
+d3 $ silence
+
+-- NEW quiet but constant, low humming noise
+-- great backround noise!
+-- CPU heavy, be careful with fast
+d4 $ striate 160 $ fast 1.25 $  s "gw_cut:5*4 gw_cut:6*6 gw_cut:7*8"
+  # hpf 300
+  # speed "-0.8"
+  # vowel (choose["a, o, i"])
+  # waveloss "20 .. 60"
+  # gain 1.2
+  # room 0.1 #sz 0.9
+  # fshift "<-200 150 400>"
+
+d4 $ silence
+
+-- these are some rather unrhythmic clicks, kicks and drum like-structures
+-- can make an odd interplay in the middle of the track -> sounds a bit broken but also pleasant sometimes
+-- use ghost to maipulate it completly!
+-- use of `echo` will speed up slightly
+d5
+  -- $ echo 3 0.6 0.2
+  -- $ ghost
+  $ jux rev
+  $ fast 2.5
+  $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 42) $ n "9"
+  # s "gw_cut!23"
+  # cut (irand 32)
+  # vowel "<a u o>"
+  # room (fast (irand 6) $ square)
+  # gain 0.9
+  -- # djf 0.7
+  # comb 0.9
+  # hpf (slow 0.2 $ sine)
+  # pan (fast 2 $ cosine)
+
+d5 $ silence
+
+hush
