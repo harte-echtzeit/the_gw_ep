@@ -17,83 +17,88 @@ plan for the track:
 -- some other trials on this one
 {- 
 -} 
-d1 -- $ layer [scramble 3, fast 0.5, degradeBy 0.1]
+d1 $ layer [scramble 3, fast 0.5, degradeBy 0.1]
 --  (# fshift "100"),
            --  (# gain 0.2)
           -- ]
   -- $ jux rev
   $ off 0.2 ((# speed "-0.5") . (# room 0.4))
-  -- $ chop 200
+  $ chop 200
   $ n "5!2 3!2"
   # s "gw_cut"
   -- # speed "<0.4 0.6>"
   # speed "0.5"
-  # shape 0.8
-  # gain 0.4
+  # shape 0.9
+  # gain 0.5
   -- # hpf "200"
 
+hush
 
 --- we need a synth line here!
 -- dance
 d3 -- $ echo 4 0.4 0.7
-  $ jux rev
+  -- $ jux rev
   $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
-  $ s ("gw_cut:3(5,16)" <> "gw_cut:3(11,16)")
+  $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
   -- n "[2(8,16). 3(8,16)]"
   -- # s "gw_cut"
   # speed "[-23 -20 -26]"
+  -- # speed "[-23 -20 -26 12]"
   # shape "0.2 0.5 0.2"
   # squiz "5 2 3"
   -- # gain "0.6 0.9 0.7"
   # gain "0.4 0.7 0.5"
-  # gain "0.1 0.4 0.2"
-  # waveloss "10 .. 40"
-  # krush 2
+  -- # gain "0.1 0.4 0.2"
+  -- # waveloss "10 .. 40"
+  -- # krush 2
+  -- # comb 0.3
 
  -- now back to percussions? --> kind of
 -- may use for a second experimental track!
 d2 $ fast "2 4"
-  -- $ jux rev
+  $ jux rev
   $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3)))
   $ n "1 2 [3 4 3?] 4"
   # s "gw_cut"
-  # bpf "200 1800"
+  # bpf "400 1800"
   -- # hpf 800
-  # gain 0.4
+  # gain 0.8
   # shape "0.2 0.4 0.5 0.3"
   # crush "2 3"
   # speed "-1.5 1.2"
-  # legato 16
-  # djf "0.3 0.4 0.1 0.5"
+  # legato 17
+  -- # djf "0.3 0.4 0.1 0.5"
 
+hush
 
 -- a light start
 -- very simple beat
 d5 --  $ layer [iter 5]
-  $ ghost
-  $ swingBy (1/2) 2
-  -- $ zoom (0.25, 0.75) 
+  -- $ ghost
+  -- $ swingBy (1/2) 2
+  $ zoom (0.25, 0.75) 
   $ superimpose ((# speed "-2.5"). ( # room 0.1))
   $ n "7 6 7 5"
   # s "gw_cut"
   -- # speed "-0.4 0.3 -0.4"
   # vowel "a i? o u"
   # speed 3
-  # gain 0.4
+  # gain 0.6
   # legato 1.8
   # nudge "0.8"
-  # lpf "600"
-  -- # djf (range 0 1 $ sine)
-  # krush "1 ..5"
+  # lpf "300"
+  # djf (range 0 1 $ sine)
+  -- # krush "1 ..5"
   -- # room 0.1 # sz 0.1
 
 -- beat the drum (drum like sounds are samples 5-7 + 9)
-d4 $ n "6(11,16)"
+d4 $ n "6(13,16)"
   # s "gw_cut"
   # speed "-1.6 -1.55 -1.6"
-  # squiz "1 5 1"
-  # shape 0.6
-  # gain 0.8
+  # squiz "1 5 2"
+  # shape "0.3"
+  -- # comb 0.3
+  # gain 0.6
 
 
 
