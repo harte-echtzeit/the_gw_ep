@@ -1,0 +1,124 @@
+{- this is the draft of an experimental dance piece for the GW EP based on some sketches
+--> chrs/harte_echtzeit 2022-03-26
+--> 2nd edit 2022-06-11
+
+notes for playin:
+- d1 -> short dramatic intro 
+- flapping sounds from d2 to get going and drive the whole piece
+- d3 rather quiet, bubbling sounds
+- d4 a dance beat, do not use very prominently!
+- d5 more or less melodic driver
+- d6 percussion to drive
+- add some (short) interesting noises from time to time (bubbling and dramatic drones)
+- find some sort of percussion/beat-like structure in the middle to have a climax -> especially around between min 4 and 6 
+- maybe try to shorten the track towards 5-6 mins
+-}
+
+
+{-
+3rd edit and notes for demo recording
+- pick up loud noisy part with d1 and d2 from track 01 and let it slowly dissolve
+- d1 short, d2 gets slower and fainter
+- but d2 stays constant in whole track!
+- let d3 take over bubbling more silent but with some very slow d2 flapping
+- from about Min 3-4 (half time) enter more melodic parts -> first d5
+- than d6
+- in backround some d4 synth line for one time perioid of about a minute
+- and sometimes d1 kicks in repeatably but short (<10sec)
+- the piece ends with d6 and a bit of d2 in some noisy but still beaty structure (which conveys some hardship but also succes on horizon) 
+
+
+storyline/goal:
+- working title 'Hanford nights / nightshift'
+- with a lot of excitement, determination and effort tools are built to search for GWs (loud, somewhat melodic not dissonant)
+- after a first wave of projects and funding (original Ligo) a bit of disillusion creeps in (quieter, dissonant and a bit depressing)
+- but soon new efforts are beeing planned and new scientific and enginnering hardship/effort are beeing taken (growing louder and more melodic again)
+- strange distant signals are discovered, it is realized that it is the phenomenom, that was long searched for (short pause in near silence, faint and later growing bubling sounds)
+- signals become stronger, filtering, modelling and comparison with signals from second site support successful discovery (rhythmic and joyfull -> paving the way to the dance track)
+
+-}
+
+
+-- INTRO only!!!
+-- evil drone (breaks sometimes JACK ;-))
+d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
+  $ n "4!53 3!23"
+  # s "gw_cut"
+  # gain "0 0.2 0.4 0.2 0"
+  # shape 0.8
+  -- # squiz 3
+  -- # lpf 200
+
+d1 $ silence
+
+-- additionally we need some drone and noise like sounds!
+-- major 'flapping theme' of the track
+
+d2 $ slow 0.9
+  $ sometimes (jux rev) $ every 3 (superimpose ((chop 124) . (# pan square) ))
+  $ s "[gw_cut:7(11,16)]*2"
+  # speed "14.5 10.5 12"
+  # gain "0.1 0.3 0.1"
+  # vowel "a o i u"
+  # hpf 800
+  # nudge "0.05"
+  # distort (fast 3 $ saw)
+  # squiz 2
+  # shape 0.3
+  # room 0.3
+
+d2 $ silence
+
+
+-- this goes well along with the firt backdrop -> might has to be work against it = play live
+-- interesting, bubbling sounds but also rather quiet -> combine with d3
+d3 $ sometimes ((# squiz 4) . (# fast 3 (vowel "o a u")) . (# lpf 300)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
+  $ n "1 .. 9"
+  # s "gw_cut"
+  # pan (fast 3 $ sine)
+  # room (irand 5)
+  # legato 16
+  # speed (irand 16)
+  # gain (fast 3 $ 0.4 * sine)
+
+
+d3 $ silence
+
+-- here we need some beat kind of thing to drive the piece (not loud +  background)
+
+-- dance
+-- synth line of the track -> good with d1 but keep quiet! (is also used in dance track)
+d4 $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
+  $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
+  -- n "[2(8,16). 3(8,16)]"
+  -- # s "gw_cut"
+  # speed "[-23 -26 -23]"
+  # shape "0.5 0.3 0.5"
+  # squiz "5 3 2"
+  # gain 0.35
+
+d4 $ silence
+
+-- NEW more slow-mo (nice constant backround)
+-- end track with this fading out!
+d5 $ swingBy (1/5) 6 $ zoom (0.2, 0.75) $ s "gw_cut:2 gw_cut:8"
+  # lpf 200
+  # speed "0.8"
+  # gain 0.6
+
+d5 $ silence
+   
+-- some rather strange beats and percussions
+d6 $ sometimes  ( (# squiz 4)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6"
+  # s "gw_cut"
+  # speed "-1.4 -1.6 -1.4"
+  # gain 0.6
+  # bpf "500 900"
+  # pan sine
+  # waveloss "30..80"
+  # nudge "1.1 1.4 1.2"
+
+d6 $ silence
+
+
+hush
