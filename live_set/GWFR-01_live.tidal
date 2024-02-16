@@ -1,0 +1,163 @@
+{- this is the draft of an ambient piece for the GW EP based on some sketches
+--> chrs/harte_echtzeit 2022-03-26 +  2022-09-13+14
+
+LIVE adapdation 2024-02-16
+-}
+
+
+-- base a whole piece on this one --> convey somewhat mysterious and dark feeling
+d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
+  $ n "3 3 2 4 1"
+  # s "gw_cut"
+  # shape "0.6 0.2 0.4"
+  # speed "-0.4 0.3 -0.4"
+  # vowel "u i a"
+  # gain (fast 3 $ 0.9*sine)
+  -- # gain 0.6
+
+d1 $ silence
+
+
+
+-- drone drone drone
+d2 $ n "8 10 8 10"
+  # s "gw_cut"
+  # speed "-0.4 0.2 -0.4"
+  # vowel "a i? o u"
+  -- # legato 0.999
+  # nudge "[0.01]*5"
+  # djf 0.3
+  # gain 0.99
+
+
+d2 $ silence
+
+--- might use this beat in the background and switch on and off repeatedly
+
+-- dark dance
+d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
+  $ n "5!2 3!2"
+  # s "gw_cut"
+  # speed "0.4"
+  # shape "0.5"
+  -- # shape "0.5 0.6 0.4"
+  -- # smear 0.4
+  # gain 0.9
+
+d3 $ silence
+  
+-- more nerveous background noise (very quiet!!!!)
+d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
+  $ s "[gw_cut:7(11,16)]*2"
+  # speed "12.5 10.5 12"
+  # gain "0.4 0.5 0.3"
+  # vowel "a o i u"
+  # hpf 1200
+  # nudge "0.05"
+  # distort (fast 2 $ saw)
+  # squiz 6
+  # shape 0.3
+  # room 0.4 # sz 0.2
+
+d4 $ silence
+
+
+d5 $ fast 0.25
+  $ ghost
+  $ stut 4 0.2 0.8
+  $ slice 20 "8 7 8"
+  $ n "2"
+  # s "gw_cut"
+  # speed "1.2 0.5 1 1.4"
+  # lpf 1800
+  # fshift "80 100 90 120"
+  # smear 0.5
+  # comb 0.6
+  -- # krush 0.1
+  # crush 5
+  # gain 1.9
+
+d5 $ silence
+
+
+-- D6 is second base theme of the track --> some clicking but also dark, bassy tones (no real beat, but more backdrop)
+d6
+  $ fast 1.0
+  -- $ every 2 (# room 0.1)
+  $ jux rev
+  -- $ splice 6 "4 2 ~ 3 5 6"
+  -- $ slice 11 "10 11 ~ 11 6 2 9"
+  $ slice 11 "10 11 ~ 9 6"
+  $ n "{2, 4}"
+  # s "gw_cut"
+  # vowel "a i o i"
+  -- # xsdelay 0.1
+  -- # tsdelay 0.4
+  -- # smear 0.4
+  -- # hpf 100
+  -- # ring 7 # ringf 50 # ringdf 1200
+  # shape "0.1 0.5 0.8"
+  -- # krush "1.9 2.4 3"
+  # gain 0.99
+
+d6 $ silence
+
+
+hush
+
+
+{- EDITING NOTES
+
+D1
+- X begining clicks more pronounced (louder or eq)
+- X bass a bit more in background (eq)
+- X slightly less vol from 01:30 when D6 comes in to give it more room
+- X get kind of backround noise more pronounced? = mysterious
+- vol down ramp from min 03:00 to 337 in order to give D2 more presence
+- make more dramatic vol ramp up at the end (min 7:30 - end) in order to convey dramatic approach of GW towards earth = end LOUD
+
+
+X D6
+- X increase bass sub tones much more(eq)
+- X why is there a gap? -> fits nice (first short clima, than break = leave it)
+- may not? RE-take to make it a bit more interesting? -> play with code some more
+- X may be let play until end do emphasize drama with that bass sub-tone
+
+X D2
+- X louder beginning vs D1 + louder over all
+- increase bass subtones from 04:20
+- X increase loudness from 05:00 but check with other layers
+
+X D3
+-X keep in background but may decrease bass (make it clearer-> EQ)
+-X maybe sligthly louder
+
+X D4
+- X slight increase in lodness overall
+- X copy that part and play it earlier as well (ca min 2:15 - 2:30)
+
+X D5
+- X clearer high freqs
+- X maybe sustain longer(towards end) and crush towards end (+loud) in order to support dramatic end!
+- X RE-take!
+
+
+-}
+
+
+
+
+
+
+-- more beat like structure (leave out for the moemnt)
+d5
+  $ slow 1.2
+  $ every 1 ((jux rev) . (# room 0.2). (# sz 0.5))
+  $ n "{2*9, 3*7}"
+  # s "gw_cut"
+  -- # vowel "i"
+  # cut 23
+  # lpf 500
+  -- # shape "0.5 0.2 0.4"
+  # speed "3.9 4.6 4.7 4.2 4.9"
+  # gain 0.6
