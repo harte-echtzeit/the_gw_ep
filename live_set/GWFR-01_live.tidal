@@ -7,13 +7,16 @@ LIVE adapdation 2024-02-16
 
 -- base a whole piece on this one --> convey somewhat mysterious and dark feeling
 d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
+  -- $ striate 2
   $ n "3 3 2 4 1"
   # s "gw_cut"
   # shape "0.6 0.2 0.4"
   # speed "-0.4 0.3 -0.4"
+  -- # speed "0.6"
   # vowel "u i a"
-  # gain (fast 3 $ 0.9*sine)
+  # gain (fast 3 $ 0.4*sine)
   -- # gain 0.6
+  -- # krush "8.5"
 
 d1 $ silence
 
@@ -27,7 +30,7 @@ d2 $ n "8 10 8 10"
   -- # legato 0.999
   # nudge "[0.01]*5"
   # djf 0.3
-  # gain 0.99
+  # gain 0.8
 
 
 d2 $ silence
@@ -35,22 +38,26 @@ d2 $ silence
 --- might use this beat in the background and switch on and off repeatedly
 
 -- dark dance
-d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
+d3 -- $ jux rev
+  $ off 0.2 ((# speed "-0.5") . (# room 0.4))
   $ n "5!2 3!2"
   # s "gw_cut"
-  # speed "0.4"
-  # shape "0.5"
-  -- # shape "0.5 0.6 0.4"
-  -- # smear 0.4
-  # gain 0.9
-
+  # speed "<0.4 0.6>"
+  # speed "0.5"
+  # shape 0.6
+  -- # shape 0.8
+  # gain 0.5
+  -- # comb 0.8
+  # fshift "50 -50"
+  -- # hpf "300"
+  
 d3 $ silence
   
 -- more nerveous background noise (very quiet!!!!)
 d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) ))
   $ s "[gw_cut:7(11,16)]*2"
   # speed "12.5 10.5 12"
-  # gain "0.4 0.5 0.3"
+  # gain "0.3 0.2 0.3"
   # vowel "a o i u"
   # hpf 1200
   # nudge "0.05"
@@ -93,12 +100,12 @@ d6
   # vowel "a i o i"
   -- # xsdelay 0.1
   -- # tsdelay 0.4
-  -- # smear 0.4
+  -- # smear 0.4 
   -- # hpf 100
   -- # ring 7 # ringf 50 # ringdf 1200
   # shape "0.1 0.5 0.8"
   -- # krush "1.9 2.4 3"
-  # gain 0.99
+  # gain 1.0
 
 d6 $ silence
 
