@@ -31,7 +31,9 @@ d5
   # cut (irand 32)
   # vowel "<a u o>"
   # room (fast (irand 6) $ square)
-  # gain 0.7
+  -- # gain 0.7
+  -- live MIDI
+  # gain (range 0.4 0.7 $ cF 0.7 "5")
   -- # djf 0.7
   -- # comb 0.9
   # hpf (slow 0.2 $ sine)
@@ -44,7 +46,9 @@ d5 $ silence
 d1 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
   # lpf 200
   # speed "0.7"
-  # gain 0.4
+  -- # gain 0.8
+  -- MIDI live
+  # gain (range 0.4 0.8 $ cF 0.4 "1")
 
 d1 $ silence
 
@@ -56,7 +60,9 @@ d2 $ fast "1 2" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crus
   # s "gw_cut"
   # bpf "300 1100"
   -- # hpf 800
-  # gain 0.8
+  -- # gain 0.8
+  -- MIDI live
+  # gain (range 0.4 0.8 $ cF 0.5 "2")
   -- # shape "0.1 0.3 0.4 0.2"
   -- # crush "2 3"
   # comb 0.7
@@ -92,6 +98,8 @@ d4 $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
   # shape "0.5 0.3 0.5"
   # squiz "5 3 2"
   # gain 0.65
+  -- MIDI live
+  # gain (range 0.4 0.65 $ cF 0.5 "4")
 
 d4 $ silence
 

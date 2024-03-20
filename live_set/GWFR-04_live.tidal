@@ -37,7 +37,9 @@ d1 -- $layer [scramble 3, fast 0.5, degradeBy 0.1]
   # speed "0.5"
   # shape 0.6
   -- # shape 0.8
-  # gain 0.75
+  -- # gain 0.75
+  -- MIDI live
+  # gain (range 0.4 0.75 $ cF 0.55 "1")
   -- # comb 0.2
   # fshift "50 -50"
   -- # hpf "300"
@@ -74,7 +76,9 @@ d4 $ layer[(# fshift "-50 10 42 68") . (#room 0.1)]
   -- # lpf 600
   -- # shape "0.3"
   -- # comb 0.6
-  # gain 0.6
+  -- # gain 0.6
+  -- MIDI live
+  # gain (range 0.4 0.75 $ cF 0.5 "4")
 
 hush
 
@@ -91,7 +95,9 @@ d5 --  $ layer [iter 5]
   -- # speed "-0.4 0.3 -0.4"
   # vowel "a i? o u"
   # speed 3
-  # gain 0.3
+  -- # gain 0.3
+  -- MIDI live
+  # gain (range 0.3 0.7 $ cF 0.7 "5")
   # legato 1.8
   # nudge "0.2"
   -- # lpf "300"
@@ -109,7 +115,9 @@ d2 $ fast "2 4"
   # s "gw_cut"
   # bpf "400 1800"
   -- # hpf 800
-  # gain 0.8
+  -- # gain 0.8
+  -- MIDI live
+  # gain (range 0.4 0.8 $ cF 0.6 "2")
   # shape "0.2 0.4 0.5 0.3"
   # crush "2 3"
   # speed "-1.5 1.2"
@@ -119,14 +127,6 @@ d2 $ fast "2 4"
 hush
 
 
-
---leave out, maybe?!
- -- synth line
-d6 $ chop 334
-  $  n "8"
-  # s "gw_cut"
-  # shape 0.6
-  # gain 1.1
 
 
 
