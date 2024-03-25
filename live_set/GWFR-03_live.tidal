@@ -18,7 +18,6 @@ notes on live playing:
 
 
 -- these are some rather unrhythmic clicks, kicks and drum like-structures
--- can make an odd interplay in the middle of the track -> sounds a bit broken but also pleasant sometimes
 -- use ghost to maipulate it completly!
 -- use of `echo` will speed up slightly
 d5
@@ -26,17 +25,15 @@ d5
   -- $ ghost
   $ jux rev
   $ fast 2.5
-  $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 42) $ n "9"
+  $ superimpose (every 2 ((# squiz 4) . (# djf rand))) $ striate (irand 42) $ n "9"
   # s "gw_cut!23"
-  # cut (irand 32)
-  # vowel "<a u o>"
-  # room (fast (irand 6) $ square)
+  -- # cut (irand 32)
+  # cut 32
+  # vowel "<a o u>"
+  # room (fast (irand 6) $ square) # sz 0.2
   -- # gain 0.7
   -- live MIDI
   # gain (range 0.4 0.7 $ cF 0.7 "5")
-  -- # djf 0.7
-  -- # comb 0.9
-  # hpf (slow 0.2 $ sine)
   # pan (fast 2 $ cosine)
 
 d5 $ silence
@@ -44,8 +41,8 @@ d5 $ silence
 
 -- NEW more slow-mo (nice constant backround)
 d1 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
-  # lpf 200
-  # speed "0.7"
+  # lpf 400
+  # speed "0.7 0.5 1.2"
   -- # gain 0.8
   -- MIDI live
   # gain (range 0.4 0.8 $ cF 0.4 "1")
@@ -53,51 +50,50 @@ d1 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
 d1 $ silence
 
 
--- now back to percussions? --> kind of
--- may use for a second experimental track!
--- maybe a main driver of the track
-d2 $ fast "1 2" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3))) $ n "1 2 [3 4 3?] 4"
+-- maybe a main driver of the track = kind of a beat
+d2 $ fast "1 2" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 2))) $ n "1 2 [3 4 3?] 4"
   # s "gw_cut"
-  # bpf "300 1100"
+  # bpf "400 1100"
   -- # hpf 800
   -- # gain 0.8
   -- MIDI live
   # gain (range 0.4 0.8 $ cF 0.5 "2")
   -- # shape "0.1 0.3 0.4 0.2"
-  -- # crush "2 3"
-  # comb 0.7
+  -- # crush "2 4 2"
+  -- # comb 0.7
   # speed "-1.5"
   # legato 16
-  # djf "0.2 0.8 0.7 0.9"
+  -- # djf "0.2 0.8 0.7 0.9"
 
 d2 $ silence
 
+hush
 
--- this goes well along with the firt backdrop -> might has to be work against it = play live
--- interesting, bubbling sounds but also rather quiet -> combine with d3
-d3 $ sometimes ((# squiz 2) . (# fast 3 (vowel "o a u")) . (# lpf 300)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
+-- interesting, bubbling sounds
+d3 $ sometimes ((# squiz 2) . (# fast 3 (vowel "o a u")) . (# lpf 200)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
   $ n "1 .. 9"
   # s "gw_cut"
   # pan (fast 3 $ sine)
   # room (irand 5)
   # legato 16
   # speed (irand 16)
-  # gain (fast 3 $ 0.4 * sine)
-
+  # gain (fast 5 $ 0.5 * sine)
 
 d3 $ silence
 
 
--- dance
--- synth line of the track -> good with d1 but keep quiet! (is also used in dance track)
-d4 $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
+-- dance = synth line
+d4 $ degradeBy 0.0
+  -- $ rot "4 2 6"
+  -- $ rarely (#fshift "-600..-300")
+  $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
-  -- n "[2(8,16). 3(8,16)]"
-  -- # s "gw_cut"
   # speed "[-23 -26 -23]"
   # shape "0.5 0.3 0.5"
   # squiz "5 3 2"
-  # gain 0.65
+  -- # room 0.3 # sz 0.8 -- use only with comb!!!
+  -- # comb 0.7
+  -- # gain 0.65
   -- MIDI live
   # gain (range 0.4 0.65 $ cF 0.5 "4")
 
