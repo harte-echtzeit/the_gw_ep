@@ -29,40 +29,44 @@ d5
   # s "gw_cut!23"
   -- # cut (irand 32)
   # cut 32
-  # vowel "<a o u>"
+  # vowel "<u a o>"
   # room (fast (irand 6) $ square) # sz 0.2
-  -- # gain 0.7
+  # gain 0.6
   -- live MIDI
-  # gain (range 0.4 0.7 $ cF 0.7 "5")
+  -- # gain (range 0.4 0.7 $ cF 0.7 "5")
   # pan (fast 2 $ cosine)
 
 d5 $ silence
 
+hush
 
 -- NEW more slow-mo (nice constant backround)
 d1 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
-  # lpf 400
-  # speed "0.7 0.5 1.2"
-  -- # gain 0.8
+  # lpf 200
+  # speed "2.7 0.5 -1.2"
+  # gain 0.9
   -- MIDI live
-  # gain (range 0.4 0.8 $ cF 0.4 "1")
+  -- # gain (range 0.4 0.8 $ cF 0.4 "1")
 
 d1 $ silence
 
 
 -- maybe a main driver of the track = kind of a beat
-d2 $ fast "1 2" $ jux rev $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 2))) $ n "1 2 [3 4 3?] 4"
+d2 $ fast "1 2" $ jux rev $ sometimes (superimpose ((# comb "0.3 0.2") . (# crush 2)))
+  $ n "5 2 [3 5 3?] 4"
   # s "gw_cut"
-  # bpf "400 1100"
+  # bpf "100 400"
+  # vowel "e i o u"
   -- # hpf 800
-  -- # gain 0.8
+  # gain 0.8
   -- MIDI live
-  # gain (range 0.4 0.8 $ cF 0.5 "2")
-  -- # shape "0.1 0.3 0.4 0.2"
-  -- # crush "2 4 2"
+  -- # gain (range 0.4 0.8 $ cF 0.5 "2")
+  # shape "0.2 0.2 0.4 0.4"
+  # crush "3 4 2"
   -- # comb 0.7
-  # speed "-1.5"
-  # legato 16
+  # speed "-1.4"
+  -- # fshift "-30 .. 50"
+  # legato 15
   -- # djf "0.2 0.8 0.7 0.9"
 
 d2 $ silence
@@ -74,28 +78,28 @@ d3 $ sometimes ((# squiz 2) . (# fast 3 (vowel "o a u")) . (# lpf 200)) $ someti
   $ n "1 .. 9"
   # s "gw_cut"
   # pan (fast 3 $ sine)
-  # room (irand 5)
+  -- # room (irand 6)
   # legato 16
   # speed (irand 16)
-  # gain (fast 5 $ 0.5 * sine)
+  # gain (fast 6 $ 0.5 * sine)
 
 d3 $ silence
 
 
 -- dance = synth line
-d4 $ degradeBy 0.0
-  -- $ rot "4 2 6"
-  -- $ rarely (#fshift "-600..-300")
+d4 $ degradeBy 0.4
+  $ rot "5 2 6"
+  $ rarely (#fshift "-100..-300")
   $ sometimes ((jux rev). (# pan (fast 18 $ tri)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
-  # speed "[-23 -26 -23]"
+  # speed "[-23 -26 -13]"
   # shape "0.5 0.3 0.5"
-  # squiz "5 3 2"
+  --  squiz "4 3 5"
   -- # room 0.3 # sz 0.8 -- use only with comb!!!
-  -- # comb 0.7
-  -- # gain 0.65
+  -- # comb 0.2
+  # gain 0.5
   -- MIDI live
-  # gain (range 0.4 0.65 $ cF 0.5 "4")
+  -- # gain (range 0.4 0.65 $ cF 0.5 "4")
 
 d4 $ silence
 

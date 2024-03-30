@@ -14,7 +14,7 @@ for recording/live playing
 - 4 is a supporting bass line which can be played from time to time (starts about 30secs into the track after 3)
 - 1 kicks the whole track; shortly after 3 + culminates in loud break out
 - 2 just short in break out noise before break
-- after noise starts of with 4
+- after noise starts of with 4Xo
 -}
 
 
@@ -24,100 +24,102 @@ for recording/live playing
 -- some other trials on this one
 {- 
 -} 
-d1 -- $layer [scramble 3, fast 0.5, degradeBy 0.1]
+d1 $ layer [scramble 3, fast 0.5, degradeBy 0.1]
 --  (# fshift "100"),
            --  (# gain 0.2)
           -- ]
-  -- $ jux rev
-  $ off 0.2 ((# speed "-0.5") . (# room 0.4))
+  $ jux rev
+  $ off 0.2 ((# speed "-0.6") . (# room 0.4))
   -- $ chop 200
   $ n "5!2 3!2"
   # s "gw_cut"
-  -- # speed "<0.4 0.6>"
+  --1 # speed "<0.4 0.6>"
   # speed "0.5"
-  # shape 0.6
-  -- # shape 0.8
-  -- # gain 0.75
+  # shape "0.7 0.9"
+  # gain 0.8
   -- MIDI live
-  # gain (range 0.4 0.75 $ cF 0.55 "1")
+  -- # gain (range 0.4 0.75 $ cF 0.55 "1")
   -- # comb 0.2
-  # fshift "50 -50"
+  -- # fshift "50 -50"
   -- # hpf "300"
 
 hush
 
 --- we need a synth line here!
 -- dance
-d3 -- $ echo 4 0.4 0.7
-  $ jux rev
-  $ layer [degradeBy 0.1, scramble 2]
+d3 $ echo 4 0.4 0.7
+  -- $ jux rev
+  -- $ layer [degradeBy 0.0, scramble 3]
   $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
   -- n "[2(8,16). 3(8,16)]"
   -- # s "gw_cut"
-  # speed "[-23 -20 -26]"
+  # speed "[-123 -20 -26]"
   -- # speed "[-23 -20 -26 12]"
-  # shape "0.2 0.5 0.2"
-  # squiz "5 2 3"
+  # shape "0.3 0.4 0.2"
+  # squiz "5 2 4"
   -- # gain "0.6 0.9 0.7"
-  # gain "0.4 0.7 0.5"
+  # gain "0.2 0.4 0.1"
   -- # gain "0.1 0.4 0.2"
   -- # waveloss "10 .. 40"
-  -- # krush 2
+  -- # krush 3
+  -- # djf rand
   -- # comb 0.3
-
+  # room 0.5 # sz 0.6
 
 -- beat the drum (drum like sounds are samples 5-7 + 9)
-d4 $ layer[(# fshift "-50 10 42 68") . (#room 0.1)]
+d4 $ layer[(# fshift "-50 100 420 68") . (#room 0.6)]
   $ n "6(13,16)"
   # s "gw_cut"
   # speed "-1.6 -1.55 -1.6"
-  -- # squiz "1 4 3"
+  -- # squiz "15 12 23"
   -- # lpf 600
-  -- # shape "0.3"
+  -- # shape "0.3 0.4 0.1"
   -- # comb 0.6
   -- # gain 0.6
   -- MIDI live
-  # gain (range 0.4 0.75 $ cF 0.5 "4")
+  -- # gain (range 0.4 0.75 $ cF 0.5 "4")
+  # gain 0.8
 
 hush
 
 
 -- a light start
 -- very simple beat
-d5 --  $ layer [iter 5]
+d5 -- $ layer [iter 5]
   -- $ ghost
   -- $ swingBy (1/2) 2
-  -- $ zoom (0.25, 0.75) 
+  $ zoom (0.25, 0.75) 
   $ superimpose ((# speed "-2.5"). ( # room 0.1))
   $ n "7 6 7 5"
   # s "gw_cut"
-  -- # speed "-0.4 0.3 -0.4"
+  -- # speed "-3.4 4.3 -3.4"
   # vowel "a i? o u"
   # speed 3
   -- # gain 0.3
   -- MIDI live
-  # gain (range 0.3 0.7 $ cF 0.7 "5")
-  # legato 1.8
+  -- # gain (range 0.3 0.7 $ cF 0.7 "5")
+  # gain 0.8
+  # legato 2.8
   # nudge "0.2"
   -- # lpf "300"
   -- # djf (range 0 1 $ sine)
-  -- # krush "1 ..5"
-  # room 0.1 # sz 0.1
+  -- # krush "8 5 2 3"
+  -- # room 0.2 # sz 0.7
 
 
  -- now back to percussions? --> kind of
 -- really beatup to break the track hard
-d2 $ fast "2 4"
+d2 $ fast "2 4 3"
   $ jux rev
   $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3)))
-  $ n "1 2 [3 4 3?] 4"
+  $ n "5 2 [3 4 3?] 4"
   # s "gw_cut"
-  # bpf "400 1800"
+  # bpf "200 800"
   -- # hpf 800
-  -- # gain 0.8
+  # gain 0.7
   -- MIDI live
-  # gain (range 0.4 0.8 $ cF 0.6 "2")
+  -- # gain (range 0.4 0.8 $ cF 0.6 "2")
   # shape "0.2 0.4 0.5 0.3"
   # crush "2 3"
   # speed "-1.5 1.2"

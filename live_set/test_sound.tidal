@@ -1,0 +1,9 @@
+d1 -- $ sometimes (# room 0.8)
+  $ sound "{clubkick*4, hc*8}"
+  # gain 1
+  # djf rand
+  -- # comb "0.8 1.2 0.2 0.4"
+  -- # speed "-1 -1.2 -1.9 -3"
+
+
+d2 $ s "casio(5,8) blip(7,8)" # gain 1.2
