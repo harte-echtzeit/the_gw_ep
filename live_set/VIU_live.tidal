@@ -1,0 +1,28 @@
+-- VIU BCN live set
+
+-- Hi, i'm harte echtzeit ... gravitational field recordings...!
+ 
+
+-- INTRO (from GWFR)
+
+hush
+
+
+-- base a whole piece on this one --> convey somewhat mysterious and dark feeling
+d1 -- $ degradeBy 0.2
+  $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
+  -- $ striate 1
+  -- $ zoom (0.2, 0.7)
+  $ n "2 3 2 4 1"
+  # s "gw_cut"
+  # shape "0.5 0.2 -0.4"
+  -- # speed "-0.4 0.3 -0.4"
+  # speed "0.7 -0.8 0.6"
+  -- # speed "-0.8" -- makes for a good bass start =)
+  # vowel "o i a"
+  -- # gain (fast 4 $ 0.4*sine)
+  # gain 0.7
+  -- # krush "9.5"
+
+d1 $ silence
+
