@@ -1,28 +1,264 @@
 -- VIU BCN live set
 
+
+
+
 -- Hi, i'm harte echtzeit ... gravitational field recordings...!
  
 
+
+
+
+
+
+
 -- INTRO (from GWFR)
+-- silent and singular events
 
 hush
-
 
 -- base a whole piece on this one --> convey somewhat mysterious and dark feeling
 d1 -- $ degradeBy 0.2
   $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
   -- $ striate 1
   -- $ zoom (0.2, 0.7)
-  $ n "2 3 2 4 1"
-  # s "gw_cut"
+  $ n "2 3 2 4 1" # s "gw_cut"
   # shape "0.5 0.2 -0.4"
-  -- # speed "-0.4 0.3 -0.4"
-  # speed "0.7 -0.8 0.6"
-  -- # speed "-0.8" -- makes for a good bass start =)
+  -- # speed "-0.4 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
   # vowel "o i a"
-  -- # gain (fast 4 $ 0.4*sine)
-  # gain 0.7
   -- # krush "9.5"
+  # gain 0.7 -- # gain (fast 4 $ 0.4*sine)
+  
+-- drone drone drone
+d2 $ n "8 10 8 10" # s "gw_cut"
+  # speed "-0.5 0.2 -0.4" # vowel "u i? a u"
+  # nudge "[0.01]*5" # djf 0.2
+  # gain 0.8
 
-d1 $ silence
 
+-- D6 is second base theme of the track --> some clicking but also dark, bassy tones (no real beat, but more backdrop)
+d6 $ fast 1.0 $ jux rev
+  -- $ every 2 (# room 0.1)
+  -- $ splice 6 "4 2 ~ 3 5 6"
+  -- $ slice 11 "10 11 ~ 11 6 2 9"
+  $ slice 11 "8 11 ~ 9 6"
+  $ n "{2, 4}" # s "gw_cut"
+  # vowel "a i o i"
+  -- # xsdelay 0.1
+  -- # tsdelay 0.4
+  -- # smear 0.4 
+  -- # hpf 100
+  # ring 5 # ringf "50 25" # ringdf 1200
+  # shape "0.1 0.5 0.8"
+  -- # krush "1.9 2.4 3"
+  # gain 0.8
+
+-- more nerveous background noise (very quiet!!!!)
+d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) )) $ s "[gw_cut:7(11,16)]*2"
+  # speed "12.5 10.5 12"
+  # gain "0.6 0.4 0.6"
+  # vowel "a o i u"
+  # hpf 1200 # nudge "0.05" # distort (fast 2 $ saw) # squiz 8 # shape 0.3 # room 0.4 # sz 0.2
+
+
+
+
+
+
+{-----EXPERMENTAL interlude----}
+-- some experimental things originating from GWFR02 and mainly GWFR03...
+
+-- CPU heavy, be careful with fast
+d4 $ striate "160" $ fast 1.25
+  -- $ striate "16 32" $ fast 1.25
+  $ s "gw_cut:5*4 gw_cut:6*6 gw_cut:7*8"
+  -- # hpf "200 100 50"
+  # hpf 400
+  # speed "-0.8"
+  # vowel (choose["a, o, i"])
+  # waveloss "20 .. 60"
+  # gain 0.8
+  # room 0.3 #sz 0.9
+  # fshift "<-200 150 400>"
+
+
+d5 $ jux rev $ fast 2.5 $ degradeBy 0
+  $ superimpose (every 2 ((# squiz 2) . (# djf rand))) $ striate (irand 42) $ n "9" # s "gw_cut!23"
+  # cut (irand 32)
+  # vowel "<a u o>"
+  # room (fast (irand 6) $ square)
+  # gain 0.8
+  -- # djf 0.7
+  -- # comb 0.9
+  # hpf (slow 0.2 $ sine) -- # hpf (slow 0.2 $ range 200 400 sine)
+  # pan (fast 2 $ cosine)
+  
+hush
+
+-- interesting, bubbling sounds
+d3 $ sometimes ((# squiz 2) . (# fast 3 (vowel "o a u")) . (# lpf 200)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
+  $ n "1 .. 9"
+  # s "gw_cut"
+  # pan (fast 3 $ sine)
+  -- # room (irand 6)
+  # legato 16
+  # speed (irand 16)
+  # gain (fast 6 $ 0.8 * sine)
+  
+
+-- maybe a main driver of the track = kind of a beat
+d2 $ fast "1 2" $ jux rev $ sometimes (superimpose ((# comb "0.3 0.2") . (# crush 2)))
+  $ n "5 2 [3 5 3?] 4"
+  # s "gw_cut"
+  # bpf "100 400"
+  # vowel "e i o u"
+  -- # hpf 800
+  # gain 0.8
+  -- MIDI live
+  -- # gain (range 0.4 0.8 $ cF 0.5 "2")
+  # shape "0.2 0.2 0.4 0.4"
+  # crush "3 4 2"
+  -- # comb 0.7
+  # speed "-1.4"
+  -- # fshift "-30 .. 50"
+  # legato 15
+  -- # djf "0.2 0.8 0.7 0.9"
+
+
+-- loud, harsh on top of something
+d5 $ fast 0.25 $ ghost
+  $ stut 4 0.2 0.8
+  $ slice 20 "8 7 8" $ n "2" # s "gw_cut"
+  # speed "1.2 0.5 1 1.4"
+  # lpf 1800
+  # fshift "80 100 90 120"
+  # smear 0.5
+  -- # comb 0.6
+  -- # krush 0.1
+  # crush 5
+  # gain 1.7
+
+hush
+
+
+
+
+-- TRANSITION to Dance?
+
+-- NEW more slow-mo (nice constant backround)
+d1 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
+  # lpf 200
+  # speed "2.7 0.5 -1.2"
+  # gain 0.9 -- MIDI live -- # gain (range 0.4 0.8 $ cF 0.4 "1")
+
+-- some rather strange beats and percussions
+d3 $ sometimes  ( (# squiz 3)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" # pan cosine
+  # speed "-1.4 -1.6 -1.4"
+  # bpf "100 600"
+  -- # vowel "o u"
+  -- # waveloss "20..60"
+  -- # krush "1.4..2"
+  -- # comb 0.6 # room 0.5
+  # nudge "1.0" -- # nudge "1.3 1.4 1.2"
+  # gain 0.9
+
+
+
+
+
+-- DANCE part which is basically GWFR04
+
+d1 $ layer [scramble 3, fast 0.5, degradeBy 0.1]
+--  (# fshift "100"),
+           --  (# gain 0.2)
+          -- ]
+  $ jux rev
+  $ off 0.2 ((# speed "-0.6") . (# room 0.4))
+  -- $ chop 200
+  $ n "5!2 3!2"
+  # s "gw_cut"
+  --1 # speed "<0.4 0.6>"
+  # speed "0.5"
+  # shape "0.7 0.9"
+  # gain 0.8
+  -- MIDI live
+  -- # gain (range 0.4 0.75 $ cF 0.55 "1")
+  -- # comb 0.2
+  -- # fshift "50 -50"
+  -- # hpf "300"
+
+hush
+
+--- we need a synth line here!
+-- dance
+d3 $ echo 4 0.4 0.7
+  -- $ jux rev
+  -- $ layer [degradeBy 0.0, scramble 3]
+  $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
+  $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
+  # speed "[-23 -220 -26]"  -- # speed "[-23 -20 -26 12]"
+  # shape "0.3 0.4 0.2"
+  # squiz "5 2 4"
+  # room 0.5 # sz 0.6
+  -- # waveloss "10 .. 40"
+  -- # krush 3
+  -- # djf rand
+  -- # comb 0.3
+  # gain "0.7 0.9 0.6" -- # gain "0.6 0.9 0.7"
+
+-- beat the drum (drum like sounds are samples 5-7 + 9)
+d4 $ layer[(# fshift "-50 100 420 68") . (#room 0.6)] $ n "6(13,16)" # s "gw_cut"
+  # speed "-1.6 -1.55 -1.6"
+  -- # squiz "15 12 23"
+  -- # lpf 600
+  -- # shape "0.3 0.4 0.1"
+  -- # comb 0.6
+  -- # gain 0.6
+  # gain 0.8 -- MIDI live  -- # gain (range 0.4 0.75 $ cF 0.5 "4")
+
+hush
+
+
+-- a light start
+-- very simple beat
+d5 -- $ layer [iter 5]
+  -- $ ghost
+  -- $ swingBy (1/2) 2
+  $ zoom (0.25, 0.75) 
+  $ superimpose ((# speed "-2.5"). ( # room 0.1))
+  $ n "7 6 7 5"
+  # s "gw_cut"
+  -- # speed "-3.4 4.3 -3.4"
+  # vowel "a i? o u"
+  # speed 3
+  -- # gain 0.3
+  -- MIDI live
+  -- # gain (range 0.3 0.7 $ cF 0.7 "5")
+  # gain 0.8
+  # legato 2.8
+  # nudge "0.2"
+  -- # lpf "300"
+  -- # djf (range 0 1 $ sine)
+  -- # krush "8 5 2 3"
+  -- # room 0.2 # sz 0.7
+
+
+ -- now back to percussions? --> kind of
+-- really beatup to break the track hard
+d2 $ fast "2 4 3"
+  $ jux rev
+  $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3)))
+  $ n "5 2 [3 4 3?] 4"
+  # s "gw_cut"
+  # bpf "200 800"
+  -- # hpf 800
+  # gain 0.7
+  -- MIDI live
+  -- # gain (range 0.4 0.8 $ cF 0.6 "2")
+  # shape "0.2 0.4 0.5 0.3"
+  # crush "2 3"
+  # speed "-1.5 1.2"
+  # legato 17
+  -- # djf "0.3 0.4 0.1 0.5"
+
+hush
