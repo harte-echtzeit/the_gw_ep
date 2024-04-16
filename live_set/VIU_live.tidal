@@ -3,7 +3,10 @@
 
 
 
--- Hi, i'm harte echtzeit ... gravitational field recordings...!
+-- Hi, i'm harte echtzeit ...
+
+-- gravitational field
+-- recordings...!
  
 
 
@@ -47,15 +50,23 @@ d1 $ degradeBy 0
   $ n "2 3 2 4 1" # s "gw_cut"
   # shape "0.8 0.4 0.9"
   # speed "0.5 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
-  # vowel "o i a"
+  # vowel "u i a"
   -- # krush "9.5"
-  # gain 0.8 -- # gain (fast 4 $ 0.4*sine)
+  # gain 0.75 -- # gain (fast 4 $ 0.4*sine)
   
 -- drone drone drone
 d2 $ n "8 10 8 10" # s "gw_cut"
-  # speed "-0.5 0.2 -0.4" # vowel "u i? a u"
+  # speed "0.5 -0.2 -0.4" # vowel "u i? a u"
   # nudge "[0.02]*5" # djf 0.2
   # gain 0.7
+
+
+
+
+-- TRANSITION to Dance????
+
+
+
 
 
 -- D6 is second base theme of the track --> some clicking but also dark, bassy tones (no real beat, but more backdrop)
@@ -65,20 +76,21 @@ d6 $ fast 1.0 $ jux rev
   -- $ slice 11 "10 11 ~ 11 6 2 9"
   -- $ slice 11 "8 11 ~ 9 6"
   $ n "{2, 4}" # s "gw_cut"
-  # vowel "a i o i"
+  # vowel "a i u o"
+  -- # tsdelay 0.7
   -- # xsdelay 0.1
-  -- # tsdelay 0.4
   -- # smear 0.4 
   -- # hpf 100
-  -- # ring 2 # ringf "50 25" # ringdf 1200
-  # shape "0.1 0.5 0.8"
-  # krush "1.9 2.4 3"
-  # gain 0.6
+  # ring 2 # ringf "50 25" # ringdf 1200
+  -- # speed "-0.6 1.5 -1"
+  # shape "0.3 0.5 0.8"
+  -- # krush "1.9 2.4 3"
+  # gain 0.9
 
 -- more nerveous background noise (very quiet!!!!)
 d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) )) $ s "[gw_cut:7(11,16)]*2"
   # speed "12.5 10.5 12"
-  # gain "0.5 0.4 0.6"
+  # gain "0.4 0.3 0.5"
   # vowel "a o i u"
   # hpf 1200 # nudge "0.05" # distort (fast 2 $ saw) # squiz 8 # shape 0.3 # room 0.4 # sz 0.2
 
@@ -161,12 +173,12 @@ d5 $ fast 0.25 $ ghost
   -- # crush 5
   # gain 1.2
 
-hush
-
 
 
 
 -- TRANSITION to Dance?
+
+
 
 
 -- some rather strange beats and percussions
