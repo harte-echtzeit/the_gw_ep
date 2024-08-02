@@ -1,0 +1,23 @@
+* ji kū kan
+
+It took about 100 years for Einsteins prediction to become true, but in 2015 gravitational waves were detected for the first time by the [[https://advancedligo.mit.edu/][Advanced LIGO]] instrument. These waves coming from the depths of space, carry energy and information about the history of the univers. They squeeze and stretch the fabric of space-time even after billions of years of travelling.
+
+On this album, sonifications of gravitational waves are transformed into musique concréte-inspired pieces of sonic art. The tracks help us to travel through space and time with rhythmic patterns, mysterious sound textures and experimental structures. /*Ji kū kan*/ explores space and time in a minimal yet sometimes dreamy as well as danceble way. A live-coded experimental journey.
+
+Released September 14, 2024
+
+Conceptualized, written, performed, recorded and mixed by harte echtzeit in 2023.
+
+Performed with tidal cycles and samples of gravitational wave detections. These samples are modified versions of the data published by `R. Abbott et al. (LIGO Scientific Collaboration and Virgo Collaboration), "Open data from the first and second observing runs of Advanced LIGO and Advanced Virgo", SoftwareX 13 (2021) 100658.` which was originally licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
+
+Mastered by Pablo Miranda at La Isla Estudio, Barcelona.
+
+Graphic Design by harte echtzeit.
+
+Special thanks to Ramon, Martin, Sara, Claudia, Axel and Alexander.
+
+Call It Anything Records CIA-013
+
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
