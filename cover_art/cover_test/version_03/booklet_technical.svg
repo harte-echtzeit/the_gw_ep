@@ -27,11 +27,11 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.45254834"
-     inkscape:cx="615.40387"
-     inkscape:cy="393.32815"
-     inkscape:window-width="1342"
-     inkscape:window-height="719"
+     inkscape:zoom="0.32932842"
+     inkscape:cx="485.8372"
+     inkscape:cy="100.20392"
+     inkscape:window-width="1256"
+     inkscape:window-height="671"
      inkscape:window-x="10"
      inkscape:window-y="10"
      inkscape:window-maximized="1"
@@ -43659,14 +43659,14 @@
          x="123.49999"
          y="-5"
          ry="0" /></g><rect
-       style="display:inline;fill:#ff5555;stroke:none;stroke-width:1.92037;stroke-linecap:round;stroke-linejoin:round"
+       style="display:inline;fill:#ff8080;stroke:none;stroke-width:1.92037;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
        id="rect1865"
        width="37.462124"
        height="64"
        x="5"
        y="-69"
        transform="rotate(90)" /><rect
-       style="display:inline;fill:#ff5555;stroke:none;stroke-width:1.92037;stroke-linecap:round;stroke-linejoin:round"
+       style="display:inline;fill:#ff8080;stroke:none;stroke-width:1.92037;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
        id="rect1865-9"
        width="37.462124"
        height="64"
@@ -43676,7 +43676,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-20.214754,-36.878149)"
        id="text2015"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151);display:inline;fill:#003380"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151);display:inline;fill:#214478"
        clip-path="none"><tspan
          x="113.24023"
          y="143.44789"
@@ -43684,7 +43684,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,14.648675,-33.973292)"
        id="text2015-8"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-2);display:inline;fill:#003380"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-2);display:inline;fill:#214478"
        clip-path="none"><tspan
          x="113.24023"
          y="143.44789"
@@ -43692,7 +43692,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-20.03529,-28.153726)"
        id="text2015-7-2"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.6667px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8);display:inline;fill:#003380"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.6667px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8);display:inline;fill:#214478"
        clip-path="none"
        x="0"
        y="0"><tspan
@@ -43705,15 +43705,15 @@
 </tspan><tspan
          x="113.24023"
          y="167.78136"
-         id="tspan23">
+         id="tspan7">
 </tspan><tspan
          x="113.24023"
          y="181.11473"
-         id="tspan24">Liner notes by Sara Thiel 
+         id="tspan8">Liner notes by Sara Thiel 
 </tspan><tspan
          x="113.24023"
          y="194.44811"
-         id="tspan25">
+         id="tspan42">
 </tspan><tspan
          x="113.24023"
          y="207.78148"
@@ -43732,7 +43732,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-19.669811,9.2571711)"
        id="text2015-7-2-3"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.6667px;line-height:1.05;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8-7);display:inline;fill:#003380"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.6667px;line-height:1.05;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8-7);display:inline;fill:#214478"
        clip-path="none"
        x="0"
        y="0"><tspan
@@ -43772,7 +43772,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,117.45545,-16.749031)"
        id="text2015-7-2-3-1"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.6667px;line-height:1.05;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8-7-4);display:inline;fill:#003380"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.6667px;line-height:1.05;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8-7-4);display:inline;fill:#214478"
        clip-path="none"
        x="0"
        y="0"><tspan
@@ -43807,7 +43807,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-19.960392,43.653009)"
        id="text2015-7-2-2"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:8px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8-0);display:inline;fill:#003380"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:8px;line-height:1.25;font-family:'FiraCode Nerd Font Mono';-inkscape-font-specification:'FiraCode Nerd Font Mono, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2151-1-8-0);display:inline;fill:#214478"
        clip-path="none"><tspan
          x="113.24023"
          y="138.78125"
@@ -43822,7 +43822,7 @@
          id="tspan67">harte-echtzeit.com 
 </tspan></text><path
        sodipodi:type="spiral"
-       style="display:inline;fill:#003380;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.55976;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;fill:#214478;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.55976;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path2015"
        sodipodi:cx="53.669292"
        sodipodi:cy="-82.343826"
@@ -43835,7 +43835,7 @@
        transform="matrix(0,0.31247685,-0.31734726,0,43.861326,78.115369)"
        clip-path="none" /><path
        sodipodi:type="spiral"
-       style="display:inline;fill:#003380;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.55976;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;fill:#214478;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.55976;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path2015-0"
        sodipodi:cx="53.669292"
        sodipodi:cy="-82.343826"
@@ -44441,7 +44441,7 @@
          x="51.302086"
          y="17.489576" /></text><path
        sodipodi:type="spiral"
-       style="display:inline;fill:#003380;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.55976;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;fill:#214478;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.55976;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path2015-5"
        sodipodi:cx="53.669292"
        sodipodi:cy="-82.343826"
