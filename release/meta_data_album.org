@@ -5,8 +5,8 @@ album title: ji kū kan
 song titles:
 01 fabric (08:15)
 02 tide (06:47)
-03 squeeze (06:37)
-04 transient (08:58)
+03 duality (06:37)
+04 spectrum (08:58)
 
 year: 2024
 genres: musique concrète, minimal (techno), algorave, experimental electronics
