@@ -6,8 +6,10 @@ song titles:
 01 fabric (08:15)
 02 tide (06:47)
 03 duality (06:37)
-04 spectrum (08:58)
+04 superposition (08:58)
 
 year: 2024
-genres: musique concrète, minimal (techno), algorave, experimental electronics
+genres: musique concrète, minimal (techno), algorave, glitch, electronica, experimental electronics
 comments: https://harte-echtzeit.com/
+
+

@@ -1,5 +1,41 @@
 * ji kū kan
 
+Destination is an illusion.
+And there is no goal.
+
+Right: I am on the move. Aimlessly, always
+just away. Away from the fusion of two
+giants. Into the nowhere. Carrying the
+message of this giant explosion.
+Audible, and yet unheard. Or not?
+
+Knowing, there might be any soul.
+
+
+From the sound left behind by the first ever recorded gravitational wave as it rushed through near-Earth spacetime, four musically pieces emerged that now travel behind this wave. This message from the collision of two black holes was named GW 150914 – scientifically sober, after its nature and our date. So it was in 2015 when a research facility called LIGO sensed and recognized the message. 2015: That was nine years ago. 
+
+Nine years – or as waves call it: 85 trillion kilometers. And people say: To Sirius and a bit further.
+
+Lacking a heart, yet you can hear a beat.
+Only in absolute silence.
+Not longer than a heartbeat.
+Earth, nudged by me. The whole planet.
+Lighthearted disturber.
+Yielding minimal changes in spacetime.
+
+To make the sound of the first ever recorded gravitational wave more audible, researchers amplified it and shifted its frequency slightly. In the name of science. In the name of music, the sound now revolves around itself, repeats, can be reinvented, and played with. The sound of the wave acquires a rhythm, like a heartbeat. It attains an earthly existence, while the original message never stopped to visit Earth. It simply left it behind, a memory in spacetime.
+
+Vaguely perceived.
+On the journey.
+In the void.
+Drifting through countless encounters.
+
+ 
+Gravitational waves are the results of cosmic events. They compress and stretch spacetime as they propagate through the vastness of the universe, originating from collisions or supernovae. These disturbances can only be detected with exceptionally large and extremely sensitive observatories, such as those in the USA, Germany, and Italy. The findings from their research are intended to help physicists shed light on the darkness of the cosmos. However, they can also bring peace to the minds of people who listen to them, allowing them to enjoy moments of universal silence while life relentlessly screams.
+
+
+
+
 It took about 100 years for Einsteins prediction to become true, but in 2015 gravitational waves were detected for the first time by the [[https://advancedligo.mit.edu/][Advanced LIGO]] instrument. These waves coming from the depths of space, carry energy and information about the history of the univers. They squeeze and stretch the fabric of space-time even after billions of years of travelling.
 
 On this album, sonifications of gravitational waves are transformed into musique concréte-inspired pieces of sonic art. The tracks help us to travel through space and time with rhythmic patterns, mysterious sound textures and experimental structures. /*Ji kū kan*/ explores space and time in a minimal yet sometimes dreamy as well as danceble way. A live-coded experimental journey.
@@ -9,7 +45,7 @@ Released September 14, 2024
 Conceptualized, written, performed, recorded and mixed by harte echtzeit in 2023.
 
 Performed with tidal cycles and samples of gravitational wave detections. These samples are modified versions of the data published by `R. Abbott et al. (LIGO Scientific Collaboration and Virgo Collaboration), "Open data from the first and second observing runs of Advanced LIGO and Advanced Virgo", SoftwareX 13 (2021) 100658.` which was originally licensed under a
-[Creative Commons Attribution 4.0 International License][cc-by].
+Creative Commons Attribution 4.0 International License (CC-BY).
 
 Mastered by Pablo Miranda at La Isla Estudio, Barcelona.
 Graphic design by harte echtzeit.
@@ -19,5 +55,4 @@ Special thanks to Martin, Sara, Claudia, Axel, Alexander & Ramon.
 
 Call It Anything Records CIA-13
 
-This work is licensed under a
-[Creative Commons Attribution 4.0 International License][cc-by].
+This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY).
