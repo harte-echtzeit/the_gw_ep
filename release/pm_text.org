@@ -1,10 +1,40 @@
 * PM album release
+** album ji kū kan
 It took about 100 years for Einsteins prediction to become true, but in 2015 gravitational waves were detected for the first time by the [[https://advancedligo.mit.edu/][Advanced LIGO]] instrument. These waves coming from the depths of space, carry energy and information about the history of the universe. They squeeze and stretch the fabric of space-time even after billions of years of travelling.
 
-On this album, sonifications of gravitational waves are transformed into musique concréte-inspired pieces. The tracks help us to travel through space and time with rhythmic patterns, mysterious sound textures and experimental structures. /*Ji kū kan*/ explores space and time in a minimal yet sometimes dreamy as well as danceble way. A live-coded experimental journey.
+On this album, sonifications of gravitational waves are transformed into musique concréte-inspired pieces. The tracks help us to travel through space and time with rhythmic patterns, mysterious sound textures and experimental structures. /*Ji kū kan*/, the japanese expression for space-time, explores space and time in a minimal yet sometimes dreamy as well as danceble way. A live-coded experimental journey.
 
-This release is an album with tracks composed solely from data of the first gravitational wave detections between 2015 and 2017 [LIT]. The raw sounds have been re-arranged, modified, and formed by live coding approaches, hence by programming software on the fly which is compiled into music. 
+This release is an album with tracks composed solely from data of the first gravitational wave detections between 2015 and 2017. The raw sounds have been re-arranged, modified, and formed by live coding approaches, hence by programming software on the fly which is compiled into music. All tracks were written and recorded in a live session by the hartist harte echtzeit.
 
-Harte echtzeit is a musical project of scientist Christopher Taudt, that is primarily focussed on minimal compositions and the musical texture that evolves from scientific data. While conventional sounds and field recordings already convey meaning and associations, scientific data does not. Harte echtzeit is interested in these seamingly abstract sound objects. He tries to capture their inherent rhythm and  
+** artist info
+Harte echtzeit is a musical project of scientist Christopher Taudt, that is primarily focussed on minimal compositions and the musical texture that evolves from scientific data. While conventional sounds and field recordings already convey meaning and associations, scientific data does not. Harte echtzeit is interested in these seamingly abstract sound objects. He tries to capture their inherent rhythm and structure while also imprinting some of his emotions on them.
+Harte echtzeit is equally inspired by well-known avantgarde artists such as Gutdrun Gut, Delia Derbyshire, Frank Bretschneider and Bernard Parmegiani as well as by contemporary artists from the live-coding movement. He is frequently playing live in algoraves, performances and festivals. Together with friends he is also the co-organizer and co-founder [[https://futur-aaa.com/][futur AAA festival]].
 
-** artist bio
+contact info:
+
+mail: info@harte-echtzeit.com
+insta: https://www.instagram.com/harte_echtzeit/
+mastodon: https://sonomu.club/@harte_echtzeit
+web: https://harte-echtzeit.com/
+
+** technical information
+artist: harte echtzeit
+album title: ji kū kan
+song titles:
+01 fabric (08:15)
+02 tide (06:47)
+03 duality (06:37)
+04 superposition (08:58)
+
+year: 2024
+genres: musique concrète, minimal (techno), algorave, glitch, electronica, experimental electronics
+label: Call It Anything Records, Barcelona, Spain (https://callitanythingrecords.bandcamp.com/)
+
+Performed with tidal cycles and samples of gravitational wave detections. These samples are modified versions of the data published by `R. Abbott et al. (LIGO Scientific Collaboration and Virgo Collaboration), "Open data from the first and second observing runs of Advanced LIGO and Advanced Virgo", SoftwareX 13 (2021) 100658.` which was originally licensed under a
+Creative Commons Attribution 4.0 International License (CC-BY).
+
+Mastered by Pablo Miranda at La Isla Estudio, Barcelona.
+Graphic design by harte echtzeit.
+Liner notes by Sara Thiel.
+
+This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY).
