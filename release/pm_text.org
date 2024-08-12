@@ -1,10 +1,10 @@
 * PM album release
-It took about 100 years for Einsteins prediction to become true, but in 2015 gravitational waves were detected for the first time by the [[https://advancedligo.mit.edu/][Advanced LIGO]] instrument. These waves coming from the depths of space, carry energy and information about the history of the univers. They squeeze and stretch the fabric of space-time even after billions of years of travelling.
+It took about 100 years for Einsteins prediction to become true, but in 2015 gravitational waves were detected for the first time by the [[https://advancedligo.mit.edu/][Advanced LIGO]] instrument. These waves coming from the depths of space, carry energy and information about the history of the universe. They squeeze and stretch the fabric of space-time even after billions of years of travelling.
 
-On this album, sonifications of gravitational waves are transformed into musique concréte-inspired pieces of sonic art. The tracks help us to travel through space and time with rhythmic patterns, mysterious sound textures and experimental structures. /*Ji kū kan*/ explores space and time in a minimal yet sometimes dreamy as well as danceble way. A live-coded experimental journey.
+On this album, sonifications of gravitational waves are transformed into musique concréte-inspired pieces. The tracks help us to travel through space and time with rhythmic patterns, mysterious sound textures and experimental structures. /*Ji kū kan*/ explores space and time in a minimal yet sometimes dreamy as well as danceble way. A live-coded experimental journey.
 
-** raum-zeit
-** gravitationswellen
-** live coding
-** 
+This release is an album with tracks composed solely from data of the first gravitational wave detections between 2015 and 2017 [LIT]. The raw sounds have been re-arranged, modified, and formed by live coding approaches, hence by programming software on the fly which is compiled into music. 
+
+Harte echtzeit is a musical project of scientist Christopher Taudt, that is primarily focussed on minimal compositions and the musical texture that evolves from scientific data. While conventional sounds and field recordings already convey meaning and associations, scientific data does not. Harte echtzeit is interested in these seamingly abstract sound objects. He tries to capture their inherent rhythm and  
+
 ** artist bio
