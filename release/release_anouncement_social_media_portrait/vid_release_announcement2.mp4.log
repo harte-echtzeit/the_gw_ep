@@ -1,0 +1,12 @@
+Started render process: /usr/bin/melt-7 -progress /tmp/kdenlive-RRkYNc-1.mlt
+mlt_repository_init: failed to dlopen /usr/lib/mlt-7/libmltrtaudio.so (librtaudio.so.7: cannot open shared object file: No such file or directory)mlt_repository_init: failed to dlopen /usr/lib/mlt-7/libmltopencv.so (libopencv_tracking.so.410: cannot open shared object file: No such file or directory)mlt_repository_init: failed to dlopen /usr/lib/mlt-7/libmltmovit.so (libmovit.so.8: cannot open shared object file: No such file or directory)1	9	6
+2	29	19
+3	47	31
+4	63	42
+5	78	52
+6	95	63
+7	110	73
+8	125	83
+9	141	94
+[mp4 @ 0x7c9490000f40] Timestamps are unset in a packet for stream 1. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly [mp4 @ 0x7c9490000f40] Encoder did not produce proper pts, making some up.Rendering of /home/chrs/programmierung/audio/tidal/the_gw_ep/release/release_anouncement_social_media_portrait/vid_release_announcement2.mp4 aborted, resulting video will probably be corrupted.
+Frame: 141

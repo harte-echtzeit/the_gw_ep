@@ -1,4 +1,5 @@
-* PM album release
+#+OPTIONS: toc:nil title:nil author:nil date:nil
+* Album press release
 ** album ji kū kan
 It took about 100 years for Einsteins prediction to become true, but in 2015 gravitational waves were detected for the first time by the [[https://advancedligo.mit.edu/][Advanced LIGO]] instrument. These waves coming from the depths of space, carry energy and information about the history of the universe. They squeeze and stretch the fabric of space-time even after billions of years of travelling.
 
@@ -29,6 +30,8 @@ song titles:
 year: 2024
 genres: musique concrète, minimal (techno), algorave, glitch, electronica, experimental electronics
 label: Call It Anything Records, Barcelona, Spain (https://callitanythingrecords.bandcamp.com/)
+
+formats: digital download, limited hand-crafted cassette edition of 42.
 
 Performed with tidal cycles and samples of gravitational wave detections. These samples are modified versions of the data published by `R. Abbott et al. (LIGO Scientific Collaboration and Virgo Collaboration), "Open data from the first and second observing runs of Advanced LIGO and Advanced Virgo", SoftwareX 13 (2021) 100658.` which was originally licensed under a
 Creative Commons Attribution 4.0 International License (CC-BY).

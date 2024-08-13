@@ -1,5 +1,5 @@
 * Album release Linked in
-I'm very passionate about science. Not only in my job, but in live. That's why making music with #GravitationalWaves seems kind-of natural to me. I went so far to record some tracks and I will release an album called /*ji kū kan*/ with Call It Anything Records on September 14th. You can pre-listen to it here on Bandcamp and can also pre-order a very nice cassette version.
+I'm very passionate about science. Not only in my job, but in life. That's why making music with #GravitationalWaves seems kind-of natural to me. I went so far to record some tracks and I will release an album called /*ji kū kan*/ with Call It Anything Records on September 14th. You can pre-listen to it here on Bandcamp and can also pre-order a very nice cassette version.
 
 In my project harte echtzeit, I make music by live coding in a Haskell-based language. A topic which I could talk about for hours. Its basically writing code while that is producing sound in real time. As source material, I mainly use samples from different gravitational wave detections. I'm interested in making these rather dull sounding scientific data into something rhythmic, textured and experimental. The tracks are sometimes slow, bubbling and rumbling. Others are more danceable and technoid.
 
