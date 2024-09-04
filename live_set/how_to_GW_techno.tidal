@@ -4,22 +4,22 @@
 
 d1 $ fast 1
   $ s "gw_cut:1*4"
-  # speed "-1"
-  # gain "1 0.8 1 0.9"
-  -- # room 0.1
+  -- # speed "-1"
+  -- # gain "1 0.8 1 0.9"
+  # room 0.1
 
 
 hush
 
 -- fast background
-d2 $ fast 4
+d2 $ fast 1
   $ n "0 1 1 0"
   # s "gw_cut"
   # grain 0.5 0.1
-  # lpf 300
-  # gain 1.2
+  -- # lpf 300
+  # gain 1
   -- # squiz 6 -- some spice
-  # vowel "a"
+  -- # vowel "a"
   -- # sustain "<0.03 0.02 0.02>" -- some spice
   # pan perlin
 
@@ -35,7 +35,7 @@ d3 $ jux rev
   -- $ sometimes (swingBy (1/2) 2)
   $ n "4 1 3 2"
   # s "gw_cut(6,8)"
-  -- # speed "1.4 1 2 1"
+  # speed "1.4 1 2 1"
   # speed 1.4
   -- # shape "0.8" -- !!! adjust GAIN down!
   -- # hpf "800 400"
@@ -50,7 +50,7 @@ d3 $ jux rev
   # squiz "3 6 4 1"
   -- # smear "<0.5 4 0.8 3>"
   -- # gain (slow 2 $ range 0.9 1.2 sine)
-  # gain 1
+  # gain 1.3
 
 
 
@@ -59,7 +59,7 @@ d4 $ chop 1
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
   # speed "[-45 -23 -56]"
   -- # squiz "3 5 1 4"
-  -- # waveloss "10 .. 60"
+  # waveloss "10 .. 60"
   -- # hpf 800
   -- # comb "0.3 0.5 0.4"
   # gain 0.8
@@ -74,9 +74,9 @@ d8 $ fast 0.5
   $ grain 0.55 0.06 # s "gw_cut:8 gw_cut:8"
   # smear "0.3 .. 0.7"
   # speed "-1.0 <-0.4 -1.4>"
-  -- # pan perlin
+  # pan perlin
   # dry 0.2 # room 0.7 # sz 0.85
-  # gain 1
+  # gain 0.8
 
 hush
 
