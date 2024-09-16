@@ -24,7 +24,7 @@ d2 $ n "8 10 8 10"
   -- # legato 0.999
   # nudge "[0.01]*5"
   # djf 0.3
-  # gain 0.2
+  # gain 0.6
 
 
 d2 $ silence
@@ -38,7 +38,7 @@ d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
   # speed 0.4
   # shape 0.5
   -- # smear 0.4
-  # gain 0.2
+  # gain 0.4
 
 d3 $ silence
   
