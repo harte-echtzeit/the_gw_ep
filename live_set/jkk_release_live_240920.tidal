@@ -71,19 +71,17 @@ d2 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
  -- MIDI live -- # gain (range 0.4 0.8 $ cF 0.4 "1")
 
 
--- MNK
-
 -- base a whole piece on this one --> convey somewhat mysterious and dark feeling
 d1 $ degradeBy 0.0
   $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
   -- $ n "2 3 5 4 1" # s "gw_cut"
   $ n "3 3 2 4 1" # s "gw_cut"
-  # shape "0.6 0.2 0.4"
+  -- # shape "0.6 0.2 0.4"
   # speed "-0.4 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
   # vowel "u i a"
-  -- # krush "4.5 3 5 2 1"
+  # krush "4.5 3 5 2 1"
   -- # gain 0.9
-  # gain (fast 4 $ 0.8*sine)
+  # gain (fast 4 $ 0.7*sine)
 
   
 -- drone drone drone
@@ -125,7 +123,7 @@ d4 $ striate "16 32" $ fast 1.25
   # vowel (choose["a, o, i"])
   -- # waveloss "20 .. 60"
   # gain 0.6
-  -- # room 0.3 #sz 0.9
+  # room 0.3 #sz 0.9
   -- # fshift "<-100 150 400>"
 
 -- interesting, bubbling sounds
@@ -163,7 +161,7 @@ d2 $ fast "1 2" $ jux rev
   # bpf "100 1300"
   -- # vowel "a o u"
   -- # hpf 500
-  # gain 0.6
+  # gain 0.5
   -- MIDI live
   -- # gain (range 0.4 0.8 $ cF 0.5 "2")
   # shape "0.4 0.7 -0.4 0.6" -- CAREFUL! with gain
@@ -188,14 +186,11 @@ d5 $ fast 0.25 $ ghost
   # comb 0.6
   # krush 0.1
   # crush 5
-  # gain 0.8
+  # gain 0.6
   
 
 
 hush
-
-
-
 
 --- BRREEEAAAAAKKKK!!!!
 
@@ -203,8 +198,6 @@ hush
 
 
 -- TRANSITION to Dance?
-
-
 
 -- some rather strange beats and percussions
 d3 $ sometimes  ( (# squiz 4)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" # pan cosine
@@ -261,7 +254,7 @@ d1 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0]
   -- $ jux rev
   -- $ zoom (0.1, 0.7)
   $ off 0.2 ((# speed "-0.5") . (# room 0.6))
-  -- $ chop 2
+  $ chop 2
   $ n "4!2 3!2" 
   # s "gw_cut"
   -- # lpf 500
@@ -269,7 +262,7 @@ d1 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0]
   # speed "<0.6 0.8>"
   -- # speed "0.4"
   # shape "0.5"
-  # gain 0.5
+  # gain 0.4
   -- MIDI live
   -- # gain (range 0.4 0.75 $ cF 0.55 "1")
   -- # comb 0.7
@@ -328,9 +321,9 @@ hush
 -- FINALE
 -- now back to percussions? --> kind of
 -- really beatup to break the track hard
-d2 $ fast "2 4 3"
+d3 $ fast "2 4 3"
   $ jux rev
-  $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3)))
+  -- $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3)))
   $ n "5 2 [3 4 3?] 4"
   # s "gw_cut"
   # bpf "200 1800"
@@ -339,10 +332,10 @@ d2 $ fast "2 4 3"
   -- MIDI live
   -- # gain (range 0.4 0.8 $ cF 0.6 "2")
   -- # shape "-0.2 0.4 0.5 0.3"
-  # crush "2 3"
+  -- # crush "2 3"
   -- # speed "-1.5 1.2"
   # legato 17
-  # djf "0.3 0.4 0.1 0.5"
+  -- # djf "0.3 0.4 0.1 0.5"
 
 
 -- bass line
@@ -370,8 +363,13 @@ d8 $ fast 0.5
 
 
 
---------------------------------
+
 hush
+
+--------------------------------
+--- OPTIONAL (with some bas from befor)
+
+
 
 -- some background clicks and drumming - stable to drive track! e.g. with d6
 d11 -- $ every 4 (chop "<8 16>" . (# lpf 500) . (sometimes (# smear 0.1)))
@@ -396,7 +394,7 @@ d11 -- $ every 4 (chop "<8 16>" . (# lpf 500) . (sometimes (# smear 0.1)))
   -- # squiz "2 3"
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.1
-  # gain 1.1
+  # gain 0.95
   
 d11 $ silence
 
@@ -411,13 +409,13 @@ d10 $ fast 1.5 $ jux rev
   -- # tsdelay "<0.3 0.1 0.4 0.6>"
   -- # xsdelay "0.1"
   -- # smear 0.4
-  -- # lpf 600
-  -- # ring 4 # ringf "50 25"
-  -- # ringdf (fast 2 $ range 80 1000 sine)
+  -- # lpf
+  # ring 4 # ringf "50 25"
+  # ringdf (fast 2 $ range 80 1000 sine)
   # speed "0.6 1.5 1"
   # shape "0.2 0.5 0.8"
   -- # krush "1.9 2.4 3"
-  # gain 0.7
+  # gain 0.5
 
 
 d10 $ silence
