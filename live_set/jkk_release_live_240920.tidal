@@ -53,9 +53,10 @@ hush
 d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
   $ n "4!53 3!23"
   # s "gw_cut"
-  # gain "0 0.4 0.6 0.4 0"
-  # shape 0.7
+  # gain "0 0.5 0.6 0.3 0"
+  # shape "0.99 0.8"
   # cut 1
+  # gain 0.5
   -- # squiz 3
   -- # lpf 400
 
@@ -65,29 +66,30 @@ hush
 -- NEW more slow-mo (nice constant background)
 d2 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
   # lpf 200
-  # speed "-1.5 0.5 -1.6"
-  # gain 1.1
-  -- # smear 0.3
+  # speed "-1.0 0.8 -1.4"
+  # gain 1.3
+  # smear 0.5
  -- MIDI live -- # gain (range 0.4 0.8 $ cF 0.4 "1")
 
 
 -- base a whole piece on this one --> convey somewhat mysterious and dark feeling (USE for transion as d6)
-d1 $ degradeBy 0.2
+d1 $ degradeBy 0.0
   -- $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
-  -- $ n "2 3 5 4 1" # s "gw_cut"
-  $ n "3 3 2 4 1" # s "gw_cut"
-  -- # shape "0.6 0.2 0.4"
-  # speed "-0.4 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
+  $ n "2 3 5 4 1" # s "gw_cut"
+  -- $ n "3 3 2 4 1" # s "gw_cut"
+  # shape "0.7 0.3 0.4 0.6"
+  # speed "-0.5 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
   # vowel "u i a"
   -- # krush "4.5 3 5 2 1"
-  # gain 1
+  # gain 0.9
   -- # gain (fast 4 $ 1.3*sine)
 
+hush
   
 -- drone drone drone
 d2 $ n "8 10 8 10" # s "gw_cut"
-  # speed "-0.4 0.2 -0.4" # vowel "a i? o u"
-  # nudge "[0.01]*5" # djf 0.3
+  # speed "-0.5 0.2 -0.4" # vowel "a i? o u"
+  # nudge "[0.03]*5" # djf 0.3
   -- # legato 0.999
   # room (slow 6 $ range 0 0.5 sine)
   # gain 0.6
@@ -99,7 +101,7 @@ d2 $ n "8 10 8 10" # s "gw_cut"
 d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 164) . (# pan tri) )) $ s "[gw_cut:7(11,16)]*2"
   # speed "62.5 10.5 12"
   -- # gain 0.5
-  # gain "0.5 0.3 0.4"
+  # gain "0.7 0.5 0.5"
   # vowel "a o i u"
   # hpf 1200 # nudge "0.05" # distort (fast 2 $ saw) # squiz 8 # shape 0.3 # room 0.4 # sz 0.2
 
@@ -122,7 +124,7 @@ d4 $ striate "16 32" $ fast 1.25
   -- # speed "-0.8"
   # vowel (choose["a, o, i"])
   -- # waveloss "20 .. 60"
-  # gain 0.5
+  # gain 0.6
   # room 0.3 #sz 0.9
   -- # fshift "<-100 150 400>"
 
@@ -133,8 +135,8 @@ d3 $ sometimes ((# squiz 3) . (# fast 3 (vowel "o a u")) . (# lpf 400)) $ someti
   # pan (fast 8 $ sine)
   # room (rand)
   # legato 14
-  # speed (irand 16)
-  # gain (fast 6 $ 0.5 * sine)
+  # speed (irand 10)
+  # gain (fast 6 $ 0.7 * sine)
 
 -- clicky, clacky
 d1 $ jux rev $ fast 2.5 $ degradeBy 0.0
@@ -161,14 +163,14 @@ d2 $ fast "1 2" $ jux rev
   # bpf "100 1300"
   -- # vowel "a o u"
   -- # hpf 500
-  # gain 0.5
+  # gain 0.7
   -- MIDI live
   -- # gain (range 0.4 0.8 $ cF 0.5 "2")
   # shape "0.4 0.7 -0.4 0.6" -- CAREFUL! with gain
-  -- # crush "5 6 7"
-  -- # comb 0.3
-  # speed "-1.4"
-  -- # fshift "-30 .. 50"
+  # crush "5 6 7"
+  # comb 0.3
+  # speed "-1.6"
+  # fshift "-30 .. 50"
   # legato 10
   -- # djf "0.2 0.8 0.7 0.9"
 
@@ -182,12 +184,12 @@ d5 $ fast 0.25 $ ghost
   # speed "1.2 0.5 1 1.4"
   # lpf 2800
   # fshift "-180 1100 90 120"
-  -- # shape 0.6
-  -- # smear 0.5
-  -- # comb 0.6
-  -- # krush 0.1
-  -- # crush 5
-  # gain 0.6
+  # shape 0.6
+  # smear 0.5
+  # comb 0.6
+  # krush 0.1
+  # crush 5
+  # gain 1.4
   
 
 
@@ -239,7 +241,7 @@ d5 -- $ layer [iter 5]
   -- # gain 0.3
   -- MIDI live
   -- # gain (range 0.3 0.7 $ cF 0.7 "5")
-  # gain 0.6
+  # gain 0.8
   # legato 2.8
   # nudge "0.2 0.1 0.4"
   -- # lpf "300"
@@ -254,19 +256,19 @@ d1 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0]
   -- $ jux rev
   -- $ zoom (0.1, 0.7)
   -- $ off 0.2 ((# speed "-0.5") . (# room 0.6))
-  $ chop 2
+  -- $ chop 1
   $ n "5!2 3!2" 
   # s "gw_cut"
   -- # lpf 500
   -- # hpf 100
   # speed "<0.4 0.8>"
   -- # speed "0.4"
-  # shape "0.5"
-  # gain 0.8 -- MAX 1
+  # shape "0.8"
+  # gain 0.9 -- MAX 1
   -- MIDI live
   -- # gain (range 0.4 0.75 $ cF 0.55 "1")
-  -- # comb 0.7
-  -- # fshift "120 -60 23 12"
+  -- # comb 0.9
+  # fshift "120 -60 23 12"
 
 hush
 
@@ -287,18 +289,18 @@ d3 $ off 0.2 ((# speed "-0.5") . (# room 0.6))
 d3 -- $ echo 4 0.4 0.6
   $ jux rev
   -- $ layer [degradeBy 0.0, scramble 3]
-  $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
+  -- $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
   # speed "[-43 -22 -16 12]"  -- # speed "[-23 -20 -26 12]"
-  -- # shape "0.5 -0.3 0.2"
-  -- # squiz "2 5 1 4"
-  # room 0.4 # sz 0.2
-  -- # waveloss "10 .. 60"
+  # shape "0.8 -0.9 0.4"
+  # squiz "4 5 3 4"
+  # room 0.4 # sz 0.4
+  -- # waveloss "5 .. 65"
   -- # hpf 300
-  -- # krush "3 1 4"
-  -- # djf rand
+  # krush "3 1 2"
+  # djf rand
   -- # comb 0.3
-  # gain 0.4
+  # gain 0.8
   -- # gain "0.4 0.3 0.3" -- # gain "0.6 0.9 0.7"
 
 hush
@@ -312,7 +314,7 @@ d4 $ layer[(# fshift "-50 -100 42 68") . (#room 0.6)] $ n "6(13,16)" # s "gw_cut
   # shape "-0.8 0.4 0.1"
   -- # comb "0.6 0.1 0.3"
   -- # gain 0.6
-  # gain 0.5 -- MIDI live  -- # gain (range 0.4 0.75 $ cF 0.5 "4")
+  # gain 0.8 -- MIDI live  -- # gain (range 0.4 0.75 $ cF 0.5 "4")
 
 hush
 
@@ -327,7 +329,7 @@ d3 $ fast "2 4 3"
   -- $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 3)))
   $ n "5 2 [3 4 3?] 4"
   # s "gw_cut"
-  # bpf "200 1800"
+  # bpf "200 800"
   -- # hpf 800
   # gain 0.7
   -- MIDI live
@@ -343,19 +345,19 @@ d3 $ fast "2 4 3"
 d6 $ fast 2
   $ splice 4 pat
   $ s "gw_cut:3(<3 5>,8)"
-  # lpf 1800
-  # speed "<-2.5 -0.6>"
-  # fshift "[30|23|-23] 35 -40"
+  # lpf 800
+  # speed "<-2.0 -0.4 -0.6>"
+  -- # fshift "[30|23|-23] 35 -40"
   -- MAX ga<in 1.1
-  # gain 1.1
+  # gain 0.8
 
 
 -- ALT bass line going...
 d6 $ fast 4
-  $ slice 6 "6 2 1 3"
-  $ n "4 1 3 2"
+  $ slice 6 "6 2 1 2"
+  $ n "4 1 3 3"
   # s "gw_cut(6,8)"
-  # speed 1.4
+  # speed 1.5
   # shape "0.8" -- !!! adjust GAIN down!
   # legato 1
   # djf (slow 4 $ range 0.4 0.6 sine)
@@ -363,8 +365,9 @@ d6 $ fast 4
   -- # comb "0.03 0.04"
   -- # vowel "a u [i|e] u"
   -- some dirt! =)
-  # squiz "4 6 2 1"
-  # gain 0.7
+  # squiz "3 6 4 1"
+  # gain 0.8
+  
 
 
 
@@ -376,8 +379,8 @@ d7 $ every 4 (chop "<4 8>" . (# lpf 800) . (sometimes (# smear 0.3)))
   -- $ sometimes (swingBy (1/2) 2)
   $ n "4 1 2 4"
   # s "gw_cut(6,8)"
-  # speed "1.4"
-  # shape "0.8" -- !!! adjust GAIN down!
+  # speed "1.7"
+  # shape "0.2" -- !!! adjust GAIN down!
   -- # hpf "150 300 200 500"
   -- # lpf 1500
   # legato 1
@@ -386,12 +389,12 @@ d7 $ every 4 (chop "<4 8>" . (# lpf 800) . (sometimes (# smear 0.3)))
   -- # waveloss "12"
   # pan perlin
   -- # comb 0.02
-  -- # comb "<0.02 0.2 0.5>"
-  # vowel "a u [i|e]"
+  # comb "<0.02 0.2 0.5>"
+  -- # vowel "a u [i|e]"
   -- # squiz "2 3"
-  -- # smear "<0.5 4 0.8 3>"
+  # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.1
-  # gain 1.1
+  # gain 0.9
 
 
 
@@ -425,7 +428,7 @@ hush
 
 
 -- D10 is secnnd base theme of the track --> some clicking but also dark, bassy tones (no real beat, but more backdrop)
-d10 $ fast 1.5 $ jux rev
+d9 $ fast 1.5 $ jux rev
   -- $ every 3 ((# room 0.4))
   $ splice 6 "6 3 ~ 1 5 3"
   $ n "{2, 6}" # s "gw_cut"
@@ -442,7 +445,7 @@ d10 $ fast 1.5 $ jux rev
   # gain 0.8
 
 
-d10 $ silence
+d9 $ silence
 
 ----------------------------------
 
