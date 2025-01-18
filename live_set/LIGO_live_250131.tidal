@@ -55,7 +55,7 @@ d1 $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
   # shape "0.99 0.8"
   # cut 1
   -- START 0.3 - MAX 0.5
-  # gain 0.3
+  # gain 0.4
   # pan (slow 4 sine)
   -- # squiz 3
   -- # lpf 400
@@ -83,7 +83,7 @@ d1 $ degradeBy 0.0
   # vowel "u i a"
   -- # krush "4.5 3 5 2 1"
   -- MIN 0.6 MAX 0.9
-  # gain 0.5
+  # gain 0.7
   -- # gain (fast 4 $ 1.3*sine)
 
 hush
@@ -216,19 +216,20 @@ hush
 
 
 
+
+
 --- THREE
--- TRANSITION to Dance?
 
 -- some rather strange beats and percussions
 d3 $ sometimes ((# squiz 4)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" # pan cosine
   # speed "-1.4 -2.6 -1.4"
-  # bpf "400 600"
+  # bpf "100 600"
   # vowel "a i o u"
   -- # waveloss "20..60"
   -- # krush "1..2"
   -- # comb 0.6 # room 0.5
   # nudge "1.0" -- # nudge "1.3 1.4 1.2"
-  # gain 0.6
+  # gain 0.4 -- MAX 0.6 START 0.4
 
 
 hush
@@ -237,41 +238,9 @@ hush
 
 -- DANCE part which is basically GWFR04 and some parts of SoEU
 
-
-let pa = "1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18 8 12 10 22 8 20 12 18 12 28 8 30 16 20 16 24 12 36 18 24 16 40 12 42 20 24 22 46 16 42 20 32 24 52 18 40 24 36 28 58 16 60 30 36 32 48 20 66 32 4" -- > Euler Phi A000010
-    pa_short = "1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18 8 12 10 22 8 20 12 18 12 28 8 30 16"
-
-
--- backdrop only
-d5 -- $ layer [iter 5]
-  -- $ ghost
-  $ slow 4
-  $ swingBy (1/2) 8
-  $ zoom (0.25, 0.75) 
-  $ superimpose ((# speed "-2.5"). ( # room 0.1))
-  -- $ n "3 6 7 5"
-  $ n pa_short
-  # s "gw_cut"
-  # speed "1.4 -2.3 3.4"
-  # vowel "a? e i u"
-  # speed 3
-  -- # gain 0.3
-  -- MIDI live
-  -- # gain (range 0.3 0.7 $ cF 0.7 "5")
-  -- MAX 0.6
-  # gain 0.3
-  # legato 2.8
-  # nudge "0.2 0.1 0.4"
-  -- # lpf "300"
-  -- # djf (range 0 1 $ sine)
-  -- # krush "8 5 2 3"
-  # krush pa_short
-  -- # room 0.4 # sz 0.6
-
-  
 -- bassy bassy beat -> driver with bass line + synth
-d1 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0]
-  -- $ jux rev
+d2 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0] -- LOAD check>!
+  $ jux rev
   -- $ zoom (0.1, 0.7)
   -- $ off 0.2 ((# speed "-0.5") . (# room 0.6))
   -- $ chop 1
@@ -282,7 +251,7 @@ d1 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0]
   # speed "<0.4 0.8>"
   -- # speed "0.4"
   # shape "0.8"
-  # gain 0.8 -- MAX 1
+  # gain 0.2 -- START 0.5 MAX 1
   -- MIDI live
   -- # gain (range 0.4 0.75 $ cF 0.55 "1")
   -- # comb 0.9
@@ -292,25 +261,21 @@ hush
 
 -- >inspiration (see above)
 
--- dark dance
-d3 $ off 0.2 ((# speed "-0.8") . (# room 0.6))
+-- dark dance (backdrop, nice with d3)
+d5 $ off 0.2 ((# speed "-0.6") . (# room 0.6))
   $ n "5!2 3!2"
-  # s "gw_cut"
-  # speed 0.4
-  -- # shape 0.5
-  -- # smear 0.4
+  # s "gw_cut" # speed 0.4
+  -- # shape 0.3 -- ADJUST gain!!
+  # smear 0.7 -- very nice tones!!!
  -- MAX 0.9
-  # gain 0.9
+  # gain 0.4
 
--- ->
-
--- NO BASS --> different number!
 --- we need a synth line here!
 -- dance
 d3 -- $ echo 4 0.4 0.6
   $ jux rev
   -- $ layer [degradeBy 0.0, scramble 3]
-  -- $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
+  $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
   # speed "[-43 -22 -16 12]"  -- # speed "[-23 -20 -26 12]"
   # shape "0.8 -0.9 0.4"
@@ -319,30 +284,50 @@ d3 -- $ echo 4 0.4 0.6
   -- # waveloss "5 .. 65"
   -- # hpf 300
   # krush "3 1 2"
-  # djf rand
+  -- # djf rand
   -- # comb 0.3
-  # gain 0.8
+  # gain 0.2 -- Start 0.2 MAX 0.6
   -- # gain "0.4 0.3 0.3" -- # gain "0.6 0.9 0.7"
 
+
+
+
+
+--- FIVE
+
+let pa = "1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18 8 12 10 22 8 20 12 18 12 28 8 30 16 20 16 24 12 36 18 24 16 40 12 42 20 24 22 46 16 42 20 32 24 52 18 40 24 36 28 58 16 60 30 36 32 48 20 66 32 4" -- > Euler Phi A000010
+    pa_short = "1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18 8 12 10 22 8 20 12 18 12 28 8 30 16"
+
+
+-- WORK on TRANSITION
+-- backdrop only
+d5 -- $ layer [iter 5]
+  -- $ ghost
+  $ slow 4
+  $ swingBy (1/2) 8
+  $ zoom (0.25, 0.75) 
+  $ superimpose ((# speed "-2.5"). ( # room 0.1))
+  -- $ n "3 6 7 5"
+  $ n pa_short
+  # s "gw_cut"
+  # speed "1.5 -2.3 3.4"
+  -- # vowel "a? e i u"
+  -- # speed 3
+   -- MIDI live
+  -- # gain (range 0.3 0.7 $ cF 0.7 "5")
+  -- MAX 0.6, START 0.3
+  # gain 0.3
+  # legato 2.8
+  # nudge "0.2 0.1 0.4"
+  -- # lpf "300"
+  # krush "8 5 2 3"
+  -- # krush pa_short
+  # room 0.4 # sz 0.6
+ 
+
+
 hush
 
--- SELETCIVELY
--- beat the drum (drum like sounds are samples 5-7 + 9)
-d4 $ layer[(# fshift "-50 -100 42 68") . (#room 0.6)] $ n "6(13,16)" # s "gw_cut"
-  # speed "1.1 -1.55 -1.6 2"
-  -- # squiz "15 12 23" -- CAREFUL
-  # lpf "200 100 700 300"
-  # shape "-0.8 0.4 0.1"
-  -- # comb "0.6 0.1 0.3"
-  -- # gain 0.6
-  # gain 0.6 -- MIDI live  -- # gain (range 0.4 0.75 $ cF 0.5 "4")
-
-hush
-
-
-
-
--- FINALE
 -- now back to percussions? --> kind of
 -- really beatup to break the track hard
 d3 $ fast "2 4 3"
@@ -352,13 +337,13 @@ d3 $ fast "2 4 3"
   # s "gw_cut"
   # bpf "200 800"
   -- # hpf 800
-  # gain 0.7
+  # gain 0.5 -- MAX 0.7, START 0.5
   -- MIDI live
   -- # gain (range 0.4 0.8 $ cF 0.6 "2")
-  # shape "-0.2 0.4 0.5 0.3"
+  -- # shape "-0.2 0.4 0.5 0.3"
   -- # crush "2 3" -- DANGER
   -- # speed "-1.5 1.2"
-  # legato 17
+  # legato 18
   -- # djf "0.3 0.4 0.1 0.5"
 
 
@@ -369,8 +354,7 @@ d6 $ fast 2
   # lpf 800
   # speed "<-2.0 -0.4 -0.6>"
   -- # fshift "[30|23|-23] 35 -40"
-  -- MAX ga<in 1.1
-  # gain 0.8
+  # gain 0.5 -- MAX1.1, START 0.5
 
 
 -- ALT bass line going...
@@ -384,7 +368,7 @@ d6 $ fast 4
   -- # djf (slow 4 $ range 0.4 0.6 sine)
   # pan perlin
   -- # comb "0.03 0.04"
-  # vowel "a u [i|e] u"
+  -- # vowel "a u [i|e] u"
   -- some dirt! =)
   -- # squiz "3 6 4 1"
   -- MIN 0.6, MAX 0.8
@@ -439,6 +423,7 @@ d8 $ fast 0.5
 
 hush
 
+-- SIX
 
 -------------------------
 
@@ -453,7 +438,7 @@ d1 $ fast 4
   # s "gw_cut(6,8)"
   # speed "1.4"
   # shape "0.8" -- !!! adjust GAIN down!
-  -- # hpf "150 300 200 500"
+  # hpf "150 300 200 500"
   -- # lpf 3500
   # legato 1
   -- # djf (slow 8 $ range 0.45 0.75 sine)
@@ -461,11 +446,11 @@ d1 $ fast 4
   -- # waveloss (pat*pat')
   # pan perlin
   -- # comb 0.02
-  # vowel "a u [i|e]"
+  -- # vowel "a u [i|e]"
   -- # squiz "2 3"
   -- # smear "<0.5 4 0.8 3>"
   -- MAX gain 1.1
-  # gain 0.7
+  # gain 0.4
 
 
 -- BEAT e.g. >> eats up d4!!!!
@@ -476,7 +461,7 @@ d2 $ fast 4
   # s "gw_cut:0"
   -- # hpf (pat* (range 100 450 sine))
   -- # djf 0.7
-  # shape 0.7
+  -- # shape 0.7
   # dry 0.95 # room 0.05 # sz 0.9
   -- # distort 0.1
   # pan perlin
@@ -486,31 +471,38 @@ d2 $ fast 4
 
 
 -- MELODY -> two variants of D3 which can be switched against each other
--- bass/synth kinda line; reeaaaly simple
 
-d3 $ fast 2
+d5 $ fast 2
   $ splice 4 pat
   $ s "gw_cut:3(<3 5>,8)"
   # lpf 1800
   # speed "<-2 -1.7>"
   # fshift "320 80 1600" -- play the melody here!
-  -- MAX gain 1.1
+  -- MAX gain 0.65
   # gain 0.5
 
 
--- building some drums --> nice THICK -> good for layering
+-- building some drums --> nice THICK -> good for layering (not with d2; optional)
 d4 $ fast 2 $ (striate 10) $ zoom (0.0, 0.25)
   $ n "4 1 2 4"
   -- $ n pat
   # s "gw_cut"
   # speed "-1.5 -1 -1.8 -1.5"
   # legato 2.8
-  # djf "0.6 0.7 0.65 0.5"
+  -- # djf "0.6 0.7 0.65 0.5"
   -- # comb "0.6 0.3 0.5 0.9"
-  -- # krush 0.3
+  # krush 0.3
   -- # fshift 50
-  -- MAX gain 1.1
-  # gain 0.5
+  -- START 0.6 MAX gain 1.1
+  # gain 0.6
+
+
+
+
+
+
+
+
 
 
 
@@ -520,12 +512,6 @@ d4 $ fast 2 $ (striate 10) $ zoom (0.0, 0.25)
 --------------------------------
 --- OPTIONAL (with some bass from before)
 
-
-
-  
-d11 $ silence
-
-hush
 
 
 -- D10 is secnnd base theme of the track --> some clicking but also dark, bassy tones (no real beat, but more backdrop)
