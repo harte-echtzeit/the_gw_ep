@@ -81,9 +81,9 @@ d1 $ degradeBy 0.0
   # shape "0.7 0.3 0.4 0.6"
   # speed "-0.8 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
   # vowel "u i a"
-  -- # krush "4.5 3 5 2 1"
-  -- MIN 0.6 MAX 0.9
-  # gain 0.7
+  # krush "4.5 3 5 2 1"
+  -- MIN 0.5 MAX 0.9
+  # gain 0.4
   -- # gain (fast 4 $ 1.3*sine)
 
 hush
@@ -91,9 +91,10 @@ hush
 -- drone drone drone
 d12 $ n "8 10 8 10" # s "gw_cut"
   # speed "-0.5 0.1 -0.4" # vowel "a i? o u"
-  # nudge "[20.03]*5" # djf 0.3
+  # nudge "[120.03]*5" # djf 0.3
   -- # legato 0.999
   # room (slow 6 $ range 0 0.5 sine)
+  -- MAX 0.9
   # gain 0.9
 
   
@@ -124,14 +125,15 @@ hush
 
 -- clicky, clacky
 d10 $ jux rev $ fast 2.5 $ degradeBy 0.0
-  $ superimpose (every 2 ((# squiz 3) . (# djf rand))) $ striate (irand 64) $ n "9" # s "gw_cut!23"
+  $ superimpose (every 2 ((# squiz 3) . (# djf rand))) $ striate (irand 64)
+  $ n "9" # s "gw_cut!23"
   -- # cut (irand 12)
   # vowel "<i u o>"
   # room (fast (irand 6) $ square)
   -- # djf 0.7
   # hpf (slow 0.2 $ sine) -- # hpf (slow 0.2 $ range 200 400 sine)
   # pan (fast 2 $ cosine)
-  # gain 0.5 -- MAX 0.5
+  # gain 0.45 -- MAX 0.5
 
 d10 $ silence
 
@@ -146,15 +148,15 @@ d9 $ sometimes ((# squiz 8) . (# fast 3 (vowel "o a u")) . (# lpf 800)) $ someti
   # gain (fast 6 $ 0.5 * sine) --NO CHANGES !!!
 
 
--- CPU heavy, be careful with fast
+-- CPU heavy, be careful with fast and fshift!!!!
 d8 $ striate "16 32" $ fast 1.25
   $ s "gw_cut:5*4 gw_cut:6*6 gw_cut:7*8"
-  # hpf "200 100 50"
+  # hpf "400 100 50"
   -- # hpf 400
-  -- # speed "-0.8"
-  # vowel (choose["a, o, i"])
+  # speed "-0.8"
+  # vowel (choose["a, o, u"])
   -- # waveloss "20 .. 60"
-  # gain 0.6
+  # gain 0.75 -- Start 0.6, MAX 0.85
   # room 0.3 #sz 0.9
   -- # fshift "<-100 150 400>"
 
@@ -172,22 +174,21 @@ hush
 
 -- maybe a main driver of the track = kind of a beat
 d2 $ fast "1 2" $ jux rev
-  -- maybe leave out this part
-  $ rarely (superimpose ((# comb "0.1 0.2") . (# crush 1)))
+  -- $ rarely (superimpose ((# comb "0.1 0.2") . (# crush 1)))
   $ n "5 2 [3 5 3?] 4"
   # s "gw_cut"
-  # bpf "100 1300"
-  -- # vowel "a o u"
+  # bpf "400 800"
+  # vowel "a o u"
   -- # hpf 500
-  -- MIN 0.4, MAX 0.9
+  -- START 0.6 MAX 0.9
   # gain 0.9
   -- MIDI live
   -- # gain (range 0.4 0.8 $ cF 0.5 "2")
   # shape "0.4 0.7 -0.4 0.6" -- CAREFUL! with gain
-  -- # crush "5 6 7"
+  -- # crush "3 6 7"
   -- # comb 0.2
   # speed "-1.1"
-  -- # fshift "-30 .. 50"
+  # fshift "-30 .. 60"
   # legato 10
   -- # djf "0.2 0.8 0.7 0.9"
 
@@ -196,6 +197,7 @@ hush
 
 -- loud, harsh on top of something
 d5 $ fast 0.25 $ ghost
+  -- $ striate 1
   $ stut 5 0.2 0.8
   $ slice 20 "5 7 8" $ n "2" # s "gw_cut"
   # speed "1.2 0.5 1 1.4"
@@ -206,7 +208,7 @@ d5 $ fast 0.25 $ ghost
   # comb 0.6
   # krush 0.1
   # crush 15
-  # gain 1.3 -- START 0.8, MAX 1.2
+  # gain 0.8 -- START 0.8, MAX 1.2
   
 
 
@@ -221,15 +223,15 @@ hush
 --- THREE
 
 -- some rather strange beats and percussions
-d3 $ sometimes ((# squiz 4)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" # pan cosine
-  # speed "-1.4 -2.6 -1.4"
-  # bpf "100 600"
-  # vowel "a i o u"
+d3 $ sometimes ((# squiz 6)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" # pan cosine
+  # speed "-1.5 -2.6 -1.4"
+  # bpf "200 600"
+  -- # vowel "a i o u"
   -- # waveloss "20..60"
-  -- # krush "1..2"
+  # krush "1..2"
   -- # comb 0.6 # room 0.5
   # nudge "1.0" -- # nudge "1.3 1.4 1.2"
-  # gain 0.4 -- MAX 0.6 START 0.4
+  # gain 0.5 -- MAX 0.6 START 0.4
 
 
 hush
@@ -251,11 +253,11 @@ d2 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0] -- LOAD check>!
   # speed "<0.4 0.8>"
   -- # speed "0.4"
   # shape "0.8"
-  # gain 0.2 -- START 0.5 MAX 1
+  # gain 0.8 -- START 0.5 MAX 1
   -- MIDI live
   -- # gain (range 0.4 0.75 $ cF 0.55 "1")
   -- # comb 0.9
-  # fshift "120 -60 23 12"
+  -- # fshift "120 -60 23 12"
 
 hush
 
@@ -265,10 +267,10 @@ hush
 d5 $ off 0.2 ((# speed "-0.6") . (# room 0.6))
   $ n "5!2 3!2"
   # s "gw_cut" # speed 0.4
-  -- # shape 0.3 -- ADJUST gain!!
-  # smear 0.7 -- very nice tones!!!
- -- MAX 0.9
-  # gain 0.4
+  # shape 0.3 -- ADJUST gain!!
+  # smear 0.6 -- very nice tones!!!
+ -- MAX 0.9, START 0.6
+  # gain 0.8
 
 --- we need a synth line here!
 -- dance
@@ -277,16 +279,16 @@ d3 -- $ echo 4 0.4 0.6
   -- $ layer [degradeBy 0.0, scramble 3]
   $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)")
-  # speed "[-43 -22 -16 12]"  -- # speed "[-23 -20 -26 12]"
+  # speed "[-23 -22 -16 12]"  -- # speed "[-23 -20 -26 12]"
   # shape "0.8 -0.9 0.4"
   # squiz "4 5 3 4"
   # room 0.4 # sz 0.4
   -- # waveloss "5 .. 65"
-  -- # hpf 300
+  # hpf 300
   # krush "3 1 2"
   -- # djf rand
   -- # comb 0.3
-  # gain 0.2 -- Start 0.2 MAX 0.6
+  # gain 0.3 -- Start 0.2 MAX 0.6
   -- # gain "0.4 0.3 0.3" -- # gain "0.6 0.9 0.7"
 
 
@@ -347,7 +349,7 @@ d3 $ fast "2 4 3"
   -- # djf "0.3 0.4 0.1 0.5"
 
 
--- bass line
+-- bass line (goes well with SoEU)
 d6 $ fast 2
   $ splice 4 pat
   $ s "gw_cut:3(<3 5>,8)"
@@ -357,7 +359,7 @@ d6 $ fast 2
   # gain 0.5 -- MAX1.1, START 0.5
 
 
--- ALT bass line going...
+-- ALT bass line going.. (goes well with SoEU).
 d6 $ fast 4
   $ slice 6 "6 2 1 2"
   $ n "4 1 3 3"
@@ -368,9 +370,9 @@ d6 $ fast 4
   -- # djf (slow 4 $ range 0.4 0.6 sine)
   # pan perlin
   -- # comb "0.03 0.04"
-  -- # vowel "a u [i|e] u"
+  # vowel "a u [i|e] u"
   -- some dirt! =)
-  -- # squiz "3 6 4 1"
+  # squiz "3 6 4 1"
   -- MIN 0.6, MAX 0.8
   # gain 0.6
   
@@ -396,9 +398,9 @@ d7 -- $ every 4 (chop "<4 8>" . (# lpf 800) . (sometimes (# smear 0.3)))
   # pan perlin
   -- # comb 0.02
   -- # comb "<0.02 0.2 0.5>"
-  -- # vowel "a u [i|e]"
+  # vowel "a u [i|e]"
   # squiz "2 3"
-  -- # smear "<0.5 4 0.8 3>"
+  # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.1
   # gain 1.1
 
@@ -444,29 +446,29 @@ d1 $ fast 4
   -- # djf (slow 8 $ range 0.45 0.75 sine)
   # fshift "<-100 130>"
   -- # waveloss (pat*pat')
-  # pan perlin
+  # pan (fast 2 perlin)
   -- # comb 0.02
-  -- # vowel "a u [i|e]"
+  # vowel "a u [i|e]"
   -- # squiz "2 3"
   -- # smear "<0.5 4 0.8 3>"
   -- MAX gain 1.1
-  # gain 0.4
+  # gain 0.8
 
 
 -- BEAT e.g. >> eats up d4!!!!
-d2 $ fast 4
-  $ sometimes ((# vowel "e"))
-  $ superimpose ((# krush "<2 6>") . (# shape 0.7))
+d2 $ fast 2
+  -- $ sometimes ((# vowel "a"))
+  -- $ superimpose ((# krush "<2 6>") . (# shape 0.7))
   $ grain 0.5 "0.05..0.3"
   # s "gw_cut:0"
   -- # hpf (pat* (range 100 450 sine))
   -- # djf 0.7
-  -- # shape 0.7
+  -- # shape 0.1
   # dry 0.95 # room 0.05 # sz 0.9
   -- # distort 0.1
-  # pan perlin
+  -- # pan perlin
   -- MAX gain 0.9
-  # gain (slow 4 $ range 0.4 0.6 sine)
+  # gain (slow 2 $ range 0.5 0.7 sine)
 
 
 
@@ -476,27 +478,28 @@ d5 $ fast 2
   $ splice 4 pat
   $ s "gw_cut:3(<3 5>,8)"
   # lpf 1800
-  # speed "<-2 -1.7>"
-  # fshift "320 80 1600" -- play the melody here!
+  # speed "<-2.1 -4.7>"
+  # fshift "320 -80 600" -- play the melody here!
   -- MAX gain 0.65
-  # gain 0.5
+  # gain 0.55
 
 
 -- building some drums --> nice THICK -> good for layering (not with d2; optional)
-d4 $ fast 2 $ (striate 10) $ zoom (0.0, 0.25)
+d4 $ fast 4 $ (striate 2) $ zoom (0.0, 0.25)
   $ n "4 1 2 4"
   -- $ n pat
   # s "gw_cut"
   # speed "-1.5 -1 -1.8 -1.5"
-  # legato 2.8
-  -- # djf "0.6 0.7 0.65 0.5"
+  # legato 2.2
+  # djf "0.6 0.7 0.65 0.5"
   -- # comb "0.6 0.3 0.5 0.9"
-  # krush 0.3
+  -- # krush 0.3
   -- # fshift 50
+  -- # room 0.02
   -- START 0.6 MAX gain 1.1
   # gain 0.6
 
-
+hush
 
 
 
