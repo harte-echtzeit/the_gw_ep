@@ -44,9 +44,6 @@ d1 -- $layer [scramble 3, fast 0.5, degradeBy 0.1]
 
 hush
 
-d1 $ s "gw_cut:3" # gain 1.4
-
-
 --- we need a synth line here!
 -- dance
 d3 -- $ echo 4 0.4 0.7
