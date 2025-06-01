@@ -22,22 +22,35 @@ let a = reOrgList 6 list_grav
     pat' = listToPat (reverse (maskPat 8 a))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 -- ji ku kan gig @niu BCN, 2025-06-01
 
 
--- hola! yo soy harte echtzeit ... let'2s go
+
+
+d1 $ slow 0.5 $ n "4" # s "gw_cut"
+  # grain 0.4 0.3
+  # speed "1.2"
+  -- # fshift "<60 65 75 55>"
+  -- # cut 1
+  -- # room 0.1
+  # gain 0.9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 hush
@@ -47,8 +60,8 @@ hush
 
 -- INTRO only!!!
 -- evil drone (breaks sometimes JACK ;-))
-d1 $ slow 4 -- only for intro (count down)
-  $ off 0.25 ((# vowel "a i u") .(# room 1.2) . ( #size "<0.3 0.6>"))
+d1 $ slow 3 -- only for intro (count down)
+  $ off 0.25 ((# vowel "a o u") .(# room 1.2) . ( #size "<0.3 0.6>"))
   -- $ off 0.2 ((# vowel "a") .(# room 1.2) . ( #size 0.3))
   $ n "4!53 3!23"
   # s "gw_cut"
@@ -56,9 +69,9 @@ d1 $ slow 4 -- only for intro (count down)
   # shape "0.99 0.8"
   # cut 1
   -- START 0.3 - MAX 0.5
-  # gain 0.3
-  # pan (slow 4 sine)
-  -- # squiz 3
+  # gain 0.4
+  # pan (slow 2 sine)
+  -- # squiz 4
   -- # lpf 400
 
 hush
@@ -69,22 +82,22 @@ d11 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
   # lpf 800
   # speed "-1.3 0.8 -1.4"
   --- START 0.5 MAX 0.9
-  # gain 0.9
-  --- # smear 0.5
+  # gain 0.7
+  -- # smear 0.5
  
 d11 $ silence
 
 -- base a whole piece on this one --> convey somewhat mysterious and dark feeling (USE for transion as d6)
-d1 $ degradeBy 0.2
-  $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
+d1 $ degradeBy 0.1
+  $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.2) )
   $ n "2 3 5 4 1" # s "gw_cut"
   -- $ n "3 3 2 4 1" # s "gw_cut"
   # shape "0.7 0.3 0.4 0.6"
   # speed "-0.8 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
- # vowel "u e a"
+  # vowel "u e a"
   -- # krush "7.5 3 5 4 1"
   -- MIN 0.5 MAX 0.9
-  # gain 0.4
+  # gain 0.6
   -- # gain (fast 4 $ 1.3*sine)
 
 hush
@@ -94,18 +107,18 @@ d12 $ n "8 10 8 10" # s "gw_cut"
   # speed "-0.5 0.1 -0.4" -- PLAY
   # vowel "a i? o u"
   # djf 0.3
-  # room (slow 1 $ range 0 0.5 sine)
+  -- # room (slow 1 $ range 0 0.5 sine)
   -- MAX 0.9
-  # gain 0.6
+  # gain 0.5
 
 d12 $ silence
 
 -- OPTIONAL -> careful LOAD
--- more nerveous background noise (very quiet!!!!)
+--more nerveous background noise (very quiet!!!!)
 d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 64) . (# pan tri) )) $ s "[gw_cut:7(11,16)]*2"
   # speed "72.5 20.5 12"
   -- # gain 0.1
-  # gain "0.6 0.5 0.5"
+  # gain "0.5 0.4 0.4"
   # vowel "a o i u"
   # hpf 1200 # nudge "0.05" # distort (fast 2 $ saw) # squiz 8 # shape 0.3 # room 0.4 # sz 0.2
 
@@ -131,7 +144,7 @@ d10 $ jux rev $ fast 2.5 $ degradeBy 0.0
   -- # djf 0.7
   # hpf (slow 0.2 $ sine) -- # hpf (slow 0.2 $ range 200 400 sine)
   # pan (fast 2 $ cosine)
-  # gain 0.3 -- MAX 0.5
+  # gain 0.5 -- MAX 0.5
 
 d10 $ silence
 
@@ -162,7 +175,7 @@ d8 $ striate "11 22" $ fast 1.25
 -- TEST TEST -> copied from further below to give some structrue (might act as a transition)
 -- some background clicks and drumming - stable to drive track! e.g. with d6
 d7 $ fast 4
-  $ degradeBy 0.5
+  $ degradeBy 0.3
   $ slice 6 "6 4 1 4"
   -- $ sometimes (swingBy (1/2) 2)
   $ n "4 1 2 4"
@@ -174,14 +187,14 @@ d7 $ fast 4
   # legato 1
   -- # djf (slow 4 $ range 0.45 0.75 sine)
   # fshift "<-50 90>"
-  # waveloss "12"
+  -- # waveloss "12"
   # pan perlin
   -- # comb "<0.02 0.2 0.5>"
   # vowel "a u [i|e]"
   # squiz "4 3"
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.2
-  # gain 0.8
+  # gain 0.9
 
   
 
@@ -208,11 +221,11 @@ d2 $ fast "1 2" $ jux rev
   # vowel "a o i"
   -- # hpf 500
   -- START 0.6 MAX 0.9
-  # gain 0.9
+  # gain 0.7
   -- MIDI live
   -- # gain (range 0.4 0.8 $ cF 0.5 "2")
   # shape "0.4 0.7 -0.4 0.6" -- CAREFUL! with gain
-  -- # crush "3 6 7"
+  # crush "3 6 7"
   -- # comb 0.2
   # speed "-1.1" -- Play start at -0.9
   # fshift "-30 .. 60"
@@ -225,7 +238,7 @@ hush
 -- DANCE part which is basically GWFR04 and some parts of SoEU
 
 -- bassy bassy beat -> driver with bass line + synth
-d2 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0] -- LOAD check>!
+d4 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0] -- LOAD check>!
   $ jux rev
   -- $ off 0.2 ((# speed "-0.5") . (# room 0.3))
   -- $ chop 1
@@ -236,7 +249,7 @@ d2 -- $ layer [scramble 2, fast 0.5, degradeBy 0.0] -- LOAD check>!
   # speed "<0.5 0.8>"
   -- # speed "0.4"
   # shape "0.8"
-  # gain 0.5 -- START 0.5 MAX 1
+  # gain 0.4 -- START 0.5 MAX 1
   -- # comb 0.9
   # fshift "120 -60 23 12"
 
@@ -251,7 +264,7 @@ d5 $ off 0.2 ((# speed "-0.5") . (# room 0.4))
   # shape 0.4 -- ADJUST gain!!
   -- # smear 0.4 -- very nice tones!!!
  -- MAX 0.9, START 0.6
-  # gain 0.8
+  # gain 0.6
   -- # fshift "50 -50"
 
 --- we need a synth line here!
@@ -314,7 +327,7 @@ hush
 
 hush
 
---- THREE
+-- ->>>>  THREE
 
 
 -- some background clicks and drumming - stable to drive track! e.g. with d6
@@ -340,7 +353,7 @@ d7 $ every 4 (chop "<4 8>" . (# lpf 800) . (sometimes (# smear 0.3)))
   # squiz "4 3"
   # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.1
-  # gain 0.8
+  # gain 0.95
 
 
 
@@ -357,9 +370,9 @@ d6 $ fast 4
   -- # comb "0.03 0.04"
   -- # vowel "o u [i|e] u"
   -- some dirt! =)
-  # squiz "3 6 4 1"
+  -- # squiz "3 6 4 1"
   -- MIN 0.6, MAX 0.8
-  # gain 0.5
+  # gain 0.6
   
 
 -- weave a bit thicker here in order to build up towards a BREAK
@@ -374,8 +387,10 @@ d8 $ fast 0.5
   -- MAX 0.9
   # gain 0.6
 
--- from SoEU track---> NEEDS WORK!!!
 
+-- + D9 here??
+
+-- from SoEU track---> NEEDS WORK!!!
 -- some background clicks and drumming - stable to drive track! e.g. with d6
 d1 $ fast 2
   $ almostNever (superimpose ((# room 0.2) . (# gain 0.3) . (#krush 3)))
@@ -445,8 +460,11 @@ d5 -- $ layer [iter 5]
   # room 0.4 # sz 0.6
   -- MAX 0.6, START 0.3
   # gain 0.5
- 
---- >>>>
+
+
+
+--- >>>> xxooooxxxxooooxooooxoxox <<<<<-----
+
 
 -- BEAT e.g. >> leads from INTER to d09!!!
 d2 $ fast 4
