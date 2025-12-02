@@ -1,0 +1,46 @@
+-- a very rough template for 2026 HE ji ku kan live sets
+
+-- MIDI for gain control and muting
+-- MIDI maybe also for viz control
+
+
+
+-- FADERFOX MIDI mapping
+-- here Group1!!!!
+-- CC32 - 39 = Faders
+-- CC 64 - 71 = green buttons (note on/off)
+-- CC 8-15 = encoders -
+-- CC 0-7 = encoder buttons
+
+
+-- SEE tidal userbase for playback controllers!!! https://userbase.tidalcycles.org/Playback_Controllers.html
+
+d1 $ s "clubkick!4" # gain 0.6
+
+-- TEST TEST -> this is just to test MIDI funs!!!
+d3 $ fast 4
+  $ degradeBy 0.2
+  $ slice 6 "6 4 1 4"
+  -- $ sometimes (swingBy (1/2) 2)
+  $ n "4 1 2 4"
+  # s "gw_cut(6,8)"
+  # speed "1.9"
+  # shape "0.8" -- !!! adjust GAIN down!
+  -- # hpf "150 300 200 500"
+  -- # lpf 1500
+  # legato 1
+  -- # djf (slow 4 $ range 0.45 0.75 sine)
+  # fshift "<-50 90>"
+  # waveloss "12"
+  # pan perlin
+  -- # comb "<0.02 0.2 0.5>"
+  -- # vowel "a o [i|u]"
+  # squiz "5 3"
+  -- # smear "<0.5 4 0.8 3>"
+ -- MAX gain 1.2
+  -- # gain 0.4
+  # gain (range 0.1 0.9 $ cF 0.5 "32")
+
+mute $ c 2 "64"
+
+  hush
