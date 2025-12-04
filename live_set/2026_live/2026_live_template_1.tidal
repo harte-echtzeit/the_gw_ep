@@ -18,6 +18,7 @@
 d1 $ s "clubkick!4" # gain 0.6
 
 -- TEST TEST -> this is just to test MIDI funs!!!
+
 d3 $ fast 4
   $ degradeBy 0.2
   $ slice 6 "6 4 1 4"
@@ -40,6 +41,9 @@ d3 $ fast 4
  -- MAX gain 1.2
   -- # gain 0.4
   # gain (range 0.1 0.9 $ cF 0.5 "32")
+
+
+d4 $ s "superpiano" # n (<"(cN 127 "64") (cN 127 "64")">)
 
 mute $ c 2 "64"
 
