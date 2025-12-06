@@ -12,10 +12,34 @@
 -- CC 8-15 = encoders -
 -- CC 0-7 = encoder buttons
 
-
 -- SEE tidal userbase for playback controllers!!! https://userbase.tidalcycles.org/Playback_Controllers.html
 
-d1 $ s "clubkick!4" # gain 0.6
+-- mapping the Midi Notes to gain in a readable format
+-- template # gain (range min_val max_val $ cF start_val (gm "dX")
+-- e.g.   # gain (range 0.1 0.9 $ cF 0.5 (gm "d1"))
+gm :: String -> [Char]
+gm "d1" = "32"
+gm "d2" = "33"
+gm "d3" = "34"
+gm "d4" = "35"
+gm "d5" = "36"
+gm "d6" = "37"
+gm "d7" = "38"
+gm "d8" = "39"
+gm "d9" = "8"
+gm "d10" = "9"
+gm "d11" = "10"
+gm "d12" = "11"
+gm _ = "0"
+
+
+
+d1 $ s "clubkick!4"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d1"))
+
+d2 $ n "0..7" # s "cpu2:7"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d2"))
+
 
 -- TEST TEST -> this is just to test MIDI funs!!!
 
@@ -40,11 +64,35 @@ d3 $ fast 4
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.2
   -- # gain 0.4
-  # gain (range 0.1 0.9 $ cF 0.5 "32")
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d3"))
 
 
-d4 $ s "superpiano" # n (<"(cN 127 "64") (cN 127 "64")">)
+d4 $ s "superpiano" # n "a c a b"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d4"))
 
-mute $ c 2 "64"
+d5 $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d5"))
 
-  hush
+d6 $ fast 2 $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d6"))
+
+d7 $ every 2 (chop 23) $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d7"))
+
+ d8 $ fast 4 $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d8"))
+  # room 0.1
+
+  d9 $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d9"))
+
+  d10 $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d10"))
+
+  d11 $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d11"))
+
+  d12 $ note "a c a b" # s "bd sd hh"
+  # gain (range 0.1 0.9 $ cF 0.5 (gm "d12"))
+
+ hush
