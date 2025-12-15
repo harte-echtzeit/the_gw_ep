@@ -1,0 +1,163 @@
+-- AMP x-mas Party
+
+
+-- HOW TO transfrom simple, and rather dull, GW raw signals into a techno track
+
+d1 $ s "gw_cut"
+  # speed "-1.4"
+  # gain 0.9
+  -- some spice -> reverb
+  -- # room 0.05 # sz 0.2
+
+hush
+
+
+-- fast background
+d2 $ fast 4
+  $ n "2 1 1 0"
+  # s "gw_cut"
+  # grain 0.5 0.05
+  # hpf 200
+  # gain 0.8
+  -- add some spice and variety
+  -- # comb 0.1
+  -- # squiz 2 -- some spice
+  # vowel "e [a|o]"
+ 
+-- get a kind of bass line going...
+d3 $ fast 4
+  $ slice 6 "6 2 1 3"
+  $ n "4 1 3 2"
+  # s "gw_cut(6,8)"
+  # speed 1.4
+  # shape "0.8" -- !!! adjust GAIN down!
+  # legato 1
+  # djf (slow 4 $ range 0.4 0.6 sine)
+  # pan perlin
+  -- # comb "0.03 0.04"
+  -- # vowel "a u [i|e] u"
+  -- some dirt! =)
+  # squiz "4 6 2 1"
+  # gain 0.7
+
+hush
+
+
+--- we need a synth line here! a more complex sound
+d4 $ s ("gw_cut:2(11,16)")
+  # speed "-23 -42 -36 -22"
+  # shape "<0.9 0.6 0.7>"
+  -- # squiz "3 5 1 4"
+  -- # waveloss "10 .. 50"
+  # gain 0.35
+
+
+hush
+
+
+
+let tilt = pF "tilt"
+
+d1 $ slow 2
+  $ layer [id, (# room 0.05) . (# gain 0.8), rot 2 . fast 2 . (# gain 0.6), chop 3]
+  $ note "a c a b b a c a" # octave 6 # s "gw_cut:3"
+  # grain 0.4 0.1
+  # tilt 0.01
+  # speed "-0.8 -0.9 -0.6"
+  -- # comb 0.1
+
+  d2 $ whenmod 5 3 (jux rev)
+  $ almostNever (rot (slow 1 $ run 8))
+  $ fast 2
+  $ note (scale "phrygian" "1 0 [1|5] 0 [0|8] 1 1 0") # s "gw_cut:4"
+  # grain 0.35 0.1
+  # speed "23 12 43 64"
+
+
+
+
+--- a bit more X-MAS
+
+d1 $ n "1 0 0 1? 0 1 1 0" # s "bd cpu2:1" # gain 0.8
+
+d2 $ note "1 [1|5] 1 1 [1 3] 1 1 1"
+  # s "cpu2:8"
+  # gain 0.9
+  # comb 0.2
+
+-- get some christmas vibes here ;-)
+d3 -- $ sometimes (chop 2 . (ghost))
+  $ slow 4 $ note "[[3 3] 3] [[3 3] 3] [3 5 1 2] [3][4!][4 3 3 [3 3]][5 5 4 2] [1]"
+  # s "superpiano"
+  # legato 2
+  # gain 0.8
+
+d4 $ every 2 (rot 2) $ note "[[3 3] 3] [[3 3] 3] [3 5 1 2] [3]" # s "casio bleep tabla2" # gain 0.7
+
+d5 $ every 4 ((# squiz 2) . (# room 0.1))
+  $ s "clubkick!4"
+  # gain 0.6
+
+
+
+-- LAST Christmas
+
+d1 $ sometimes (rot (irand 8))
+  $ note "0 [10|8|4] 0 10 0 10 10 0" # s "cpu2:1"
+
+d2 $ fast 2 $ rot 4
+  $ note "0 [10|8|4] 0 10 0 10 [10|5] 0" # s "cpu2:8" #gain 0.8
+
+-- last christmas needs a bit more fine tuning here!
+d3 $ slow 6  $ note "[g ~] [g ~ f c] [g g a f] [~ d] [d g g] [a]  [f ~ d e] [f e d ~]" # s "supermandolin" #legato 4
+
+d5 $ slow 4 $ note "d'maj b'min e'maj a'maj" # s "superpiano" # sustain 2 # lpf 1000 # room 0.1 # gain 0.7
+
+
+d4 $ note "1 [1|6] 1 [1|4]" # s "clubkick" # gain "0.8 [0.7|0.9] 0.9 0.8"
+
+
+
+-- > DEF of some helper functions
+
+-- grab some interesting integer sequences here e.g. OEIS
+-- list_euler = A000010
+-- list_fractal = A025480
+-- list_grav = A353769
+let list_euler = [1, 1, 2, 2, 4, 2, 6, 4, 6, 4, 10, 4, 12, 6, 8, 8, 16, 6, 18, 8, 12, 10, 22, 8, 20, 12, 18, 12, 28, 8, 30, 16]
+    list_fractal = [0, 0, 1, 0, 2, 1, 3, 0, 4, 2, 5, 1, 6, 3, 7, 0, 8, 4, 9, 2, 10, 5, 11, 1, 12, 6, 13, 3, 14, 7, 15, 0, 16, 8, 17, 4, 18, 9, 19, 2, 20, 10, 21, 5, 22, 11, 23, 1, 24, 12, 25, 6, 26, 13, 27, 3, 28, 14, 29, 7, 30, 15, 31, 0, 32, 16, 33, 8, 34, 17, 35, 4, 36, 18, 37, 9, 38, 19, 39, 2, 40, 20, 41, 10]
+    list_grav = [6, 4, 9, 2, 2, 4, 1, 4, 4, 5, 6, 4, 5, 9, 1, 2, 6, 4, 7, 1, 2, 4, 7, 4, 7, 4, 2, 4, 4, 6, 6, 8, 2, 0, 3, 1, 5, 3, 5, 9, 5, 0, 1, 6, 4, 6, 9, 1, 0, 4, 1, 9, 3, 1, 3, 4, 8, 7, 8, 0, 0, 3, 3, 4, 0, 3, 3, 2, 2, 1, 2, 8, 6, 1, 7, 1, 1, 1, 5, 9, 9, 4, 3, 1, 3, 1, 4, 4, 2, 9, 8, 3, 8, 6, 5, 2, 6, 4, 0, 8, 2, 9, 9, 0, 0]
+
+
+
+-- defs of some very simple list manipulation
+reOrgList n x = drop n x ++ take n x
+maskPat l x = take l x
+maskPat' o l x = take l (drop o x)
+
+
+-- short-hand for using it while playing live
+let a = reOrgList 6 list_grav
+    pat = listToPat (maskPat 8 a)
+    pat' = listToPat (reverse (maskPat 8 a))
+
+
+-- MAYBE
+-- weave a bit thicker here in order to build up towards a BREAK
+-- myterious = switch on and of
+d8 $ fast 0.5
+  $ slice 8 pat'
+  -- $ randcat [note pat, note pat']
+  $ s "gw_cut:8 gw_cut:8"
+  # grain 0.55 0.05
+  # octave 6
+  # smear "0.3 .. 0.7"
+  # speed "-1.0 <-0.4 -1.4>"
+  # pan perlin
+  # dry 0.2 # room 0.7 # sz 0.85
+  # gain 0.9
+
+
+
+hush
+
