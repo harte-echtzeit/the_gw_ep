@@ -1,0 +1,339 @@
+-- live set ONE for 2026
+-- harte echtzeit ji ku kan
+
+
+
+-- FADERFOX MIDI mapping @ Group1 !!!!
+-- CC32 - 39 = Faders
+-- CC 64 - 71 = green buttons (note on/off)
+-- CC 8-15 = encoders -
+-- CC 0-7 = encoder buttons
+
+-- SEE tidal userbase for playback controllers!!! - must be implemented by SC startup script https://userbase.tidalcycles.org/Playback_Controllers.html
+
+-- mapping the Midi Notes to gain in a readable format
+-- template # gain (range min_val max_val $ cF start_val (gm "dX")
+-- e.g.   # gain (range 0.1 0.9 $ cF 0.5 (gm "d1"))
+gm :: String -> [Char]
+gm "d1" = "32"
+gm "d2" = "33"
+gm "d3" = "34"
+gm "d4" = "35"
+gm "d5" = "36"
+gm "d6" = "37"
+gm "d7" = "38"
+gm "d8" = "39"
+gm "d9" = "8"
+gm "d10" = "9"
+gm "d11" = "10"
+gm "d12" = "11"
+gm _ = "0"
+
+---------------------------------------------------------------
+
+-- > DEF of some helper functions
+
+-- grab some interesting integer sequences here e.g. OEIS
+-- list_euler = A000010
+-- list_fractal = A025480
+-- list_grav = A353769
+let list_euler = [1, 1, 2, 2, 4, 2, 6, 4, 6, 4, 10, 4, 12, 6, 8, 8, 16, 6, 18, 8, 12, 10, 22, 8, 20, 12, 18, 12, 28, 8, 30, 16]
+    list_fractal = [0, 0, 1, 0, 2, 1, 3, 0, 4, 2, 5, 1, 6, 3, 7, 0, 8, 4, 9, 2, 10, 5, 11, 1, 12, 6, 13, 3, 14, 7, 15, 0, 16, 8, 17, 4, 18, 9, 19, 2, 20, 10, 21, 5, 22, 11, 23, 1, 24, 12, 25, 6, 26, 13, 27, 3, 28, 14, 29, 7, 30, 15, 31, 0, 32, 16, 33, 8, 34, 17, 35, 4, 36, 18, 37, 9, 38, 19, 39, 2, 40, 20, 41, 10]
+    list_grav = [6, 4, 9, 2, 2, 4, 1, 4, 4, 5, 6, 4, 5, 9, 1, 2, 6, 4, 7, 1, 2, 4, 7, 4, 7, 4, 2, 4, 4, 6, 6, 8, 2, 0, 3, 1, 5, 3, 5, 9, 5, 0, 1, 6, 4, 6, 9, 1, 0, 4, 1, 9, 3, 1, 3, 4, 8, 7, 8, 0, 0, 3, 3, 4, 0, 3, 3, 2, 2, 1, 2, 8, 6, 1, 7, 1, 1, 1, 5, 9, 9, 4, 3, 1, 3, 1, 4, 4, 2, 9, 8, 3, 8, 6, 5, 2, 6, 4, 0, 8, 2, 9, 9, 0, 0]
+
+
+-- defs of some very simple list manipulation
+reOrgList n x = drop n x ++ take n x
+maskPat l x = take l x
+maskPat' o l x = take l (drop o x)
+
+
+-- short-hand for using it while playing live
+let a = reOrgList 6 list_grav
+    pat = listToPat (maskPat 8 a)
+    pat' = listToPat (reverse (maskPat 8 a))
+
+
+let tilt = pF "tilt"
+
+
+-- ji ku kan gig @ XXX, 2026-01-01
+
+-- hi there, I'm harte echtzeit
+
+
+---------------------- >>>>>>> INTRO <<<<<< -----------
+---YES! gw birds taking over =) aka the whipbird
+
+d6 $ s "birds" # gain 0.7
+ 
+
+d5 $ slow 1
+  $ s "[gw_bird_edit:0, gw_bird_edit:1]"
+  # tilt 0.1
+  # hpf 800
+  -- # octave 4
+  -- # speed (slow 4 $ range 0.8 1.2 $ tri)
+  # pan perlin
+
+
+d1 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
+  # grain 0.1 0.75
+  # tilt 0.1
+  -- # note (scale "phrygian" "[1 3, 1 5 7 3]")
+  # octave 4
+-- # smear 0.1
+  # room 0.05
+-- # note "a4"
+  -- # speed "0.9"
+
+
+d4 $ sometimes (# vowel "[a|u|e]")
+  $ slow 1
+  $ jux rev
+  -- $ superimpose ((# krush 0.8) . (# gain 0.8))
+  $ s "gw_bird_edit:2*2"
+  # grain 0.7 0.2
+  # tilt 0.1
+  # speed "1 -1"
+  # note (scale "ritusen" "<2 1 3 5> <3 1 0 2>")
+  # room 0.06
+  # djf (range 0.4 0.8 $ tri2)
+  # gain 1
+  -- # cps (130/60/4)
+  -- # vowel "a u i"
+
+
+-- very basic gw chirp as a bridge
+d2 $ slow 4 $ s "gw_cut:8*3"
+  # grain 0.45 0.35
+  # note "a5 g5 c6"
+  # tilt 0.1
+  # room 0.1
+  # gain 0.7
+
+
+-- very, very simple rhythm
+d2 $ every 2 (rot (irand 4))
+  $ struct "1 1 [0 1] 1" $ s "gw_cut:1" # note "a6"
+  # grain 0.2 0.6
+  # tilt 0.01
+  # speed "-0.8"
+  # shape 0.5
+  # gain 0.6
+
+-- very, very simple hi-hat-like pattern
+
+d7 $ fast 2 $ n "1 [3 5] ~ 6" # s "gw_raw"
+  # grain 0.5 0.1
+  # bpf 2800
+  # tilt 0.01
+  # note "d7"
+  # speed "-1.8"
+
+
+------------------->>>>>>>>>>>>>>> BRIDGE <<<<<<<<<<<<---------------
+
+-- D09 is secnnd base theme of the track --> some clicking but also dark, bassy tones (no real beat, but more backdrop)
+d9 $ fast 1.5 $ jux rev
+  $ every 3 ((# room 0.05))
+  $ splice 6 "6 3 ~ 1 5 3"
+  $ n "{2, 6}" # s "gw_cut"
+  # vowel "u?o a [e|i]"
+  -- # tsdelay "<0.3 0.1 0.4 0.6>"
+  -- # xsdelay "0.1"
+  -- # smear 0.4
+  -- # ring 4 # ringf "50 25"
+  -- # ringdf (fast 2 $ range 80 1000 sine)
+  # speed "0.6 1.5 1"
+  -- # shape "0.2 0.5 0.8"
+  -- # krush "1.9 2.4 3"
+  -- START 0.6 max 0.9
+  # gain 0.7
+
+hush
+
+d9 $ silence
+
+
+-- --------------------->>>>>>>>>>> BUILDUP <<<<<<<<<<<<<<<---------------
+
+-- some background clicks and drumming - stable to drive track! e.g. with d6
+d7 $ every 4 (chop "<4 8>" . (# lpf 800) . (sometimes (# smear 0.3)))
+  $ fast 4
+  $ degradeBy 0.0
+  $ slice 6 "6 4 1 4"
+  -- $ sometimes (swingBy (1/2) 2)
+  $ n "4 1 2 4"
+  # s "gw_cut(6,8)"
+  # speed "1.5"
+  # shape "0.6" -- !!! adjust GAIN down!
+  -- # hpf "150 300 200 500"
+  -- # lpf 1500
+  # legato 1
+  -- # djf (slow 4 $ range 0.45 0.75 sine)
+  -- # fshift "<-50 90>"
+  -- # waveloss "32"
+  # pan perlin
+  -- # comb 0.02
+  # comb "<0.02 0.2 0.5>"
+  # vowel "a u [i|e]"
+  # squiz "4 3"
+  -- # smear "<0.5 4 0.8 3>"
+ -- MAX gain 1.1
+  # gain 0.7
+
+
+
+-- ALT bass line going.. (goes well with SoEU).
+d6 $ fast 4
+  $ slice 6 "6 2 1 2"
+  $ n "4 1 3 3"
+  # s "gw_cut(6, 8)"
+  # speed 1.4
+  # shape "0.8" -- !!! adjust GAIN down!
+  # legato 1
+  -- # djf (slow 4 $ range 0.4 0.6 sine)
+  # pan perlin
+  --- # comb "0.03 0.04"
+  # vowel "a u [i|e] u"
+  -- some dirt! =)
+ # squiz "3 6 4 1"
+  -- MIN 0.6, MAX 0.8
+  # gain 0.5
+
+
+-- some background clicks and drumming - stable to drive track! e.g. with d6
+d1 $ fast 2
+  $ almostNever (superimpose ((# room 0.2) . (# gain 0.3) . (#krush 3)))
+  $ degradeBy 0.0
+  $ slice 6 "6 4 1 0"
+  -- $ sometimes (swingBy (1/2) 2)
+  $ n "4 1 2 4"
+  # s "gw_cut(6,8)"
+  # speed "1.4"
+  # shape "0.8" -- !!! adjust GAIN down!
+  # hpf "150 300 200 500"
+  -- # lpf 3500
+  # legato 1
+  -- # djf (slow 8 $ range 0.45 0.75 sine)
+  # fshift "<-100 130>"
+  # waveloss (pat*pat')
+  # pan (fast 2 perlin)
+  # comb 0.02
+  -- # vowel "o u [i|e]"
+  # squiz "3 5"
+  -- # smear "<0.58 4 0.8 2>"
+  -- MAX gain 1.1
+  # gain 0.7
+  
+
+---------------------->>>>>>>>>>>> FUCK UP ! <<<<<<<<<<<<<<<---------
+
+
+  -- building some drums --> nice THICK -> good for layering (not with d2; optional)
+d4 $ fast 4 $ (striate 2)
+  $ degradeBy 0.0
+  $ zoom (0.0, 0.25)
+  $ n "4 1 2 4"
+  -- $ n pat
+  # s "gw_cut"
+  # speed "-1.0 -1 -1.8 -1.5"
+  # legato 2.2
+  -- # djf "0.6 0.7 0.65 0.5"
+  -- # comb  "0.6 0.3 0.5 0.9"
+  -- # krush 0.3
+  -- # fshift 50
+  -- # room 0.02
+  -- START 0.6 MAX gain 1.1
+  # gain 0.6
+
+
+let pa = "1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18 8 12 10 22 8 20 12 18 12 28 8 30 16 20 16 24 12 36 18 24 16 40 12 42 20 24 22 46 16 42 20 32 24 52 18 40 24 36 28 58 16 60 30 36 32 48 20 66 32 4" -- > Euler Phi A000010
+    pa_short = "1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18 8 12 10 22 8 20 12 18 12 28 8 30 16"
+
+
+-- backdrop only
+d5 -- $ layer [iter 5]
+  -- $ ghost
+  $ slow 4
+  -- $ swingBy (1/2) 8
+  $ zoom (0.25, 0.75) 
+  $ superimpose ((# speed "-2.5"). ( # room 0.1))
+  -- $ n "3 6 7 5"
+  $ n pa_short
+  # s "gw_cut"
+  # speed "1.5 -2.3 3.4"
+  -- # vowel "a? e i u"
+  -- # speed 3
+  # legato 2.8
+  -- # nudge "0.2 0.1 0.4"
+  -- # lpf "300"
+  # krush "4 5 2 3"
+  -- # krush pa_short
+  # room 0.4 # sz 0.6
+  -- MAX 0.6, START 0.3
+  # gain 0.5
+
+-- really beatup to break the track hard-> really?
+
+d3 -- $ fast "2 3"
+  $ jux rev
+  -- $ sometimes (superimpose ((# comb "0.1 0.3") . (# crush 7)))
+  $ n "1 2 [3 4 3?] 4"
+  # s "gw_cut"
+  # bpf "200 1200"
+  -- # hpf 800
+  # shape "0.1 0.3 0.4 0.2"
+  -- # crush "2 3" -- DANGER
+  # speed "-1.4"
+  # legato 16
+  # gain 0.5 -- MAX 0.7, START 0.5
+
+-- weave a bit thicker here in order to build up towards a BREAK
+-- myterious = switch on and of
+d8 $ fast 0.5
+  $ slice 6 pat'
+  $ grain 0.6 0.05 # s "gw_cut:8 gw_cut:8"
+  # smear "0.4 .. 0.8"
+  # speed "-1 <-0.9 -1.1>"
+  # pan perlin
+  # dry 0.6 # room 0.7 # sz 0.8
+  -- MAX 0.9
+  # gain 0.75
+
+
+------------>>>>>>>>>>> FINAL <<<<<<<<<<<<-----------
+
+  -- loud, harsh on top of something
+d5 $ fast 0.25 $ ghost
+  -- $ striate 1
+  $ stut 5 0.2 0.8
+  $ slice 20 "5 7 8" $ n "2" # s "gw_cut"
+  # speed "1.2 0.5 1 1.4"
+  # lpf 2800
+  # fshift "-1180 1100 190 420"
+  # shape 0.8
+  # smear 0.5
+  # comb 0.6
+  # krush 0.1
+  # crush 32
+  # gain 0.8 -- START 0.8, MAX 1.2
+
+
+d4 $ sometimes (# vowel "[a|u|e]")
+  $ slow 1
+  $ jux rev
+  -- $ superimpose ((# krush 0.8) . (# gain 0.8))
+  $ s "gw_bird_edit:2*2"
+  # grain 0.7 0.2
+  # tilt 0.1
+  # speed "1 -1"
+  # note (scale "ritusen" "<2 1 3 5> <3 1 0 2>")
+  # room 0.06
+  # djf (range 0.4 0.8 $ tri2)
+  # gain 1
+  -- # cps (130/60/4)
+  -- # vowel "a u i"
+
+  d6 $ s "birds" # gain 0.7

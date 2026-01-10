@@ -93,6 +93,6 @@ d7 $ every 2 (chop 23) $ note "a c a b" # s "bd sd hh"
   # gain (range 0.1 0.9 $ cF 0.5 (gm "d11"))
 
   d12 $ note "a c a b" # s "bd sd hh"
-  # gain (range 0.1 0.9 $ cF 0.5 (gm "d12"))
+  # gain (range 0.1 1 $ cF 0.5 (gm "d12"))
 
  hush
