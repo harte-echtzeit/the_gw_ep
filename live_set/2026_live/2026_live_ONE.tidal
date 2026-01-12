@@ -70,6 +70,7 @@ d6 $ s "birds"
   # gain (range 0.1 0.9 $ cF 0.7 (gm "d6"))
  
 
+
 d5 $ slow 1
   $ s "[gw_bird_edit:0, gw_bird_edit:1]"
   # tilt 0.1
@@ -153,7 +154,7 @@ d9 $ fast 1.5 $ jux rev
   -- # ring 4 # ringf "50 25"
   -- # ringdf (fast 2 $ range 80 1000 sine)
   # speed "0.6 1.5 1"
-  -- # shape "0.2 0.5 0.8"
+  # shape "0.2 0.5 0.8"
   -- # krush "1.9 2.4 3"
   -- START 0.6 max 0.9
   -- # gain 0.7
