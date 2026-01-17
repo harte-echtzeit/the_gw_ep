@@ -278,8 +278,8 @@ d4 $ layer [scramble 3, fast 0.5, degradeBy 0.0] -- LOAD check>!
   -- # hpf 400
   # speed "<0.4 0.8>"
   -- # speed "0.4"
-  # shape "0.8"
-  # gain 0.5 -- START 0.5 MAX 1
+  -- # shape "0.8"
+  # gain 0.8 -- START 0.5 MAX 1
   -- # comb 0.9
   -- # fshift "120 -60 23 12"
 
@@ -289,13 +289,13 @@ hush
 -- >inspiration (see above)
 
 -- dark dance (backdrop, nice with d3)
-d5 $ off 0.2 ((# speed "-0.5") . (# room 0.4))
+d5 -- $ off 0.2 ((# speed "-0.5") . (# room 0.4))
   $ n "5!2 3!2"
-  # s "gw_cut" # speed 0.5  -- Play speed
-  # shape 0.4 -- ADJUST gain!!
-  -- # smear 0.4 -- very nice tones!!!
+  # s "gw_cut" # speed 0.85  -- Play speed
+  # shape 0.1 -- ADJUST gain!! (0.1 -.5)
+  # smear 0.5 -- very nice tones!!! (0.5 -1.2)
  -- MAX 0.9, START 0.6
-  # gain 0.6
+  # gain 0.7
   -- # fshift "50 -50"
 
 --- we need a synth line here!
