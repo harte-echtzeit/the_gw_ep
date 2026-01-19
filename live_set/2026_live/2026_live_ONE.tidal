@@ -75,13 +75,13 @@ d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200)) $
   # gain (fast 6 $ 0.3 * sine) --NO CHANGES !!!
   
 
-d1 $ n "1 [~ 3] ~" # s "kkw"
+d1 $ sometimes (striate 1) $ n "3 [2 ~] ~" # s "kkw"
   # tilt 0.01
   # gain (range 0.3 1.3 $ cF 0.5 (gm "d1"))
 
+-- START here
 d2 $ slow 1.35 $ n "0" # s "water"
   # gain (range 0.3 1 $ cF 0.5 (gm "d2"))
-
 
 ---YES! gw birds taking over =) aka the whipbird
 
@@ -101,6 +101,8 @@ d1 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
 -- # note "a4"
   -- # speed "0.9"
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d1"))
+
+
 
 
 d4 $ sometimes (# vowel "[a|u|e]")
@@ -133,12 +135,12 @@ d2 $ slow 2 $ s "gw_cut:8*3"
 
 -- very, very simple rhythm
 d2 $ every 2 (rot (irand 4))
-  $ struct "1 1 [0 1] 1" $ s "gw_cut:1" # note "a6"
+  $ struct "1 1 [0 1]/2 1" $ s "gw_cut:1" # note "a6"
   # grain 0.2 0.6
   # tilt 0.01
-  # speed "-0.8"
+  # speed "-0.8 -2 -1.5 -4"
   # shape 0.5
-  # gain 0.6
+  -- # gain 0.6
   # gain (range 0.3 0.9 $ cF 0.5 (gm "d2"))
 
 -- very, very simple hi-hat-like pattern
@@ -148,7 +150,7 @@ d7 $ fast 2 $ degradeBy 0.2 $ n "1 [3 5] ~ 6" # s "gw_raw"
   # bpf 2800
   # tilt 0.01
   # note "d7"
-  # speed "-1.8 1 -2 -4"
+  # speed "-1.8 -2 -4 -2.3"
   # gain (range 0.3 1.35 $ cF 0.5 (gm "d7"))
 
 
@@ -163,11 +165,11 @@ d9 $ fast 1.5 $ jux rev
   -- # tsdelay "<0.3 0.1 0.4 0.6>"
   -- # xsdelay "0.1"
   -- # smear 0.4
-  -- # ring 4 # ringf "50 25"
+  # ring 4 # ringf "50 25"
   -- # ringdf (fast 2 $ range 80 1000 sine)
   # speed "0.6 1.5 1"
-  -- # shape "0.2 0.5 0.8"
-  # krush "1.9 2.4 3"
+  # shape "0.2 0.5 0.8"
+  -- # krush "1.9 2.4 3"
   -- START 0.6 max 0.9
   -- # gain 0.7
   # gain (range 0.4 0.85 $ cF 0.5 (gm "d9"))
@@ -197,7 +199,7 @@ d7 $ every 4 (chop "<2 4>" . (# lpf 800) . (sometimes (# smear 0.3)))
   -- # waveloss "32"
   # pan perlin
   -- # comb 0.02
-  # comb "<0.02 0.2 0.5>"
+  -- # comb "<0.02 0.2 0.5>"
   -- # vowel "a u [i|e]"
   # squiz "4 3"
   -- # smear "<0.5 4 0.8 3>"
