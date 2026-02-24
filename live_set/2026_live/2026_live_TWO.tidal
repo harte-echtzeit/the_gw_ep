@@ -72,6 +72,42 @@ d4 $ sometimes (# vowel "[a|u|e]")
   # gain 0.7
 
 
+d4 -- $ sometimes (# vowel "[a|u|e]")
+  $ fast 4
+  -- $ jux rev
+  -- $ superimpose ((# krush 0.8) . (# gain 0.8))
+  -- $ s "gw_bird_edit:2*2"
+  -- $ off 0.125 ((# grain 0.6 0.05) . (# gain 1.6) . (# speed "<1.7 1.6 1.8>") . (# djf 0.7))
+  $ s "gw_cut:8*3  gw_cut:8"
+  # grain 0.7 0.07
+  # tilt 0.1
+  # att 0.05
+  -- # hold 0.3
+  # rel 0.1
+  # note "a c a b"
+  -- # hpf 300 #hpq 4
+  -- # ring 2
+  -- # coarse 16
+  # room 0.05 # sz 0.4
+  # speed "0.8 0.7 0.6 0.9"
+  # octer 0.6
+  -- # cut 1
+  -- # speed "1"
+
+
+
+
+  -- # speed "1 -1"
+  # note (scale "ritusen" "<2 1 3 5> <3 1 0 2>")
+  -- # room 0.06
+  -- # djf (range 0.4 0.8 $ tri2)
+  -- # cps (130/60/4)
+  -- # vowel "a u i"
+  -- # gain (range 0.2 1 $ cF 0.5 (gm "d4"))
+  # gain 0.7
+  
+
+
 ---- >>> ONE
 
 -- INTRO only!!!
@@ -122,7 +158,7 @@ hush
 d12 $ n "8 10 8 10" # s "gw_cut"
   # speed "-0.5 0.1 -0.4" -- PLAY
   # vowel "a i? o u"
-  # timeshift 4
+  -- # timeshift 4
   # djf 0.1
   -- # room (slow 1 $ range 0 0.5 sine)
   -- MAX 0.9
@@ -165,6 +201,17 @@ d2 $ slow 2
   -- # smear (slow 8 $ range 0 1 $ saw)
   # gain 1
 
+d3 $ slow 2
+  $ ghost
+  $ superimpose ((# s "gw_cut:3") . (# grain 0.38 0.15) . (#speed "-0.8").(# gain 1.2))
+  $ note "4 7 4 [4 5] ~ 4 5 6"
+  # s "gw_raw*8"
+  -- # n "1..8"
+  # octave 7
+  # grain 0.4 0.2
+  # tilt 0.1
+  # att 0.1
+  # rel 0.1
 
 -- gong-like background
 d3 $ slow 2
@@ -173,7 +220,7 @@ d3 $ slow 2
   # s "gw_raw*8" # n "1..8" # octave 7
   # grain 0.4 0.2
   # tilt 0.1
-  -- # cut 1
+  -- # Cut 1
   # speed "1.4"
   # shape 0.5
   -- # squiz 5
@@ -216,6 +263,7 @@ d10 $ jux rev $ fast 2.5 $ degradeBy 0.0
   # gain 0.4 -- MAX 0.5
 
 d10 $ silence
+
 
 -- interesting, bubbling sounds
 d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
@@ -282,26 +330,26 @@ d3 $ sometimes ((# squiz 6)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" # pan
 -- TEST TEST -> copied from further below to give some structrue (might act as a transition)
 -- some background clicks and drumming - stable to drive track! e.g. with d6
 d7 $ fast 4
-  $ degradeBy 0.2
-  $ slice 6 "6 4 1 4"
+  -- $ degradeBy 0.2
+  -- $ slice 6 "6 4 1 4"
   -- $ sometimes (swingBy (1/2) 2)
   $ n "4 1 2 4"
-  # s "gw_cut(6,8)"
-  # speed "1.9"
-  # shape "0.8" -- !!! adjust GAIN down!
+  # s "gw_cut(7,8)"
+  # speed "1.9 1.6 1.8"
+  -- # shape "0.8" -- !!! adjust GAIN down!
   -- # hpf "150 300 200 500"
   -- # lpf 1500
   # legato 1
   -- # djf (slow 4 $ range 0.45 0.75 sine)
-  # fshift "<-50 90>"
-  # waveloss "12"
-  # pan perlin
+  -- # fshift "<-50 90>"
+  -- # waveloss "12"
+  -- # pan perlin
   -- # comb "<0.02 0.2 0.5>"
-  -- # vowel "a o [i|u]"
-  # squiz "5 3"
+  # vowel "a o [i|u]"
+  -- # squiz "5 3"
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.2
-  # gain 0.6
+  # gain 0.8
 
   hush
 
