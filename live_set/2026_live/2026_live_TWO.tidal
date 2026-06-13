@@ -37,12 +37,13 @@ let tilt = pF "tilt"
 
 ---YES! gw birds taking over =) aka the whipbird
 
+-- HIGH F
 d6 $ s "birds"
   -- # gain 0.7
   # gain (range 0.1 0.9 $ cF 0.7 (gm "d6"))
  
-
-d1 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
+-- HIGH F
+d4 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
   # grain 0.1 0.75
   # tilt 0.1
  -- # note (scale "phrygian" "[1 3, 1 5 7 3]")
@@ -53,8 +54,36 @@ d1 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
 -- # note "a4"
   -- # speed "0.9"
   -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d1"))
-  # gain 0.5
+  # gain 0.8
 
+-- a simple GW only chirp
+-- LOW F
+d1 $ slow 4 $ s "gw_cut:8!4"
+  # grain 0.2 0.7
+  # fadeTime 0.01
+  # speed 0.7
+  # pan (segment 4 $ range "-1" 1 $ perlin)
+
+-- a pad for mood
+-- MID F
+d2 $ slow 4 $ n "0" # s "gw_stretch"
+  -- # cut 1
+  # tilt 0.1
+  # fadeTime 0.2
+  # hpf 600
+  -- # speed (slow 8 $ range 1 1.5 $ tri)
+  # gain 0.85
+
+-- pad 2
+-- MID F
+d3 $ slow 4 $ n "2" # s "gw_stretch"
+  -- # cut 1
+  # tilt 0.1
+  # fadeTime 0.2
+    -- # speed (slow 8 $ range 1 1.5 $ tri)
+  # gain 1.1
+  
+-- HIGH F with Meldody
 d4 $ sometimes (# vowel "[a|u|e]")
   $ slow 1
   $ jux rev
@@ -71,44 +100,87 @@ d4 $ sometimes (# vowel "[a|u|e]")
   -- # gain (range 0.2 1 $ cF 0.5 (gm "d4"))
   # gain 0.7
 
+-- OPTIONAL
 
-d4 -- $ sometimes (# vowel "[a|u|e]")
-  $ fast 4
-  -- $ jux rev
-  -- $ superimpose ((# krush 0.8) . (# gain 0.8))
-  -- $ s "gw_bird_edit:2*2"
-  -- $ off 0.125 ((# grain 0.6 0.05) . (# gain 1.6) . (# speed "<1.7 1.6 1.8>") . (# djf 0.7))
-  $ s "gw_cut:8*3  gw_cut:8"
-  # grain 0.7 0.07
+-- very basic gw chirp as a bridge
+d2 $ slow 2 $ s "gw_cut:8*3"
+  # grain 0.45 0.35
+  # note "a5 g5 c6 d5"
   # tilt 0.1
-  # att 0.05
-  -- # hold 0.3
-  # rel 0.1
-  # note "a c a b"
-  -- # hpf 300 #hpq 4
-  -- # ring 2
-  -- # coarse 16
-  # room 0.05 # sz 0.4
-  # speed "0.8 0.7 0.6 0.9"
-  # octer 0.6
+  # room 0.1
+  -- # shape 0.6
+  # speed "-0.8"
+  -- # gain 0.7
+  # gain (range 0.3 0.99 $ cF 0.5 (gm "d2"))
+
+
+
+-- ====>>> END Intro <<<===  
+
+
+
+-- === >>> INTERMEZZO<<< ===
+
+d2 $ slow 4 $ n "[1]" # s "gw_stretch"
   -- # cut 1
-  -- # speed "1"
-
-
-
-
-  -- # speed "1 -1"
-  # note (scale "ritusen" "<2 1 3 5> <3 1 0 2>")
-  -- # room 0.06
-  -- # djf (range 0.4 0.8 $ tri2)
-  -- # cps (130/60/4)
-  -- # vowel "a u i"
-  -- # gain (range 0.2 1 $ cF 0.5 (gm "d4"))
-  # gain 0.7
+  # tilt 0.1
+  # fadeTime 0.2
+  # gain 0.8
   
 
+-- nice noise but needs COMPRESSION!
+d3 $ slow 4 $ n "[3]" # s "gw_stretch"
+  -- # cut 1
+  # tilt 0.1
+  # fadeTime 0.2
+  # waveloss 20
+  # gain 0.8
 
----- >>> ONE
+
+  -- bassy bassy backdrop -> smooth and broken
+d4 -- $ layer [scramble 3, fast 0.5, degradeBy 0.0] -- LOAD check>!
+  -- $ jux rev
+  -- $ off 0.2 ((# speed "-0.5") . (# room 0.3)) -- can be used to increase density and pressure - LOAD check!!!
+  -- $ chop 1
+  $ ghost
+  $ n "5!2 3!2" 
+  # s "gw_cut"
+  # tilt 0.01
+  # lpf 800
+  -- # hpf 400
+  # speed "<0.64 0.8>"
+  -- # speed "0.4"
+  -- # shape "0.8"
+  # gain 0.8 -- START 0.5 MAX 1
+  -- # comb 0.9
+  -- # fshift "120 -60 23 12"
+  # binshift "0.4"
+  # timescale 2
+  -- # note "a5 f5 g5"
+  # gain 1.1
+
+
+-- MAYBE LEAVE OUT here and use later
+-- mysterious drone background
+  d4 $ slow 2 $ note "a7 g7 f7 d7"
+  # s "gw_raw" # n "1..8"
+  # grain 0.3 0.2
+  # tilt 0.1
+  # bpf 600
+  # lpf 1000
+  # hpf 100
+  # speed "<-0.2 -0.12 -0.15 -0.2>"
+  # timescale 6
+  # room 0.05 # sz 0.3
+  # djf 0.3
+  -- # smear (slow 8 $ range 0 1 $ saw)
+  # gain 1
+
+
+-- === >>> END INTERMEZZO<<< ===
+
+
+---- =======>>>  PART 1 - S0
 
 -- INTRO only!!!
 -- evil drone (breaks sometimes JACK ;-))
@@ -167,7 +239,7 @@ d12 $ n "8 10 8 10" # s "gw_cut"
 d12 $ silence
 
 -- ALT drone
--- a slow drone that run a long time...maybe add more randomness here!
+-- a slow drone that runs a long time...maybe add more randomness here!
 d2 $ slow 2
   $ palindrome
   $ whenmod 5 3 ((#smear rand) . (# room 0.6)) 
@@ -185,22 +257,6 @@ d2 $ slow 2
   # room 0.1
 
 
-
--- mysterious drone background
-  d4 $ slow 2 $ note "a7 g7 f7 d7"
-  # s "gw_raw" # n "1..8"
-  # grain 0.3 0.2
-  # tilt 0.1
-  # bpf 600
-  # lpf 1000
-  # hpf 100
-  # speed "<-0.2 -0.12 -0.15 -0.2>"
-  # timescale 6
-  # room 0.05 # sz 0.3
-  # djf 0.3
-  -- # smear (slow 8 $ range 0 1 $ saw)
-  # gain 1
-
 d3 $ slow 2
   $ ghost
   $ superimpose ((# s "gw_cut:3") . (# grain 0.38 0.15) . (#speed "-0.8").(# gain 1.2))
@@ -210,7 +266,7 @@ d3 $ slow 2
   # octave 7
   # grain 0.4 0.2
   # tilt 0.1
-  # att 0.1
+ # att 0.1
   # rel 0.1
 
 -- gong-like background
@@ -242,6 +298,41 @@ d4 $ sometimes (jux rev) $ every 3 (superimpose ((chop 64) . (# pan tri) )) $ s 
   # gain "0.7 0.6 0.6"
   # vowel "a o i u"
   # hpf 1200 # nudge "0.05" # distort (fast 2 $ saw) # squiz 8 # shape 0.3 # room 0.4 # sz 0.2
+
+
+
+-- melody goes crazy
+d4 -- $ sometimes (# vowel "[a|u|e]")
+  $ fast 4
+  -- $ jux rev
+  -- $ superimpose ((# krush 0.8) . (# gain 0.8))
+  -- $ s "gw_bird_edit:2*2"
+  -- $ off 0.125 ((# grain 0.6 0.05) . (# gain 1.6) . (# speed "<1.7 1.6 1.8>") . (# djf 0.7))
+  $ s "gw_cut:8*3  gw_cut:8"
+  # grain 0.7 0.07
+  # tilt 0.1
+  # att 0.05
+  -- # hold 0.3
+  # rel 0.1
+  # note "a c a b"
+  -- # hpf 300 #hpq 4
+  -- # ring 2
+  -- # coarse 16
+  # room 0.05 # sz 0.4
+  # speed "0.8 0.7 0.6 0.9"
+  # octer 0.6
+  -- # cut 1
+  -- # speed "1"
+
+
+  -- # speed "1 -1"
+  # note (scale "ritusen" "<2 1 3 5> <3 1 0 2>")
+  -- # room 0.06
+  -- # djf (range 0.4 0.8 $ tri2)
+  -- # cps (130/60/4)
+  -- # vowel "a u i"
+  -- # gain (range 0.2 1 $ cF 0.5 (gm "d4"))
+  # gain 0.7
 
 
 
@@ -288,32 +379,6 @@ d4 $ striate "16 32" $ fast 1.25
   -- # fshift "<-100 150 400>"
 
 
---- > BACKGROUND only
-
-
--- bassy bassy backdrop -> smooth and broken
-d4 -- $ layer [scramble 3, fast 0.5, degradeBy 0.0] -- LOAD check>!
-  -- $ jux rev
-  -- $ off 0.2 ((# speed "-0.5") . (# room 0.3))
-  -- $ chop 1
-  $ ghost
-  $ n "5!2 3!2" 
-  # s "gw_cut"
-  # tilt 0.01
-  # lpf 800
-  -- # hpf 400
-  # speed "<0.64 0.8>"
-  -- # speed "0.4"
-  -- # shape "0.8"
-  # gain 0.8 -- START 0.5 MAX 1
-  -- # comb 0.9
-  -- # fshift "120 -60 23 12"
-  # binshift "0.4"
-  # timescale 2
-  -- # note "a5 f5 g5"
-  # gain 1.1
-
-hush
 
 
 -- some rather strange beats and percussions
@@ -352,6 +417,23 @@ d7 $ fast 4
   # gain 0.8
 
   hush
+
+ -- loud, harsh on top of something
+d5 $ fast 0.25 $ ghost
+  -- $ striate 1
+  $ stut 5 0.2 0.8
+  $ slice 20 "5 7 8" $ n "2" # s "gw_cut"
+  # speed "1.2 0.5 1 1.4"
+  # lpf 2800
+  # fshift "-1180 1100 190 420"
+  # shape 0.8
+  # smear 0.5
+  # comb 0.6
+  # krush 0.1
+  # crush 64
+  -- # gain 0.8 -- START 0.8, MAX 1.2
+  # gain (range 0.4 1.2 $ cF 0.7 (gm "d5"))
+
 
 
 
