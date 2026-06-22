@@ -50,9 +50,10 @@ d4 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
   # octave 4
 -- # smear 0.1
   # room 0.05
-  # pan perlin
+  -- # pan perlin
+  -- # lpf 1200
 -- # note "a4"
-  -- # speed "0.9"
+  -- # speed "0.5"
   -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d1"))
   # gain 0.8
 
@@ -99,7 +100,9 @@ d4 $ sometimes (# vowel "[a|u|e]")
   -- # cps (130/60/4)
   -- # vowel "a u i"
   -- # gain (range 0.2 1 $ cF 0.5 (gm "d4"))
-  # gain 0.7
+  # gain 0.5
+  
+
 
 -- OPTIONAL
 
@@ -113,6 +116,10 @@ d2 $ slow 2 $ s "gw_cut:8*3"
   # speed "-0.8"
   -- # gain 0.7
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d2"))
+  -- adds crittyness
+  -- # enhance (rand * 0.2)
+  -- adds some color
+  # triode 0.8
 
 
 
@@ -138,17 +145,17 @@ d2 $ sometimes (chop 12)
   -- # octer (slow 4 $ range 0 0.3 $ tri)
 
 -- nice noise but needs COMPRESSION!
-d3 -- $ sometimes (ghost)
+d4 -- $ sometimes (ghost)
   $ slow 4 $ n "[3]" # s "gw_stretch"
   -- # cut 1
   # tilt 0.1
   # fadeTime 0.2
   -- # waveloss 20
   -- # lpf 500
-  # gain 0.99
+  # gain 0.9
   -- ! tune for grind and pressure -> gets louder
-  -- # shape 0.8
-  -- # pan (slow 4 $ smooth "0 1")
+  # shape 0.8
+  # pan (slow 4 $ smooth "0 1")
   -- add some disturbance here
   -- # panbus 1 (segment 128 $ fast 4 $ smooth "-1 1")
   -- add some uncanny motion here start with lpfbus and change to bpfbus later (get a bit lighter)
@@ -205,9 +212,52 @@ d4 -- $ layer [scramble 3, fast 0.5, degradeBy 0.0] -- LOAD check>!
 
 ---- =======>>>  PART 1 - S0
 
+
+--- model for a planned CA controlled GW chirp concert
+-- maybe use more randomness or algorithms for slowly evolving stuff
+-- use CA to pick sample number? maybe as in 12 tone, every sample just once?
+  d2 $ every 4 ((# room 0.1) . (# size 0.2). (# dry 0.5))
+  $ almostNever (chop 4)
+  $ slow 2 $ struct "1 0 0 1 0 1 1"
+  $ n (segment 8 $ irand 9)
+  # s "gw_cut!8"
+  # grain 0.1 0.7
+  -- # note "c6"
+  # octave 6
+ |+ pan "0 0.14 0.28 0.42 0.58 0.72 0.86 1"
+ # speed (1 + rand/8)
+ # triode 0.8
+ # lock  1 # delay "x"
+ # delaytime 0.2
+ # delayfb (slow 16 $ range 0 0.7 $ tri)
+  -- use to fade-out = destroy
+  -- # enhance 0.2
+  
+ 
+-- a noise-like background which needs some shaping
+d3 $ ghost
+  $ slow 2
+  $ chop 6
+  -- $ n"1 6 4 3"
+  $ randslice 12
+  $ s "gw_raw!4"
+  # grain 0.3 0.5
+  # lpf 400
+  # vowel "<a u e o i>"
+  # fadeTime 0.1
+  # att 0.6
+  # hold 1
+  # rel 2
+  # panbus 1 (segment 256 $ slow 2 $ smooth "-1 1")
+  # room 0.4 # sz 0.6 # dry 0.2
+  # bpf 200
+  # decay 0.5
+  # gain 0.65
+
+
 -- ALT drone
 -- a slow drone that runs a long time...maybe add more randomness here!
-d2 $ slow 2
+d1 $ slow 2
   $ palindrome
   $ whenmod 5 3 ((#smear rand) . (# room 0.6)) 
   $ layer [id, off 0.0675 (+12), off 0.125 (+24)]
@@ -221,21 +271,38 @@ d2 $ slow 2
   # gain 1
   -- # legato 1
   -- # lpf 1000
-  # room 0.1
+  # room 0.2
+  # lock 1
+  # delay "x" # delaytime 0.125 # delayfb 0.5
 
 -- HERE I want to have subtle hat-like background but with as much chaos as possible...just to fill the space a bit -> needs a bit of work
 -- > can be enhanced by layering snare or even kick and will result nearly in a beat after wards -> [gw_hats] => "[gw_hats, gw_snare]" => "[gw_hats, gw_kick]" = needs an adjustment of degradeBy as well!
+-- especially with kick and NO legato = ends in dark rave! * use accelerate to get it to extremes!!! =)
 -- can be paired etc. with gw_bird from intro...
+-- use fast either to turn down in beginning or to destroy at the end
+-- might be a CENTRAL THEME of the piece which evolves in to an abstract rhythm later
 
-d5 $ chop "2"
-  $ jux rev
-  $ degradeBy 0.4 $ slow 2
+d5 $ jux rev
+  -- chop, smash as well as degradeBy should be used in different combinations and with different params to alter perception
+  $ chop "2"
+  -- $ smash 3 [2,3,4]
+  $ degradeBy 0.0
+  -- fast and slow can be used here either with or without degrade to perform
+  $ slow 2
   $ n (segment 12 $ irand 4)
-  # s "[gw_hats]"
+  # s "[gw_hats, gw_kick, gw_snare]"
   # grain 0.1 0.5
   # speed "1 1.3 0.8 2"
   # timescale 2
-
+  # fadeTime 0.2
+  -- # accelerate (slow 4 $ range 0 4 $ cosine)
+  -- # legato 0.07
+  # pan "<[0 1] [0.25 0.75] [0.45 0.55]>"
+  -- # note "<a c a b>"
+  -- # vowel "o"
+  -- # bpf 900 # bpq 20
+  # gain 0.8
+  
 
 -- NEW more slow-mo (nice constant background)
 d11 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
@@ -244,6 +311,7 @@ d11 $ swingBy (1/5) 6 $ zoom (0.25, 0.75) $ s "gw_cut:2 gw_cut:8"
   --- START 0.5 MAX 0.9
   # gain 0.8
   -- # smear 0.5
+  # triode (slow 8 $ range 0 0.8 $ sine)
  
 d11 $ silence
 
@@ -287,7 +355,7 @@ hush
 
 
 
-
+-- maye LEAVE out!
 -- base a whole piece on this one --> convey somewhat mysterious and dark feeling (USE for transion as d6)
 d1 $ degradeBy 0.0
   $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.2) )
@@ -456,10 +524,10 @@ d7 $ fast 4
   -- # pan perlin
   -- # comb "<0.02 0.2 0.5>"
   # vowel "a o [i|u]"
-  -- # squiz "5 3"
+  # squiz "5 3"
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.2
-  # gain 0.8
+  # gain 0.99
 
   hush
 
@@ -480,6 +548,15 @@ d5 $ fast 0.25 $ ghost
   # gain (range 0.4 1.2 $ cF 0.7 (gm "d5"))
 
 
-
+-- super DIRTY with enhance!!
+d1 $ slow 1
+  $ n "3*4" # s "gw_kick"
+# enhance "0 0.1 0.2 0.25"
+# legato 1.2
+-- # fadeTime 0.1
+# tilt 0.01
+-- # triode "0..0.9"
+  # lpf 900
+  -- # triodebus 1 (segment 256 $ slow 2 $ smooth "0 1")
 
 
