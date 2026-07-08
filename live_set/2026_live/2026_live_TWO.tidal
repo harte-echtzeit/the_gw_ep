@@ -103,6 +103,14 @@ d1 $ slow 4 $ s "gw_cut:8!4"
 
 ---- =======>>>  PART 1 - S0
 
+-- multi-channel test
+let allPan = pan "[0, 0.25, 0.5, 0.75]"
+
+-- d1 $ s "bd*4" # gain 0.8 # orbit 0 # allPan
+ --  # pan "[0.5, 0.75]"
+ --  #pan "[1, 0.75]"
+
+
 --- model for a planned CA controlled GW chirp concert
 -- maybe use more randomness or algorithms for slowly evolving stuff
 -- use CA to pick sample number? maybe as in 12 tone, every sample just once?
