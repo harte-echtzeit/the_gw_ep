@@ -408,6 +408,7 @@ d4 $ sometimes (# vowel "[a|u|e]")
   # djf (range 0.4 0.8 $ tri2)
   -- # cps (130/60/4)
   -- # vowel "a u i"
+  
   # gain (range 0.2 0.97 $ cF 0.5 (gm "d4"))
 
 

@@ -73,7 +73,7 @@ d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200)) $
   # room (rand)
   # legato 12
   # speed (irand 10)
-  # gain (fast 6 $ 0.6 * sine) --NO CHANGES !!!
+  # gain (fast 6 $ 0.7 * sine) --NO CHANGES !!!
   
 
 d3 $ sometimes (striate 0) $ n "3 [1 ~] 3" # s "kkw"
@@ -88,8 +88,8 @@ d2 $ slow 1.35 $ n "0" # s "water"
 ---YES! gw birds taking over =) aka the whipbird
 
 d6 $ s "birds"
-  -- # gain 0.7
-  # gain (range 0.1 0.9 $ cF 0.7 (gm "d6"))
+  # gain 0.5
+  -- # gain (range 0.1 0.9 $ cF 0.7 (gm "d6"))
  
 
 d1 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
@@ -142,8 +142,8 @@ d2 $ every 2 (rot (irand 4))
   # tilt 0.01
   # speed "-0.8 -2 -1.5"
   # shape 0.5
-  -- # gain 0.6
-  # gain (range 0.3 0.9 $ cF 0.5 (gm "d2"))
+  # gain 0.9
+  -- # gain (range 0.3 0.9 $ cF 0.5 (gm "d2"))
 
 -- very, very simple hi-hat-like pattern
 
@@ -201,8 +201,8 @@ d7 $ every 4 (chop "<2 4>" . (# lpf 800) . (sometimes (# smear 0.3)))
   -- # waveloss "32"
   # pan perlin
   -- # comb 0.02
-  -- # comb "<0.02 0.2 0.5>"
-  -- # vowel "a u [i|e]"
+  # comb "<0.02 0.2 0.5>"
+  # vowel "a u [i|e]"
   # squiz "4 3"
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.1
@@ -369,8 +369,8 @@ d8 $ fast 0.5
   # pan perlin
   # dry 0.6 # room 0.7 # sz 0.8
   -- MAX 0.9
-  -- # gain 0.75
-  # gain (range 0.6 0.9 $ cF 0.5 (gm "d8"))
+  # gain 0.75
+  -- # gain (range 0.6 0.9 $ cF 0.5 (gm "d8"))
 
 
 ------------>>>>>>>>>>> FINAL <<<<<<<<<<<<-----------
@@ -408,7 +408,6 @@ d4 $ sometimes (# vowel "[a|u|e]")
   # djf (range 0.4 0.8 $ tri2)
   -- # cps (130/60/4)
   -- # vowel "a u i"
-  
   # gain (range 0.2 0.97 $ cF 0.5 (gm "d4"))
 
 
