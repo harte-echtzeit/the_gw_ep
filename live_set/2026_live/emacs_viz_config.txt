@@ -1,0 +1,19 @@
+;; Font
+(set-frame-font "Fira Code Medium-14" nil t)
+
+;; theme
+;; Load the dark Modus Vivendi theme
+(load-theme 'modus-vivendi-tinted t)
+
+
+(require 'hl-line)
+(set-face-background 'hl-line "#8000FF") 
+(set-face-attribute 'hl-line nil :extend nil)
+(global-hl-line-mode 1)
+
+
+;; Set current frame transparency (e.g., 70% opaque, 30% transparent)
+(set-frame-parameter nil 'alpha-background 25)
+
+;; Apply to all new frames
+(add-to-list 'default-frame-alist '(alpha-background . 25))
