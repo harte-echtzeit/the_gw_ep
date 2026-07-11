@@ -1,8 +1,5 @@
 -- a more or less EXPERIMENTAL2 and 'quiet' live set for 2026 HE ji ku kan live sets
 
--- ==>>> this is a shortended and adapted version to suit the needs of RMITs 24x2 multi-channel setup where sub-basses pan into different speakers
-
-
 -- MIDI for gain control and muting
 -- MIDI maybe also for viz control
 
@@ -383,8 +380,8 @@ d5 $ chop 6
   # lock 1 # delay 0.4 # delaytime 0.25 # delayfb 0.4
   # tilt 0.1
   -- perform with octer and enhance here
-  -- # octer 0.3
-  -- # enhance 0.15
+  # octer 0.3
+  # enhance 0.15
   # gain 0.99
   -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
 
@@ -546,57 +543,21 @@ d2 $ sometimes (chop 82)
   -- # gain 0.5
   # gain (range 0.1 0.75 $ cF 0.5 (gm "d2"))
 
--- >>> CUSTOM multi-channel test (pan (24/26)) is sub only < 100 Hz
 
-let subPan = pan (24/26) # lpf 100 -- specific pan parameter for RMIT system
-
-let subPan' a= pan a # lpf 100  -- more generic version
-
-let mainPan a = pan a # hpf 2000
-
-let panFront = pan ("[0, 4, 6, 12, 14]" |/ 26)
-
---- NOT possible due to problem with pairs in SC?
--- let panLeft = pan ("[0, 4, 6, 12, 14]" |/ 26)
--- let panRight = pan ("[0, 4, 6, 12, 14]" |/ 26)
-
-let panBottom = pan ("[12, 20, 22, 24]" |/ 26)
-
-let panMainCircle = pan ("[4, 6, 8, 10, 12, 14, 16, 18]" |/ 26)
-
--- WAVES
-let waveMain a = pan (slow a $  ("<4 6 8 10 12 14 16 18>" |/ 26))
-
-let frontBackLow a = pan (slow a $  ("<12 14 16 18>" |/ 26))
-let frontBackLowPong a = pan (slow a $  ("<12 14 16 18 16 14 12>" |/ 26))
-
-let frontBackUp a = pan (slow a $  ("<4 6 8 10>" |/ 26))
-let frontBackUpPong a = pan (slow a $  ("<4 6 8 10 8 6 4>" |/ 26))
-
--- range for rand and sweeps (excludes sub)
-
-let panRange = (range 0 "23/26")
-
+-- slow and every at 4 reduce LOAD (especially with many running)
+-- a very deep and slow rhythmic backdrop - goes well with later d5 and d7
 d1 $ degradeBy 0.0
   $ slow 1 -- slow helps to remove beat like structure together with degradeBy
   -- $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.2) )
-  -- $ every 4 (jux rev)
-  -- $ layer[
-  --      (# mainPan 1),
-  --      (# subPan)
-  --       ]
-  $ n "2 3 5 4 1" # s "gw_cut" 
+  $ every 4 (jux rev)
+  $ n "2 3 5 4 1" # s "gw_cut"
+  -- $ n "3 3 2 4 1" # s "gw_cut"
   # shape "0.7 0.4 0.4 0.6"
   # speed "-0.8 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
   -- # vowel "o i a"
   -- # krush "7.5 3 5 4 1"
-  # gain 0.6
-  -- # waveMain 1
-  -- # frontBackLowPong 1
-  # pan (slow 1 $ panRange $ perlin)
-  -- # pan (slow 1 $  ("<4 6 8 10 12 14 16 18>" |/ 26))
- --  # gain (range 0 0.5 $ cF 0.5 (gm "d1"))
-
+   -- # gain 0.4
+  # gain (range 0 0.5 $ cF 0.5 (gm "d1"))
 
 -- HERE in full COMBO and in relation to d7
 -- HERE I want to have subtle hat-like background but with as much chaos as possible...just to fill the space a bit -> needs a bit of work
@@ -690,8 +651,6 @@ d3 $ slow 1
   -- # pan perlin
   -- # gain 0.6
   # gain (range 0.1 0.99 $ cF 0.2 (gm "d3"))
-
-
 
 
 
