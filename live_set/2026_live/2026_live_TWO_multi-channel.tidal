@@ -46,7 +46,7 @@ let subPan = pan (24/26) # lpf 100 -- specific pan parameter for RMIT system
     mainPan a = pan a # hpf 100
 
 let panFront = ("[0, 4, 6, 12, 14]" |/ 26)
-    panBottom = ("[12, 20, 22, 24]" |/ 26)
+    panBottom = ("[12, 20, 22]" |/ 26)
     panCircle = ("[12, 14, 16, 18]" |/ 26)
     panCircleAll = ("[4, 6, 8, 10, 12, 14, 16, 18]" |/ 26)
 
@@ -64,8 +64,9 @@ let panRange = (range 0 "23/26")
 -- ONLY TEST for pan!
 d6 $ s "gw_kick*4"
   -- # pan 0.8077
-  # mainPan (waveMain 2)
-  # mainPan (waveLowPong 2)
+  # mainPan panBottom
+  -- # mainPan (waveMain 2)
+  -- # mainPan (waveLowPong 2)
   # gain 1
 
 
@@ -75,12 +76,12 @@ d6 $ s "gw_kick*4"
 ---YES! gw birds taking over =) aka the whipbird
 
 -- HIGH F
-d8 $ slow 4 $ s "birds*4"
-  -- # mainPan (waveMain 2)
-  # mainPan (waveLowPong 1)
+d8 $ slow 0.5 $ s "birds"
+  # mainPan (waveMain 1)
+  -- # mainPan (waveLow 0.5)
   -- # gain 0.6
   # gain (range 0.1 0.8 $ cF 0.4 (gm "d8"))
- 
+  
 -- HIGH F => match levels and small compression
 d7 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
   # grain 0.1 0.75
@@ -93,7 +94,8 @@ d7 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
   -- # lpf 1200
   -- # note "a4"
   -- # speed "0.5" -- PLAY
-  # mainPan panCircle
+  -- # mainPan panCircle
+  # mainPan panFront
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d7"))
   -- # gain 0.9
 
@@ -105,14 +107,14 @@ d6 $ slow 4 $ n "2" # s "gw_stretch"
   # tilt 0.1
   # fadeTime 0.2
     -- # speed (slow 8 $ range 1 1.5 $ tri)
-  # lpfbus 1 (segment 128 $ fast 2 $ range 200 2000 $ sine)
+  # lpfbus 1 (segment 128 $ fast 2 $ range 400 2000 $ sine)
   # mainPan panCircle
   # gain 1.1
   -- # gain (range 0.3 1 $ cF 0.4 (gm "d6"))
 
 
 -- very basic gw chirp as a bridge
-d2 $ slow 4 $ s "gw_cut:8*3"
+d2 $ slow 4 $ s "gw_cut:8*4"
   # grain 0.45 0.35
   # note "a5 g5 c6 d5"
   # tilt 0.1
@@ -133,7 +135,8 @@ d2 $ slow 4 $ s "gw_cut:8*3"
 d1 $ slow 4
   $ layer[ -- SUB
                (# mainPan ((segment 4 $ panRange $ perlin))),
-               (# subPan)
+              -- (# subPan)
+               ((# pan ((24/26) <> (25/26))) . (# lpf 100))
              ]
   $ s "gw_cut:8!4"
   # grain 0.2 0.7
@@ -156,8 +159,10 @@ d1 $ slow 4
   $ almostNever (chop 4)
   $ slow 4 $ struct "1 0 0 1 0 1 1 0"
   $ layer[ -- SUB
-              (# mainPan ("4 6 8 10 12 14 16 18" |/ 26)),
-              (# subPan)
+             -- (|+ mainPan ("4 6 8 10 12 14 16 18" |/ 26)),
+            (# mainPan ("[4,5] [6,7] [8,9] [10,11] [12,13] [14,15] [16,17] [18,19]" |/ 26)),
+              -- (# subPan)
+              ((# pan ((24/26) <> (25/26))) . (# lpf 100))
             ]
   $ n (segment 8 $ irand 9)
   # s "gw_cut"
@@ -287,10 +292,11 @@ d4 -- $ sometimes (ghost)
   $ slow 4
  $ layer[ -- SUB
               (# mainPan panBottom),
+             (# subPan)
              -- (# mainPan panFront),
-              (# subPan)
+             -- (# pan (23/26))
             ]
-  $ n "[3]" # s "gw_stretch"
+  $ n "3" # s "gw_stretch"
   -- # cut 1
   # tilt 0.1
   # fadeTime 0.2
@@ -300,9 +306,9 @@ d4 -- $ sometimes (ghost)
   -- ! tune for grind and pressure -> gets louder
   # shape 0.9
   -- # pan (slow 4 $ smooth "0 1")
-  # mainPan (waveMain 1)
+  -- # mainPan (waveMain 1)
   -- add some disturbance here
-  # panbus 1 (segment 128 $ fast 8 $ smooth "-1 1")
+  -- # panbus 1 (segment 128 $ fast 8 $ smooth "-1 1")
   -- add some uncanny motion here start with lpfbus and change to bpfbus later (get a bit lighter)
   -- # lpfbus 1 (segment 128 $ fast 1 $ smooth "200 2000")
   -- ! adds grind (nice in combination with "shape" to add pressure
@@ -361,8 +367,9 @@ d5 $ chop 6
   $ almostNever (chop 4)
   $ slow 4 $ struct "1 0 0 1 0 1 1 0"
   $ layer[ -- SUB
-              (# mainPan ("4 6 8 10 12 14 16 18" |/ 26)),
-              (# subPan)
+              (# mainPan ("[4,5] [6,7] [8,9] [10,11] [12,13] [14,15] [16,17] [18,19]" |/ 26)),
+              -- (# subPan)
+             ((# pan ((24/26) <> (25/26))) . (# lpf 100))
             ]
   $ n (segment 8 $ irand 9)
   # s "gw_cut"
@@ -381,7 +388,7 @@ d5 $ chop 6
 
 
 -- some rather strange beats and percussions (LIGHT and higher F)
-d3 $ sometimes ((# squiz 6)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" # pan cosine
+d3 $ sometimes ((# squiz 6)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" -- # pan cosine
   # speed "-1.5 -2.6 -1.4"
   # bpf "300 600"
   # vowel "a i o u"
@@ -399,11 +406,15 @@ d8 $ slow 2 -- 1, 2 4 to control character of beat
   $ degradeBy 0.0
   -- $ ghost
   -- $ echo 2 0.7 0.5
-  -- $ superimpose ((# s "gw_cut:3") . (# grain 0.38 0.15) . (#speed "<-0.9 -0.7>") . (# gain 0.7))
-    $ layer[ -- SUB
-              (# mainPan panFront),
-              (# subPan)
-            ]
+  --- $ superimpose ((# s "gw_cut:3") . (# grain 0.38 0.15) . (#speed "<-0.9 -0.7>") . (# gain 0.5))
+    -- $ layer[ -- SUB
+       --       (# mainPan panFront),
+          --    (# subPan)
+          --  ]
+ $ layer[ -- SUB
+              (|+ mainPan (panFront <> (panFront + (1/26)))),
+             (# subPan)
+            ]   
   $ note "4 7 4 [4 5] ~ 4 5 6"
   # s "gw_raw*8"
   # octave 6 -- octave nice to control beat-like structure (6 -8)
@@ -449,9 +460,10 @@ d6 $ slow 4 $ n "2" # s "gw_stretch"
 d4 -- $ sometimes (ghost)
   $ slow 4
   $ layer[ -- SUB
-              (# mainPan panBottom),
+              (# mainPan ( panBottom <> (panBottom + (1/26)))),
              -- (# mainPan panFront),
-              (# subPan)
+             -- (# subPan)
+              ((# pan ((24/26) <> (25/26))) . (#hpf 100))
             ]
   $ n "[3]" # s "gw_stretch"
   -- # cut 1
@@ -463,9 +475,9 @@ d4 -- $ sometimes (ghost)
   -- ! tune for grind and pressure -> gets louder
   # shape 0.9
   -- # pan (slow 4 $ smooth "0 1")
-  # mainPan (waveMain 1)
+  -- # mainPan (waveMain 1)
   -- add some disturbance here
-  # panbus 1 (segment 128 $ fast 8 $ smooth "-1 1")
+  -- # panbus 1 (segment 128 $ fast 8 $ smooth "-1 1")
   -- add some uncanny motion here start with lpfbus and change to bpfbus later (get a bit lighter)
   -- # lpfbus 1 (segment 128 $ fast 1 $ smooth "200 2000")
   -- ! adds grind (nice in combination with "shape" to add pressure
@@ -503,7 +515,7 @@ d6 $ sometimes (chop 82)
   d4 $ slow 2
   -- $ note "a7 g7 f7 d7"
   $ layer[ -- SUB
-              (# mainPan panFront),
+              (# mainPan (waveLow 1)),
               (# subPan)
             ]
   $ s "gw_raw" # n "1..8"
@@ -528,14 +540,14 @@ d6 $ sometimes (chop 82)
 
 
 -- BG from Intermezzo as a bridge?
-d2 $ sometimes (chop 82)
+d6 $ sometimes (chop 82)
   $ slow 4 $ n "[1]" # s "gw_stretch"
   -- # cut 1
   # tilt 0.1
   # fadeTime 0.2
    -- add richness, can be tuned with dry
   # room 0.5 # sz 0.6 # dry 0.2
-  # panbus 1 (segment 128 $ fast 2 $ smooth "-1 1")
+  # panbus 1 (segment 128 $ fast 1 $ smooth "-1 1")
   # delay "x" # delaytime 0.1 # delayfb 0.3
   --- adds noisy grind
   # octer (slow 4 $ range 0 0.3 $ tri)
@@ -543,15 +555,18 @@ d2 $ sometimes (chop 82)
   # gain (range 0.1 0.75 $ cF 0.8 (gm "d2"))
  -- # mainPan panCircleAll
 
+let sub= (25/26)
 
 -- CHECK if maybe Bottom wave is nice?
 d1 $ degradeBy 0.0
   $ slow 1 -- slow helps to remove beat like structure together with degradeBy
   -- $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.2) )
   -- $ every 4 (jux rev)
-  $ layer[ -- SUB
-              (# mainPan (waveLowPong 2 $ sine)),
-              (# subPan)
+  $ layer [ -- SUB
+ --             (|* mainPan (waveLowPong 1)),
+              (|* mainPan (waveLowPong 1 <> (waveLowPong 1 + (1/26)))),
+              -- (|+ subPan)
+              ((|* pan (sub<>(24/26))) . (# lpf 100))
             ]
   $ n "2 3 5 4 1" # s "gw_cut" 
   # shape "0.7 0.4 0.4 0.6"
@@ -578,9 +593,9 @@ d5 $ jux rev
   -- fast and slow can be used here either with or without degrade to perform
   $ slow 2
   $ layer[ -- SUB
-            (# mainPan (waveMain 2)),
+            (|+ mainPan (waveMain 2)),
              --(# pan "<[0 1] [0.25 0.75] [0.45 0.55]>"),
-            (# subPan)
+            (|+ subPan)
             ]
   $ n (segment 12 $ irand 4)
   # s "[gw_hats, gw_snare, gw_kick]"
@@ -590,9 +605,8 @@ d5 $ jux rev
   # fadeTime 0.2
   -- # accelerate (slow 4 $ range 0 4 $ cosine)
   -- # legato 0.07
- 
-  # note "<a c a b>"
-  # vowel "o u a"
+ --  # note "<a c a b>"
+ --  # vowel "o u a"
   -- # bpf 900 # bpq 8
   -- # shape 0.8
   # gain 0.6
@@ -604,22 +618,22 @@ d5 $ jux rev
 d8 $ slow 2
   -- $ ghost
   $ layer[ -- SUB
-              (# mainPan panFront),
+              (|+ mainPan (panFront <> (panFront + (1/26)))),
               (# subPan)
             ]
-  $ note "4 7 4 [4 5] ~ 4 5 6"
-  # s "gw_raw*8" # n "1..8" # octave 7
+  $ note "4 7 4 [4 5]  ~ 4 5 6"
+  # s "gw_raw*8" # n "1..8" # octave 8
   # grain 0.4 0.2
   # tilt 0.1
   -- # Cut 1
   # speed "-1.3 -1 -0.8 -1.5"  -- play with range here live 
   # shape 0.5
   -- # squiz 5
-  # coarse 4
+  -- # coarse 4
   # vowel "o a u"
-  # djf 0.45 -- slowly inccreas
+  -- # djf 0.45 -- slowly inccreas
    -- # bpf 400 # bpq "10"
-  # delay 0.5
+  -- # delay 0.5
   # gain 0.3
   -- # gain (range 0.1 0.99 $ cF 0.5 (gm "d3"))
 
@@ -629,8 +643,9 @@ d8 $ slow 2
 d7 $ fast 2
   $ degradeBy 0.0
   $ layer[ -- SUB
-              (# mainPan panBottom),
-              (# subPan)
+   --           (# mainPan panBottom),
+              (# mainPan (panBottom <> (panBottom + (1/26)))),
+              ((# pan ((24/26) <> (25/26))) . (#hpf 100))
             ]
   -- $ slice 6 "6 4 1 4"
   -- $ sometimes (swingBy (1/2) 2)
@@ -648,7 +663,7 @@ d7 $ fast 2
   -- # pan perlin
   -- # comb "<0.02 0.2 0.5>"
   -- # vowel "a o [i|u]"
-  -- # squiz "5 3"
+  --- # squiz "5 3"
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.2
   # gain 1
@@ -675,7 +690,7 @@ d3 $ slow 1
   # delay 0.5
   # legato 0.3
   -- # pan perlin
- # mainPan panCircle
+ # mainPan (panCircle <> (panCircle + (1/26)))
   # gain 0.8
   -- # gain (range 0.1 0.99 $ cF 0.2 (gm "d3"))
 
