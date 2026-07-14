@@ -178,8 +178,8 @@ d1 $ slow 4
  # delayfb (slow 16 $ range 0 0.7 $ tri)
   -- use to fade-out = destroy
   -- # enhance 0.2
-  # gain 0.7
-  -- # gain (range 0.4 1.1 $ cF 0.5 (gm "d2"))
+  -- # gain 0.7
+  # gain (range 0.4 1.1 $ cF 0.5 (gm "d2"))
   
  
 -- a noise-like background which needs some shaping
@@ -225,7 +225,8 @@ d11 $ silence
 
 
 -- interesting, bubbling sounds (slow)
-d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200)) $ sometimes (superimpose ((jux rev) . (# djf rand)))
+d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200))
+  -- $ sometimes (superimpose ((jux rev) . (# djf rand)))
   $ n "1 .. 9"
   # s "gw_cut"
   # pan (fast 8 $ panRange $ sine)
@@ -236,33 +237,34 @@ d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200)) $
 --  # gain (range 0.3 0.99 $ cF 0.5 (gm "d9"))
 
 
-
+--- DANGER for LOAD!!!
 -- clicky, clacky (has sort of a broken pulse)
-d10 $ jux rev $ fast 2.5 $ degradeBy 0.0
+d10 $ fast 2.5 $ degradeBy 0.0
   -- $ superimpose (every 2 ((# squiz 3) . (# djf rand))) $ striate (irand 64)
   $ n "9" # s "gw_cut!23"
-    # vowel "<i u o>"
+ # vowel "<i u o>"
   # room (fast (irand 6) $ square)
   -- # djf 0.7
   # hpf (slow 0.2 $ sine) -- # hpf (slow 0.2 $ range 200 400 sine)
   -- # pan "[0, 0.25, 0.5, 0.75]"
-  # squiz (slow 4 $ range 1 2 $ sine)
-  # mainPan panCircleAll
+  -- # squiz (slow 4 $ range 1 2 $ sine)
+  # mainPan (panCircleAll <> (panCircleAll + (1/26)))
   # gain 0.4 -- MAX 0.5
   -- # gain (range 0.1 0.7 $ cF 0.5 (gm "d10"))
 
 d10 $ silence  
 
 
+-- DANGER LOAD
 -- ALT drone (use same eq as befor d5)
 -- a slow drone that runs a long time...maybe add more randomness here!
 d5 $ slow 2
   $ palindrome
   $ whenmod 5 3 ((#smear rand) . (# room 0.6)) 
-  $ layer[ -- SUB
-              (# mainPan panFront),
-              (# subPan)
-            ]
+  -- $ layer[ -- SUB
+ --             (# mainPan panFront),
+ --             (# subPan)
+ --            ]
   $ layer [id, off 0.0675 (+12), off 0.125 (+24)]
   $ note "a c e g"
    #  s "gw_cut:8"
@@ -275,9 +277,10 @@ d5 $ slow 2
   -- # lpf 1000v
   # room 0.2
   # lock 1
-  # delay "x" # delaytime 0.125 # delayfb 0.5
+  -- # delay "x" # delaytime 0.125 # delayfb 0.5
   # gain 0.6
   -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
+  -- # mainPan "1"
 
 -- === >>> ENDPART 1 S0<<< ===
 
@@ -316,7 +319,7 @@ d4 -- $ sometimes (ghost)
   -- HERE I definetly want to use new compressor function!!! to change compression on the spot
   -- use pad 2 from intro maybe as a support!
   # gain 0.7
-    -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d4"))
+  # gain (range 0.0 0.75 $ cF 0.5 (gm "d4"))
 
 d6 $ sometimes (chop 82)
   $ slow 4 $ n "[1]" # s "gw_stretch"
@@ -343,23 +346,36 @@ d6 $ sometimes (chop 82)
 -- slow random DARK chirps (which feels a bit beat like)
 d5 $ chop 6
   $ sometimes (shuffle 4) $ slow 2
-  $ layer[ -- SUB
-              (# mainPan (panRange $ rand)),
-              (# subPan)
-            ]
+  -- $ layer[ -- SUB
+ --              (# mainPan (panRange $ rand)),
+ --              (# subPan)
+  --           ]
   $ n "8 ~ [~ 10] [8/3]"
+  -- $ n (segment 8 $ irand 4) 
   # s "gw_cut"
   # speed "-0.5 -0.2"
   -- # pan rand
-  # room 0.1
+  -- # room 0.1
   -- play live here with delay
-  # lock 1 # delay 0.4 # delaytime 0.25 # delayfb 0.4
+  # lock 1 # delay 0.3 # delaytime 0.25 # delayfb 0.4
   # tilt 0.1
   -- perform with octer and enhance here
   -- # octer 0.3
-  # enhance 0.1
+  -- # enhance 0.1
   # gain 0.8
-  -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
+  # mainPan (panFront <> (panFront + (1/26)))
+  # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
+
+
+d5 $ note (segment 8 $ irand 4)
+  # s "gw_kick"
+  # speed "0.8 1.2"
+  # mainPan (panFront)
+
+let panFront = ("[0, 4, 6, 12, 14]" |/ 26)
+    panBottom = ("[12, 20, 22]" |/ 26)
+    panCircle = ("[12, 14, 16, 18]" |/ 26)
+    panCircleAll = ("[4, 6, 8, 10, 12, 14, 16, 18]" |/ 26)
 
 
 -- CHECK circle pan here per chirp
