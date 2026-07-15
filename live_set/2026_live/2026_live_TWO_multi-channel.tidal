@@ -67,7 +67,7 @@ d6 $ s "gw_kick*4"
   # mainPan panBottom
   -- # mainPan (waveMain 2)
   -- # mainPan (waveLowPong 2)
-  # gain 1
+  # gain 0.8
 
 
 
@@ -109,8 +109,8 @@ d6 $ slow 4 $ n "2" # s "gw_stretch"
     -- # speed (slow 8 $ range 1 1.5 $ tri)
   # lpfbus 1 (segment 128 $ fast 2 $ range 400 2000 $ sine)
   # mainPan panCircle
-  # gain 1.1
-  -- # gain (range 0.3 1 $ cF 0.4 (gm "d6"))
+  -- # gain 1.1
+  # gain (range 0.3 1 $ cF 0.4 (gm "d6"))
 
 
 -- very basic gw chirp as a bridge
@@ -124,10 +124,10 @@ d2 $ slow 4 $ s "gw_cut:8*4"
   -- adds crittyness
   -- # enhance (rand * 0.2)
   -- adds some color
-  -- # triode 0.8
-  # mainPan panCircle
+  # triode 0.8
+  # mainPan (panCircle <> (panCircle + (1/26)))
     -- # gain 0.9
-  # gain (range 0.3 0.7 $ cF 0.5 (gm "d2"))
+  # gain (range 0.2 0.65 $ cF 0.2 (gm "d2"))
 
 
 -- a simple GW only chirp => Compression needed
@@ -136,7 +136,7 @@ d1 $ slow 4
   $ layer[ -- SUB
                (# mainPan ((segment 4 $ panRange $ perlin))),
               -- (# subPan)
-               ((# pan ((24/26) <> (25/26))) . (# lpf 100))
+               ((# pan ((24/26) <> (25/26))) . (# lpf 100). (# gain 0.7))
              ]
   $ s "gw_cut:8!4"
   # grain 0.2 0.7
@@ -144,7 +144,7 @@ d1 $ slow 4
  # speed 0.8
   -- # pan (segment 4 $ panRange $ perlin)
   -- # gain 1.1
-  # gain (range 0.4 1.2 $ cF 0.5 (gm "d1"))
+  # gain (range 0.2 1 $ cF 0.25 (gm "d1"))
 
 
 -- ====>>> END Intro <<<===  
@@ -169,10 +169,8 @@ d1 $ slow 4
   # grain 0.1 0.7
   -- # note "c6"
   # octave 6
- -- |+ pan "0 0.14 0.28 0.42 0.58 0.72 0.86 1"
- -- # mainPan ("4 6 8 10 12 14 16 18" |/ 26)
  # speed (1 + rand/6)
- # triode 0.8
+ -- # triode 0.8
  # lock  1 # delay "x"
  # delaytime (range 0.2 0.8 $ sine)
  # delayfb (slow 16 $ range 0 0.7 $ tri)
@@ -198,56 +196,56 @@ d3 -- $ ghost
   # rel 2
   -- CHECK here which one works
   -- # panbus 1 (segment 256 $ slow 2 $ smooth "-1 1")
-  # mainPan panFront
-  # room 0.4 # sz 0.6 # dry 0.2
+  # mainPan (panFront <> (panFront + (1/26)))
+  -- # room 0.4 # sz 0.6 # dry 0.2
   # bpf 200
   # decay 0.5
   -- # gain 0.85
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d3"))
   
 
--- FRONT swing only => PAN!
+--CAREFULL ONLY SHORT (NO FX)
 d11 $ swingBy (1/5) 6 $ zoom (0.25, 0.75)
   $ layer[ -- SUB
-              (# mainPan panFront),
+              (# mainPan (panFront <> (panFront + (1/26)))),
+              --(# mainPan panFront),
               (# subPan)
             ]
   $ s "gw_cut:2 gw_cut:8"
   # lpf 400
-  # speed "-1.1 0.7"
-  -- # smear 0.5
-  # triode (slow 8 $ range 0 0.8 $ sine)
+  # speed "-1.1 0.67 1.1"
    --- START 0.5 MAX 0.35
   # gain 0.6
-  -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d11"))
+  -- # gain (range 0.2 0.9 $ cF 0.5 (gm "d11"))
  
 d11 $ silence
 
 
+--ONLY alone!!!
 -- interesting, bubbling sounds (slow)
-d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200))
-  -- $ sometimes (superimpose ((jux rev) . (# djf rand)))
+d9 $ sometimes ((# squiz "<1 3>") . (# lpf 1200))
   $ n "1 .. 9"
   # s "gw_cut"
-  # pan (fast 8 $ panRange $ sine)
-  # room (rand)
+   -- # room (rand)
   # legato 12
   # speed (irand 10)
-  # gain (fast 6 $ 0.4* sine) --NO CHANGES !!!
+  # gain (fast 6 $ 0.54* sine) --NO CHANGES !!!
+  # mainPan (panFront <> (panFront + (1/26)))
 --  # gain (range 0.3 0.99 $ cF 0.5 (gm "d9"))
 
-
+---DONT!!!
 --- DANGER for LOAD!!!
 -- clicky, clacky (has sort of a broken pulse)
 d10 $ fast 2.5 $ degradeBy 0.0
-  -- $ superimpose (every 2 ((# squiz 3) . (# djf rand))) $ striate (irand 64)
+  $ superimpose (every 2 ((# squiz 3) . (# djf rand))) $ striate (irand 64)
+  -- $ striate 12
   $ n "9" # s "gw_cut!23"
- # vowel "<i u o>"
-  # room (fast (irand 6) $ square)
+ -- # vowel "<i u o>"
+  -- # room (fast (irand 6) $ square)
   -- # djf 0.7
   # hpf (slow 0.2 $ sine) -- # hpf (slow 0.2 $ range 200 400 sine)
   -- # pan "[0, 0.25, 0.5, 0.75]"
-  -- # squiz (slow 4 $ range 1 2 $ sine)
+  # squiz (slow 4 $ range 1 2 $ sine)
   # mainPan (panCircleAll <> (panCircleAll + (1/26)))
   # gain 0.4 -- MAX 0.5
   -- # gain (range 0.1 0.7 $ cF 0.5 (gm "d10"))
@@ -255,12 +253,12 @@ d10 $ fast 2.5 $ degradeBy 0.0
 d10 $ silence  
 
 
--- DANGER LOAD
+-- DANGER LOAD = ONLY ALONE
 -- ALT drone (use same eq as befor d5)
 -- a slow drone that runs a long time...maybe add more randomness here!
 d5 $ slow 2
-  $ palindrome
-  $ whenmod 5 3 ((#smear rand) . (# room 0.6)) 
+  -- $ palindrome
+  -- $ whenmod 5 3 ((#smear rand) . (# room 0.6)) 
   -- $ layer[ -- SUB
  --             (# mainPan panFront),
  --             (# subPan)
@@ -272,16 +270,16 @@ d5 $ slow 2
   # tilt 0.03
   # speed "0.8"
   # octave 6
-  # binshift (slow 2 $ range 0.1 0.4 $ sine)
+  -- # binshift (slow 2 $ range 0.1 0.4 $ sine)
     -- # legato 1
-  -- # lpf 1000v
-  # room 0.2
+  -- # lpf 1000
+  -- # room 0.2
   # lock 1
-  -- # delay "x" # delaytime 0.125 # delayfb 0.5
-  # gain 0.6
-  -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
-  -- # mainPan "1"
-
+  # delay "x" # delaytime 0.125 # delayfb 0.4
+  # mainPan (panCircleAll <> (panCircleAll + (1/26)))
+  -- # gain 0.8
+  # gain (range 0.1 0.8 $ cF 0.25 (gm "d5"))
+  
 -- === >>> ENDPART 1 S0<<< ===
 
   
@@ -303,7 +301,7 @@ d4 -- $ sometimes (ghost)
   -- # cut 1
   # tilt 0.1
   # fadeTime 0.2
-  # waveloss 40
+  # waveloss 10
   -- # lpf 500
   # gain 0.8
   -- ! tune for grind and pressure -> gets louder
@@ -315,11 +313,12 @@ d4 -- $ sometimes (ghost)
   -- add some uncanny motion here start with lpfbus and change to bpfbus later (get a bit lighter)
   -- # lpfbus 1 (segment 128 $ fast 1 $ smooth "200 2000")
   -- ! adds grind (nice in combination with "shape" to add pressure
-  # octersub 2
+  -- # octersub 1
+  -- # octer 0.1
   -- HERE I definetly want to use new compressor function!!! to change compression on the spot
   -- use pad 2 from intro maybe as a support!
-  # gain 0.7
-  # gain (range 0.0 0.75 $ cF 0.5 (gm "d4"))
+  -- # gain 0.6
+  # gain (range 0.0 0.75 $ cF 0.25 (gm "d4"))
 
 d6 $ sometimes (chop 82)
   $ slow 4 $ n "[1]" # s "gw_stretch"
@@ -327,12 +326,12 @@ d6 $ sometimes (chop 82)
   # tilt 0.1
   # fadeTime 0.2
   -- add richness, can be tuned with dry
-  # room 0.5 # sz 0.6 # dry 0.2
-  # panbus 1 (segment 128 $ fast 2 $ smooth "-1 1")
+  -- # room 0.5 # sz 0.6 # dry 0.2
+  # panbus 1 (segment 128 $ fast 0.5 $ smooth "-1 1")
   # delay "x" # delaytime 0.1 # delayfb 0.3
   --- adds noisy grind
   # octer (slow 4 $ range 0 0.3 $ tri)
-  -- # gain 0.8
+  -- # gain 0.9
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d6"))
   -- optional check
   -- # mainPan panCircleAll
@@ -357,25 +356,15 @@ d5 $ chop 6
   -- # pan rand
   -- # room 0.1
   -- play live here with delay
-  # lock 1 # delay 0.3 # delaytime 0.25 # delayfb 0.4
+  # lock 1 # delay 0.4 # delaytime 0.5 # delayfb 0.6
   # tilt 0.1
   -- perform with octer and enhance here
-  -- # octer 0.3
+  -- # octer 0.1
   -- # enhance 0.1
   # gain 0.8
   # mainPan (panFront <> (panFront + (1/26)))
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
 
-
-d5 $ note (segment 8 $ irand 4)
-  # s "gw_kick"
-  # speed "0.8 1.2"
-  # mainPan (panFront)
-
-let panFront = ("[0, 4, 6, 12, 14]" |/ 26)
-    panBottom = ("[12, 20, 22]" |/ 26)
-    panCircle = ("[12, 14, 16, 18]" |/ 26)
-    panCircleAll = ("[4, 6, 8, 10, 12, 14, 16, 18]" |/ 26)
 
 
 -- CHECK circle pan here per chirp
@@ -400,21 +389,20 @@ let panFront = ("[0, 4, 6, 12, 14]" |/ 26)
  # delayfb (slow 16 $ range 0 0.7 $ tri)
   -- use to fade-out = destroy
   -- # enhance 0.2
-    # gain (range 0.3 0.99 $ cF 0.5 (gm "d2"))
+  # gain (range 0.3 0.99 $ cF 0.5 (gm "d2"))
 
-
+-- OFF D5
 -- some rather strange beats and percussions (LIGHT and higher F)
-d3 $ sometimes ((# squiz 6)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6" # s "gw_cut" -- # pan cosine
+d3 -- $ sometimes ((# squiz 6)) $ fast 1.5
+  $ n "2 4 [2 [4 6]] 6" # s "gw_cut" -- # pan cosine
   # speed "-1.5 -2.6 -1.4"
   # bpf "300 600"
-  # vowel "a i o u"
   -- # waveloss "20..60"
-  -- # krush "1..2"
-  -- # comb 0.6 # room 0.5
+  # krush "1..2"
   # nudge "1.0" -- # nudge "1.3 1.4 1.2"
-  -- # gain 0.6  -- MAX 0.6 START 0.4
-  # gain (range 0.1 0.7 $ cF 0.4 (gm "d3"))
-  # mainPan panCircleAll
+  # gain 0.6  -- MAX 0.6 START 0.4
+  -- # gain (range 0.1 0.7 $ cF 0.4 (gm "d3"))
+  # mainPan (panFront <> (panFront + (1/26)))  
 
 
 --- very slow rhyhtm with some noise (very LOW vol)
@@ -441,7 +429,7 @@ d8 $ slow 2 -- 1, 2 4 to control character of beat
   # lock 1
   -- # delay (range 0.125 0.5 $ saw)
   -- # speed (rand + 0.2)
-  # room 0.4 # dry 0.5
+  -- # room 0.4 # dry 0.5
    # gain 0.4
   -- # djf rand
   -- # gain (range 0 0.6 $ cF 0.5 (gm "d8"))
@@ -455,15 +443,15 @@ d6 $ slow 4 $ n "2" # s "gw_stretch"
   -- # cut 1
   # tilt 0.1
   # fadeTime 0.2
-  # octer 0.3
+  -- # octer 0.3
   # shape 0.4
   -- # speed (slow 8 $ range 1 1.5 $ tri)  -- Play!
-  # lpfbus 1 (segment 128 $ fast 2 $ range 200 2000 $ sine)
+  -- # lpfbus 1 (segment 128 $ fast 2 $ range 200 2000 $ sine)
   # lpf 2000
   # gain 1
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d6"))
   # mainPan panCircle
-
+  -- # mainPan (panFront <> (panFront + (1/26)))
 
 -- === >>> ENDPART 3 S2<<< ===
 
@@ -487,7 +475,7 @@ d4 -- $ sometimes (ghost)
   # fadeTime 0.2
   # waveloss 40
   -- # lpf 500
-  # gain 0.8
+  -- # gain 0.8
   -- ! tune for grind and pressure -> gets louder
   # shape 0.9
   -- # pan (slow 4 $ smooth "0 1")
@@ -500,8 +488,8 @@ d4 -- $ sometimes (ghost)
   # octersub 2
   -- HERE I definetly want to use new compressor function!!! to change compression on the spot
   -- use pad 2 from intro maybe as a support!
-  # gain 0.7
-    -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d4"))
+  -- # gain 0.65
+  # gain (range 0.3 0.99 $ cF 0.5 (gm "d4"))
 
 d6 $ sometimes (chop 82)
   $ slow 4 $ n "[1]" # s "gw_stretch"
@@ -509,8 +497,8 @@ d6 $ sometimes (chop 82)
   # tilt 0.1
   # fadeTime 0.2
   -- add richness, can be tuned with dry
-  # room 0.5 # sz 0.6 # dry 0.2
-  # panbus 1 (segment 128 $ fast 2 $ smooth "-1 1")
+  -- # room 0.5 # sz 0.6 # dry 0.2
+  # panbus 1 (segment 128 $ fast 0.25 $ smooth "-1 1")
   # delay "x" # delaytime 0.1 # delayfb 0.3
   --- adds noisy grind
   # octer (slow 4 $ range 0 0.3 $ tri)
@@ -531,7 +519,8 @@ d6 $ sometimes (chop 82)
   d4 $ slow 2
   -- $ note "a7 g7 f7 d7"
   $ layer[ -- SUB
-              (# mainPan (waveLow 1)),
+              (# mainPan ( panBottom <> (panBottom + (1/26)))),
+              -- (# mainPan (waveLow 1)),
               (# subPan)
             ]
   $ s "gw_raw" # n "1..8"
@@ -544,13 +533,13 @@ d6 $ sometimes (chop 82)
   # hpf 200
   # speed "<-0.2 -0.12 -0.15 -0.2>"
   # timescale 6
-  # room 0.09 # sz 0.3
+  -- # room 0.09 # sz 0.3
   -- # dry 0.1
-  -- # djf (slow 4 $ range 0 0.5 $ tri)
+  # djf (slow 4 $ range 0 0.5 $ tri)
   -- # smear (slow 8 $ range 0 1 $ saw)
   -- add some texture
-  # vowel "a u o"
-  # gain 0.99
+  -- # vowel "a u o"
+  # gain 0.7
   -- # gain (range 0.1 0.7 $ cF 0.5 (gm "d4"))
    
 
@@ -589,8 +578,8 @@ d1 $ degradeBy 0.0
   # speed "-0.8 0.3 -0.4"  -- # speed "-0.8" -- makes for a good bass start =)
   -- # vowel "o i a"
   -- # krush "7.5 3 5 4 1"
-  # gain 0.6
- --  # gain (range 0 0.5 $ cF 0.5 (gm "d1"))
+  -- # gain 0.6
+ # gain (range 0 0.5 $ cF 0.5 (gm "d1"))
 
 
 -- HERE in full COMBO and in relation to d7
@@ -614,46 +603,45 @@ d5 $ jux rev
             (|+ subPan)
             ]
   $ n (segment 12 $ irand 4)
-  # s "[gw_hats, gw_snare, gw_kick]"
+  # s "[gw_hats]"
   # grain 0.1 0.5
   # speed "1 1.3 0.8 2"
   # timescale 2
   # fadeTime 0.2
-  -- # accelerate (slow 4 $ range 0 4 $ cosine)
-  -- # legato 0.07
- --  # note "<a c a b>"
- --  # vowel "o u a"
+  # accelerate (slow 4 $ range 0 4 $ cosine)
+  # legato 0.07
+  -- # note "<a c a b>"
+  -- # vowel "o u a"
   -- # bpf 900 # bpq 8
   -- # shape 0.8
-  # gain 0.6
+  -- # gain 0.6
   # hpf 100
-  -- # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
+  # gain (range 0.3 0.99 $ cF 0.5 (gm "d5"))
 
 
 -- a muted rhythm for BG (might need a different orbit number) (maybe go crazy with slow 1
 d8 $ slow 2
-  -- $ ghost
+  $ ghost
   $ layer[ -- SUB
               (|+ mainPan (panFront <> (panFront + (1/26)))),
               (# subPan)
             ]
   $ note "4 7 4 [4 5]  ~ 4 5 6"
-  # s "gw_raw*8" # n "1..8" # octave 8
+  # s "gw_raw*8" # n "1..8" # octave 7
   # grain 0.4 0.2
   # tilt 0.1
   -- # Cut 1
   # speed "-1.3 -1 -0.8 -1.5"  -- play with range here live 
   # shape 0.5
   -- # squiz 5
-  -- # coarse 4
-  # vowel "o a u"
+  # coarse 4
+  -- # vowel "o a u"
   -- # djf 0.45 -- slowly inccreas
    -- # bpf 400 # bpq "10"
-  -- # delay 0.5
-  # gain 0.3
-  -- # gain (range 0.1 0.99 $ cF 0.5 (gm "d3"))
-
-
+  -- # delay 0.15
+  -- # gain 0.2
+  # gain (range 0 0.7 $ cF 0.5 (gm "d8"))
+  
 
 -- from bass to perc
 d7 $ fast 2
@@ -682,15 +670,15 @@ d7 $ fast 2
   --- # squiz "5 3"
   -- # smear "<0.5 4 0.8 3>"
  -- MAX gain 1.2
-  # gain 1
+  -- # gain 0.85
   -- # djf 0.8
-  -- # gain (range 0.5 1.2 $ cF 0.5 (gm "d7"))
+  # gain (range 0.5 1.2 $ cF 0.5 (gm "d7"))
   
 
 
 -- USE to build final tension
 d3 $ slow 1
-  $ ghost
+  -- $ ghost
   $ note "4 7 4 [4 5] ~ 4 5 6"
   # s "gw_raw*8" # n "1..8" # octave 7
   # grain 0.4 0.2
@@ -700,15 +688,15 @@ d3 $ slow 1
   # shape 0.5
   # squiz " 4 3 2 5"
   # coarse 4
-  # vowel "o a u"
+  -- # vowel "o a u"
   # djf 0.25 -- slowly inccreas
   # bpf 400 # bpq "2"
-  # delay 0.5
+  -- # delay 0.5
   # legato 0.3
   -- # pan perlin
  # mainPan (panCircle <> (panCircle + (1/26)))
-  # gain 0.8
-  -- # gain (range 0.1 0.99 $ cF 0.2 (gm "d3"))
+  -- # gain 0.85
+  # gain (range 0.1 0.99 $ cF 0.2 (gm "d3"))
 
 
 
