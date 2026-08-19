@@ -241,11 +241,11 @@ d1 $ jux rev
   -- chop, smash as well as degradeBy should be used in different combinations and with different params to alter perception
   $ chop "2"
   -- $ smash 3 [2,3,4]
-  $ degradeBy 0.3
+  $ degradeBy 0.0
   -- fast and slow can be used here either with or without degrade to perform
   $ slow 2
   $ n (segment 12 $ irand 4)
-  # s "[gw_hats, gw_snare]"
+  # s "[gw_hats, gw_snare, gw_kick]"
   # grain 0.1 0.5
   # speed "1 1.3 0.8 2"
   # timescale 2

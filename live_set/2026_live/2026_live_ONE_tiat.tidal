@@ -136,8 +136,9 @@ d2 $ slow 2 $ s "gw_cut:8*3"
 
 
 -- very, very simple rhythm
-d2 $ every 2 (rot (irand 4))
-  $ struct "1 1 [0 1]/2 1" $ s "gw_cut:1" # note "a6"
+d2 -- $ fast 2
+  -- $ every 2 (rot (irand 4))
+  $ struct "1 1 [0 1]/2 1" $ s "gw_cut:1" # note "a6 g6 f7"
   # grain 0.2 0.6
   # tilt 0.01
   # speed "-0.8 -2 -1.5"
