@@ -698,7 +698,7 @@ d2 $ fast 1
   -- MAX gain 0.65
   # lpfbus 2 (segment 128 $ fast 1 $ range 100 2000 $ sine )
   -- # gain (slow 2 $ range 0.3 0.99 sine)
-  # gain (range 0.3 0.8 $ cF 0.1 (gm "d2"))
+  # gain (range 0.3 0.8 $ cF 0.5 (gm "d2"))
 
 
 -- noise beat
@@ -727,7 +727,7 @@ d4 $ fast 0.25 $ note (scale "minor" "[5 5 <5 9>, 0 0]") # octave 4
   # room 0.8 # dry 0.2
   # lock 1
   # delay 0.5 # delayt (1/6) # delayfb 0.5
-  # gain (range 0.2 0.9 $ cF 0.3 (gm "d4"))
+  # gain (range 0.2 0.9 $ cF 0.7 (gm "d4"))
 
 
 
