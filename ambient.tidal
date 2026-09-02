@@ -94,7 +94,7 @@ d6
   -- # ring 7 # ringf 50 # ringdf 1200
   # shape "0.1 0.5 0.8"
   -- # krush 1.9
-  # gain 0.3
+  # gain 0.9
 
 d6 $ silence
 

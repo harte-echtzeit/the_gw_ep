@@ -49,12 +49,12 @@ d2 $ silence
 d3 $ sometimes  ( (# squiz 3)) $ fast 1.5 $ n "2 4 [2 [4 6]] 6"
   # s "gw_cut"
   # speed "-1.4 -1.6 -1.4"
-  # gain 0.4
+  # gain 0.8
   -- # vowel "a u"
   # bpf "300 900"
   # pan cosine
   # waveloss "20..60"
-  # krush 2
+  -- # krush 2
   -- # comb 0.9
   # nudge "1.1 1.4 1.2"
 
