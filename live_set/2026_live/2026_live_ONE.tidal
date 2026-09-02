@@ -139,7 +139,7 @@ d6 $ slow 4 $ n "2" # s "gw_stretch"
     -- # speed (slow 8 $ range 1 1.5 $ tri)
   # lpfbus 1 (segment 128 $ fast 2 $ range 200 2000 $ sine)
   -- # gain 1
-  # gain (range 0.3 1 $ cF 0.4 (gm "d6"))
+  # gain (range 0.3 1 $ cF 0.95 (gm "d6"))
 
 
 ------------------->>>>>>>>>>>>>>> PART ONE <<<<<<<<<<<<---------------
@@ -284,10 +284,10 @@ d1 $ fast 2
   -- # gain 0.7
   # gain (range 0.4 1.1 $ cF 0.5 (gm "d1"))
 
-d2 $ slow 2 $ n "1 ~ ~ 1 ~ ~ [1|0]/2 1" # s "gw_cut:1" # grain 0.4 0.1
+d2 $ slow 1 $ n "1 ~ ~ 1 ~ ~ [1|0]/2 1" # s "gw_cut:1" # grain 0.4 0.1
   # speed "-1.2" # tilt 0.01
   # shape "0.4 0.2 0.4 0.5"
-  # gain (range 0.4 1.1 $ cF 0.5 (gm "d2"))
+  # gain (range 0.4 1.1 $ cF 0.8 (gm "d2"))
 
 --- we need a synth line here!
 -- dance
