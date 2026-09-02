@@ -1,0 +1,960 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CARLA-PROJECT>
+<CARLA-PROJECT VERSION='2.5'>
+ <EngineSettings>
+  <ForceStereo>false</ForceStereo>
+  <PreferPluginBridges>false</PreferPluginBridges>
+  <PreferUiBridges>true</PreferUiBridges>
+  <UIsAlwaysOnTop>false</UIsAlwaysOnTop>
+  <MaxParameters>200</MaxParameters>
+  <UIBridgesTimeout>4000</UIBridgesTimeout>
+ </EngineSettings>
+
+ <Transport>
+  <BeatsPerMinute>120</BeatsPerMinute>
+ </Transport>
+
+ <!-- CHOWTapeModel -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>CHOWTapeModel</Name>
+   <URI>https://github.com/jatinchowdhury18/AnalogTapeModel</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x5</Options>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Input Gain</Name>
+    <Symbol>input_gain</Symbol>
+    <Value>0.833333313465118</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Output Gain</Name>
+    <Symbol>output_gain</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Dry/Wet</Name>
+    <Symbol>dry_wet</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Input Filters On/Off</Name>
+    <Symbol>input_filters_on_off</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>Input Low Cut</Name>
+    <Symbol>input_low_cut</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Input High Cut</Name>
+    <Symbol>input_high_cut</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>Input Cut Makeup</Name>
+    <Symbol>input_cut_makeup</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>Tone On/Off</Name>
+    <Symbol>tone_on_off</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Tone Bass</Name>
+    <Symbol>tone_bass</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>Tone Treble</Name>
+    <Symbol>tone_treble</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>Tone Transition Frequency</Name>
+    <Symbol>tone_transition_frequency</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>Compression On/Off</Name>
+    <Symbol>compression_on_off</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>Compression Amount</Name>
+    <Symbol>compression_amount</Symbol>
+    <Value>0.848000049591064</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>Compression Attack</Name>
+    <Symbol>compression_attack</Symbol>
+    <Value>0.113896012306213</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>Compression Release</Name>
+    <Symbol>compression_release</Symbol>
+    <Value>0.620546996593475</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Tape On/Off</Name>
+    <Symbol>tape_on_off</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Tape Drive</Name>
+    <Symbol>tape_drive</Symbol>
+    <Value>0.607999980449677</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Tape Saturation</Name>
+    <Symbol>tape_saturation</Symbol>
+    <Value>0.636000037193298</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>Tape Bias</Name>
+    <Symbol>tape_bias</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>Tape Mode</Name>
+    <Symbol>tape_mode</Symbol>
+    <Value>0.400000005960464</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>Oversampling Factor</Name>
+    <Symbol>oversampling_factor</Symbol>
+    <Value>0.25</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Oversampling Mode</Name>
+    <Symbol>oversampling_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Oversampling Factor (render)</Name>
+    <Symbol>oversampling_factor__render_</Symbol>
+    <Value>0.25</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>Oversampling Mode (render)</Name>
+    <Symbol>oversampling_mode__render_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Oversampling (render like real-time)</Name>
+    <Symbol>oversampling__render_like_real_time_</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Loss On/Off</Name>
+    <Symbol>loss_on_off</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>Tape Speed</Name>
+    <Symbol>tape_speed</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>Tape Spacing</Name>
+    <Symbol>tape_spacing</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>30</Index>
+    <Name>Tape Thickness</Name>
+    <Symbol>tape_thickness</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>31</Index>
+    <Name>Playhead Gap</Name>
+    <Symbol>playhead_gap</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>32</Index>
+    <Name>Azimuth</Name>
+    <Symbol>azimuth</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>33</Index>
+    <Name>Wow/Flutter On/Off</Name>
+    <Symbol>wow_flutter_on_off</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>34</Index>
+    <Name>Flutter Rate</Name>
+    <Symbol>flutter_rate</Symbol>
+    <Value>0.300000011920929</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>35</Index>
+    <Name>Flutter Depth</Name>
+    <Symbol>flutter_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>36</Index>
+    <Name>Wow Rate</Name>
+    <Symbol>wow_rate</Symbol>
+    <Value>0.25</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>37</Index>
+    <Name>Wow Depth</Name>
+    <Symbol>wow_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>38</Index>
+    <Name>Wow Variance</Name>
+    <Symbol>wow_variance</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>39</Index>
+    <Name>Wow Drift</Name>
+    <Symbol>wow_drift</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>40</Index>
+    <Name>Degrade Point1x</Name>
+    <Symbol>degrade_point1x</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>41</Index>
+    <Name>Degrade On/Off</Name>
+    <Symbol>degrade_on_off</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>42</Index>
+    <Name>Degrade Depth</Name>
+    <Symbol>degrade_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>43</Index>
+    <Name>Degrade Amount</Name>
+    <Symbol>degrade_amount</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>44</Index>
+    <Name>Degrade Variance</Name>
+    <Symbol>degrade_variance</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>45</Index>
+    <Name>Degrade Envelope</Name>
+    <Symbol>degrade_envelope</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>46</Index>
+    <Name>Chew On/Off</Name>
+    <Symbol>chew_on_off</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>47</Index>
+    <Name>Chew Depth</Name>
+    <Symbol>chew_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>48</Index>
+    <Name>Chew Freq</Name>
+    <Symbol>chew_freq</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>49</Index>
+    <Name>Chew Variance</Name>
+    <Symbol>chew_variance</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>50</Index>
+    <Name>Mid/Side Mode</Name>
+    <Symbol>mid_side_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>51</Index>
+    <Name>Stereo Balance</Name>
+    <Symbol>stereo_balance</Symbol>
+    <Value>0.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>52</Index>
+    <Name>Stereo Makeup</Name>
+    <Symbol>stereo_makeup</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>53</Index>
+    <Name>Mix Group</Name>
+    <Symbol>mix_group</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Chunk</Type>
+    <Key>urn:juce:stateBinary</Key>
+    <Value>
+VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lvbj0iMi4xMS40Ij48UGFyYW1ldGVycz48UEFSQU0gaWQ9ImNoZXdfZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImNoZXdfZnJlcSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iY2hld192YXIiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlZ19hbXQiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlZ19kZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVnX3ZhciIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRyaXZlIiB2YWx1ZT0iMC42MDc5OTk5ODA0NDk2NzY1Ii8+PFBBUkFNIGlkPSJkcnl3ZXQiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9ImdhcCIgdmFsdWU9IjEuMCIvPjxQQVJBTSBpZD0iaF9iYXNzIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJoX3RyZWJsZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iaW5nYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJtb2RlIiB2YWx1ZT0iMiIvPjxQQVJBTSBpZD0ib3MiIHZhbHVlPSIxIi8+PFBBUkFNIGlkPSJvdXRnYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJyYXRlIiB2YWx1ZT0iMC4zMDAwMDAwMTE5MjA5MjkiLz48UEFSQU0gaWQ9InNhdCIgdmFsdWU9IjAuNjM2MDAwMDM3MTkzMjk4MyIvPjxQQVJBTSBpZD0ic3BhY2luZyIgdmFsdWU9IjAuMTAwMDAwMDAxNDkwMTE2MSIvPjxQQVJBTSBpZD0ic3BlZWQiIHZhbHVlPSIxNS4wMDAwMDA5NTM2NzQzMiIvPjxQQVJBTSBpZD0idGhpY2siIHZhbHVlPSIwLjEwMDAwMDAwMTQ5MDExNjEiLz48UEFSQU0gaWQ9IndpZHRoIiB2YWx1ZT0iMC41Ii8+PFBBUkFNIGlkPSJ3b3dfZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9Indvd19yYXRlIiB2YWx1ZT0iMC4yNSIvPjxQQVJBTSBpZD0icHJlc2V0IiB2YWx1ZT0iMCIvPjxQQVJBTSBpZD0ib3NfZmFjdG9yIiB2YWx1ZT0iMS4wIi8+PFBBUkFNIGlkPSJvc19tb2RlIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJvc19yZW5kZXJfZmFjdG9yIiB2YWx1ZT0iMS4wIi8+PFBBUkFNIGlkPSJvc19yZW5kZXJfbW9kZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0ib3NfcmVuZGVyX2xpa2VfcmVhbHRpbWUiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9Im1peF9ncm91cCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iYXppbXV0aCIvPjxQQVJBTSBpZD0iY2hld19vbm9mZiIvPjxQQVJBTSBpZD0iY29tcF9hbXQiIHZhbHVlPSI2LjkzMDMwOTc3MjQ5MTQ1NSIvPjxQQVJBTSBpZD0iY29tcF9hdHRhY2siIHZhbHVlPSIwLjQxMzYzNjA4ODM3MTI3NjkiLz48UEFSQU0gaWQ9ImNvbXBfb25vZmYiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9ImNvbXBfcmVsZWFzZSIgdmFsdWU9IjE5OS45OTk4OTMxODg0NzY2Ii8+PFBBUkFNIGlkPSJkZWdfZW52Ii8+PFBBUkFNIGlkPSJkZWdfb25vZmYiLz48UEFSQU0gaWQ9ImRlZ19wb2ludDF4Ii8+PFBBUkFNIGlkPSJmbHV0dGVyX29ub2ZmIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJoX3RmcmVxIiB2YWx1ZT0iNTAwLjAwMDAzMDUxNzU3ODEiLz48UEFSQU0gaWQ9Imh5c3Rfb25vZmYiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9ImlmaWx0X2hpZ2giLz48UEFSQU0gaWQ9ImlmaWx0X2xvdyIvPjxQQVJBTSBpZD0iaWZpbHRfbWFrZXVwIi8+PFBBUkFNIGlkPSJpZmlsdF9vbm9mZiIvPjxQQVJBTSBpZD0ibG9zc19vbm9mZiIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0ibWlkX3NpZGUiLz48UEFSQU0gaWQ9InN0ZXJlb19iYWxhbmNlIi8+PFBBUkFNIGlkPSJzdGVyZW9fbWFrZXVwIi8+PFBBUkFNIGlkPSJ0b25lX29ub2ZmIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJ3b3dfZHJpZnQiLz48UEFSQU0gaWQ9Indvd192YXIiLz48cHJvcGVydGllcz48cGx1Z2luIGlzX3N0ZXJlbz0iMSIvPjwvcHJvcGVydGllcz48bGFzdC1zaXplIHdpZHRoPSI3MjAiIGhlaWdodD0iNjIwIi8+PC9QYXJhbWV0ZXJzPjxQcmVzZXRfU3RhdGUgcHJlc2V0X2RpcnR5PSIxIj48UHJlc2V0IG5hbWU9IkRlZmF1bHQiIHBsdWdpbj0iQ0hPV1RhcGVNb2RlbCIgdmVuZG9yPSJDSE9XIiBjYXRlZ29yeT0iIiB2ZXJzaW9uPSIyLjEwLjAiIHByZXNldF9maWxlPSIiPjxQYXJhbWV0ZXJzPjxQQVJBTSBpZD0iY2hld19kZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iY2hld19mcmVxIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJjaGV3X3ZhciIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVnX2FtdCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVnX2RlcHRoIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJkZWdfdmFyIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJkZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZHJpdmUiIHZhbHVlPSIwLjUiLz48UEFSQU0gaWQ9ImRyeXdldCIgdmFsdWU9IjEwMC4wIi8+PFBBUkFNIGlkPSJnYXAiIHZhbHVlPSI5Ljk5OTk5OTk3NDc1MjQyN2UtNyIvPjxQQVJBTSBpZD0iaF9iYXNzIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJoX3RyZWJsZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iaW5nYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJtb2RlIiB2YWx1ZT0iMiIvPjxQQVJBTSBpZD0ib3MiIHZhbHVlPSIxIi8+PFBBUkFNIGlkPSJvdXRnYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJyYXRlIiB2YWx1ZT0iMC4yOTk5OTk5ODIxMTg2MDY2Ii8+PFBBUkFNIGlkPSJzYXQiIHZhbHVlPSIwLjUiLz48UEFSQU0gaWQ9InNwYWNpbmciIHZhbHVlPSI5Ljk5OTk5OTk3NDc1MjQyN2UtNyIvPjxQQVJBTSBpZD0ic3BlZWQiIHZhbHVlPSIxNS4wMDAwMDA5NTM2NzQzMiIvPjxQQVJBTSBpZD0idGhpY2siIHZhbHVlPSI5Ljk5OTk5OTk3NDc1MjQyN2UtNyIvPjxQQVJBTSBpZD0id2lkdGgiIHZhbHVlPSIwLjUiLz48UEFSQU0gaWQ9Indvd19kZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0id293X3JhdGUiIHZhbHVlPSIwLjI1Ii8+PFBBUkFNIGlkPSJwcmVzZXQiIHZhbHVlPSIwIi8+PC9QYXJhbWV0ZXJzPjxleHRyYV9pbmZvLz48L1ByZXNldD48L1ByZXNldF9TdGF0ZT48L3N0YXRlPgA=
+    </Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <!-- s(M)exoscope -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>s(M)exoscope</Name>
+   <URI>https://github.com/hollance/sMexoscope/plugins/s_M_exoscope</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x1</Options>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#String</Type>
+    <Key>https://github.com/hollance/sMexoscope/plugins/s_M_exoscope:StateString</Key>
+    <Value>40.....+.........vO....+....8C...vO......................</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <!-- LSP Clipper Stereo -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>LSP Clipper Stereo</Name>
+   <URI>http://lsp-plug.in/plugins/lv2/clipper_stereo</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x1</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Enabled</Name>
+    <Symbol>enabled</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Input gain</Name>
+    <Symbol>g_in</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Output gain</Name>
+    <Symbol>g_out</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Enable input LUFS limitation</Name>
+    <Symbol>lufs_on</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Input LUFS limiter threshold</Name>
+    <Symbol>lufs_th</Symbol>
+    <Value>-3</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>Clipping threshold</Name>
+    <Symbol>thresh</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Boosting mode</Name>
+    <Symbol>boost</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>Dithering mode</Name>
+    <Symbol>dither</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>Clipper logarithmic display</Name>
+    <Symbol>clog</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>Overdrive protection</Name>
+    <Symbol>op</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>Overdrive protection threshold</Name>
+    <Symbol>th</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>Overdrive protection knee</Name>
+    <Symbol>kn</Symbol>
+    <Value>1.5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>Overdrive protection reactivity</Name>
+    <Symbol>or</Symbol>
+    <Value>50</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Clipper enable</Name>
+    <Symbol>ce</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Clipper sigmoid function</Name>
+    <Symbol>cf</Symbol>
+    <Value>2</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Clipper sigmoid threshold</Name>
+    <Symbol>ct</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>Clipper DC offset</Name>
+    <Symbol>dcoff</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>Clipper DC compensate</Name>
+    <Symbol>dcomp</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>Clipper sigmoid pumping</Name>
+    <Symbol>cp</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Clipper graph view</Name>
+    <Symbol>gview</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Stereo link</Name>
+    <Symbol>slink</Symbol>
+    <Value>50</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>Input level graph enable Left</Name>
+    <Symbol>ilg_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Output level graph enable Left</Name>
+    <Symbol>olg_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Gain reduction graph enable Left</Name>
+    <Symbol>grg_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>Input level graph enable Right</Name>
+    <Symbol>ilg_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>Output level graph enable Right</Name>
+    <Symbol>olg_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>30</Index>
+    <Name>Gain reduction graph enable Right</Name>
+    <Symbol>grg_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Object</Type>
+    <Key>http://lsp-plug.in/plugins/lv2/clipper_stereo/preset_state</Key>
+    <Value>AAAAAFUAAABWAAAAAAAAAAEAAAARAAAAAAAAAAAAAABXAAAAAAAAAAQAAAAHAAAAAAAAAAAAAABYAAAAAAAAAAQAAAAHAAAAAAAAAAAAAAA=</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <!-- LSP Limiter Stereo -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>LSP Limiter Stereo</Name>
+   <URI>http://lsp-plug.in/plugins/lv2/limiter_stereo</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x1</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Show pre-mix overlay</Name>
+    <Symbol>showpmx</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Input to Link mix</Name>
+    <Symbol>in2lk</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Link to Input mix</Name>
+    <Symbol>lk2in</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Link to Sidechain mix</Name>
+    <Symbol>lk2sc</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Enabled</Name>
+    <Symbol>enabled</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Input gain</Name>
+    <Symbol>g_in</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>Output gain</Name>
+    <Symbol>g_out</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Sidechain preamp</Name>
+    <Symbol>scp</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>Automatic level regulation</Name>
+    <Symbol>alr</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>Automatic level regulation attack time</Name>
+    <Symbol>alr_at</Symbol>
+    <Value>5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Automatic level regulation release time</Name>
+    <Symbol>alr_rt</Symbol>
+    <Value>50</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>Operating mode</Name>
+    <Symbol>mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>Threshold</Name>
+    <Symbol>th</Symbol>
+    <Value>0.887449264526367</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>Knee level</Name>
+    <Symbol>knee</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>Gain boost</Name>
+    <Symbol>boost</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>Lookahead</Name>
+    <Symbol>lk</Symbol>
+    <Value>5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>Attack time</Name>
+    <Symbol>at</Symbol>
+    <Value>5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Release time</Name>
+    <Symbol>rt</Symbol>
+    <Value>5</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Oversampling</Name>
+    <Symbol>ovs</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Dithering</Name>
+    <Symbol>dith</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>Pause graph analysis</Name>
+    <Symbol>pause</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>Clear graph analysis</Name>
+    <Symbol>clear</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>Sidechain type</Name>
+    <Symbol>extsc</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Stereo linking</Name>
+    <Symbol>slink</Symbol>
+    <Value>100</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Input graph visibility Left</Name>
+    <Symbol>igv_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>Output graph visibility Left</Name>
+    <Symbol>ogv_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Sidechain graph visibility Left</Name>
+    <Symbol>scgv_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Gain graph visibility Left</Name>
+    <Symbol>grgv_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>32</Index>
+    <Name>Input graph visibility Right</Name>
+    <Symbol>igv_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>33</Index>
+    <Name>Output graph visibility Right</Name>
+    <Symbol>ogv_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>34</Index>
+    <Name>Sidechain graph visibility Right</Name>
+    <Symbol>scgv_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>35</Index>
+    <Name>Gain graph visibility Right</Name>
+    <Symbol>grgv_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>40</Index>
+    <Name>Knee smooth</Name>
+    <Symbol>smooth</Symbol>
+    <Value>-5</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#String</Type>
+    <Key>http://lsp-plug.in/plugins/lv2/limiter_stereo/ports#link</Key>
+    <Value></Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Object</Type>
+    <Key>http://lsp-plug.in/plugins/lv2/limiter_stereo/preset_state</Key>
+    <Value>AAAAAFUAAABWAAAAAAAAAAEAAAARAAAAAAAAAAAAAABXAAAAAAAAAAQAAAAHAAAAAAAAAAAAAABYAAAAAAAAAAQAAAAHAAAAAAAAAAAAAAA=</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <ExternalPatchbay>
+  <Connection>
+   <Source>AMS-24 Analog Stereo:capture_FL</Source>
+   <Target>SuperCollider:in_1</Target>
+  </Connection>
+  <Connection>
+   <Source>AMS-24 Analog Stereo:capture_FR</Source>
+   <Target>SuperCollider:in_2</Target>
+  </Connection>
+  <Connection>
+   <Source>SuperCollider:out_1</Source>
+   <Target>Carla:CHOWTapeModel:Audio Input 1</Target>
+  </Connection>
+  <Connection>
+   <Source>SuperCollider:out_2</Source>
+   <Target>Carla:CHOWTapeModel:Audio Input 2</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:CHOWTapeModel:Audio Output 1</Source>
+   <Target>Carla:s(M)exoscope:Audio In 1</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:CHOWTapeModel:Audio Output 2</Source>
+   <Target>Carla:s(M)exoscope:Audio In 2</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:s(M)exoscope:Audio Out 1</Source>
+   <Target>Carla:LSP Clipper Stereo:Input L</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:s(M)exoscope:Audio Out 2</Source>
+   <Target>Carla:LSP Clipper Stereo:Input R</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:LSP Clipper Stereo:Output L</Source>
+   <Target>Carla:LSP Limiter Stereo:Input L</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:LSP Clipper Stereo:Output R</Source>
+   <Target>Carla:LSP Limiter Stereo:Input R</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:LSP Limiter Stereo:Output L</Source>
+   <Target>AMS-24 Analog Stereo:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:LSP Limiter Stereo:Output R</Source>
+   <Target>AMS-24 Analog Stereo:playback_FR</Target>
+  </Connection>
+  <Positions>
+   <Position x1="1894" y1="1094">
+    <Name>Carla</Name>
+   </Position>
+   <Position x1="1168" y1="1162" x2="2344" y2="1120">
+    <Name>AMS-24 Analog Stereo</Name>
+   </Position>
+   <Position x1="1088" y1="1306" x2="2306" y2="1328">
+    <Name>Tiger Lake-LP Smart Sound Technology Audio Controller Stereo Microphone</Name>
+   </Position>
+   <Position x1="1624" y1="1152">
+    <Name>SuperCollider</Name>
+   </Position>
+   <Position x1="1550" y1="1712" x2="1174" y2="1572">
+    <Name>Midi-Bridge</Name>
+   </Position>
+  </Positions>
+ </ExternalPatchbay>
+</CARLA-PROJECT>
