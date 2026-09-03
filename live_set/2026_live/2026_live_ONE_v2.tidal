@@ -105,15 +105,15 @@ d8 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
 
 -- from ji ku kan - FABRIC = slow BASS
 d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
-  $ slow 1
+  $ slow 2
   $ n "3 3 2 4 1"
   # s "gw_cut"
   # tilt 0.1
   # shape "0.6 0.2 0.4"
   # speed "-0.4 0.3 -0.4"
-  # enhance 0.1
+  -- # enhance 0.1
   -- # vowel "u i a"
-  # room 0.8 # sz 0.4 # dry 0.2
+  # room 0.8 # sz 0.7 # dry 0.2
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d1"))
 
 d4 $ sometimes (# vowel "[a|u|e]")
@@ -429,24 +429,92 @@ d5 -- $ sometimes  ( (# squiz 3))
   # bpf "100 600"
   # pan cosine
   -- # waveloss "20..60"
-  # krush 2
-  -- # comb 0.9
+  -- # krush 2
+  -- # comb 0.9 -- inserts nice break!
   # nudge "1.1 1.4 1.2"
+  # gain (range 0.1 0.99 $ cF 0.5 (gm "d5"))
 
-d5 $ silence
+-- ALT start
+d5 $ slow 2
+  $ n "<[1 ~ ~ 1 ~ ~ ~ 1 ~ 1 ~ ~ 1 ~ 1 ~] [1 ~ ~ ~ 1 ~ ~ 1 ~ ~ 1 ~ 1 ~ ~ ~]>"
+  -- $ n ""
+  # s "gw_kick:9"
+  # lpf 500
+  # room 0.1 # dry 0.8
+  # shape 0.1
+  # gain (range 0.1 1 $ cF 0.5 (gm "d5"))
 
 
---->>>>NEEDS BRIDGE HERE and maybe some fast hats?
+--->>>> BRIDGE HERE and maybe some fast hats?
 
-  d8 -- $ sometimes (shuffle 3)
+d1 $ slow 2
+  -- $ sometimes (echo 2 "-0.125" 0.7)
+  $ struct "<t(5,8, 2) t(7,8, 2)>"
+ -- $ n "c f g e"
+  $ n "2 1 2 4" 
+  # octave "4" # s "gw_snare gw_synth"
+  -- # octer 0.1  -- slowly increase
+  # room 0.25 # sz 0.4 # dry 0.8
+  # lock 1 # delay 0.6 #delayt (1/8) # delayfb 0.5
+  # gain (range 0.1 0.99 $ cF 0.5 (gm "d1"))
+
+
+  d8 $ slow 2
+   $ sometimes (# cut 1)
+   $ struct "t(11,16)" $ n  "7" # s "gw_hats"
+   # bpf 3800 # bpq 0.8
+   # att 0.05
+   # rel (range 0.2 0.8 $ perlin)
+   # speed (slow 8 $ range 0.8 1.6 $ sine)
+   # djf 0.3
+     # gain (range 0.1 0.99 $ cF 0.5 (gm "d8"))
+
+-- RE WORK
+  d8 $ slow 2
+  $ sometimes (shuffle 3)
   $ n "1 5 [6 7] 9 ~ [7 8] 1 4 5 0 ~ 4 0 9 ~ 11 8" # s "gw_hats"
   # hpf 2300
-  # bpf 12000 # bpq 0.3
+  -- # bpf 12000 # bpq 0.3
   # speed (segment 16 $ range 0.8 1.1 $ perlin)
   -- # legato 0.6
-  # att 0.05
-  # rel 0.06
+  -- # att 0.05
+  -- # rel 0.06
    # gain (range 0.1 0.99 $ cF 0.5 (gm "d8"))
+
+-- OR use this one instead!
+-- noise beat 
+d3 $ slow 2
+  $ ghost
+  $ note "4 7 4 [4 5] ~ 4 5 6"
+  # s "gw_raw*8" # n "1..8" # octave 7
+  # grain 0.4 0.2
+  # tilt 0.1
+  -- # Cut 1
+  # speed "-1.3 -1 -0.8 -1.5"  -- play with range here live 
+  # shape 0.2
+  -- # squiz 2
+  -- # coarse 2
+  -- # vowel "o a u"
+  # djf 0.35 -- slowly inccreas
+  -- # tsdelay " 20 30 40"
+  # bpf 1400 # bpq "10"
+  # delay 0.35
+  -- # gain 0.7
+   # gain (range 0.1 0.95 $ cF 0.5 (gm "d3"))
+
+
+---- USE PAD here!!!
+
+-- pad 2 => use mild eq here and make sure levels are high enough
+-- MID F
+d6 $ slow 4 $ n "2" # s "gw_stretch"
+  -- # cut 1
+  # tilt 0.1
+  # fadeTime 0.2
+    -- # speed (slow 8 $ range 1 1.5 $ tri)
+  # lpfbus 1 (segment 128 $ fast 2 $ range 200 2000 $ sine)
+  -- # gain 1
+  # gain (range 0.3 1.3 $ cF 0.4 (gm "d6"))
 
   
 --- DRIVER (not really a BASS but kind of
@@ -470,7 +538,7 @@ d2 $ jux rev
   -- # legato 0.07
   # pan "<[0 1] [0.25 0.75] [0.45 0.55]>"
   -- # note "<a c a b>"
-  # vowel "u a o" --PLAY
+  -- # vowel "u a o" --PLAY
   # bpf 900 # bpq 8
   -- # gain 0.8
   # gain (range 0.2 1.2 $ cF 0.5 (gm "d2"))
@@ -505,6 +573,31 @@ d6
 d6 $ silence
 
 
+--- HERE make it fit and MAYBE use generative algorith
+--- model for a planned CA controlled GW chirp concert
+-- maybe use more randomness or algorithms for slowly evolving stuff
+-- use CA to pick sample number? maybe as in 12 tone, every sample just once?
+  d4 $ every 4 ((# room 0.1) . (# size 0.2). (# dry 0.5))
+  $ almostNever (chop 4)
+  $ slow 4 $ struct "1 0 0 1 0 1 1 0"
+  $ n (segment 8 $ irand 9)
+  # s "gw_cut"
+  # grain 0.1 0.7
+  -- # note "c6"
+  # octave 6
+ |+ pan "0 0.14 0.28 0.42 0.58 0.72 0.86 1"
+ # speed (1 + rand/6)
+ # triode 0.8
+ # lock  1 # delay "x"
+ # delaytime 0.2
+ # delayfb (slow 16 $ range 0 0.7 $ tri)
+  -- use to fade-out = destroy
+  -- # enhance 0.2
+  # gain 0.9
+  -- # gain (range 0.4 1.1 $ cF 0.5 (gm "d2"))
+ 
+
+
 
 --->>>> IMPORTED from part 1 make quiet but use as variation 
 
@@ -516,6 +609,7 @@ d1 $ fast 2
   -- $ sometimes (swingBy (1/2) 4)
   $ n "4 1 2 4"
   # s "gw_cut(6,8)"
+  # hpf 200
   -- # grain 0.0002 1
   -- # tilt 0.01
   # speed "1.4"
@@ -541,9 +635,9 @@ d3 $ slow 1 $ n "1 ~ ~ 1 ~ ~ [1|0]/2 1" # s "gw_cut:1" # grain 0.4 0.1
   # speed "-1.2" # tilt 0.01
   # shape "0.4 0.2 0.4 0.5"
   -- add some punch over time
-  # triode 0.8
-  # enhance 0.2
-  # distort 0.1
+  -- # triode 0.8
+  -- # enhance 0.2
+  -- # distort 0.1
   # krush 3
   # gain (range 0.4 1.1 $ cF 0.45 (gm "d3"))
 
@@ -705,8 +799,8 @@ d2 $ fast 1
   # gain (range 0.3 0.8 $ cF 0.5 (gm "d2"))
 
 
--- noise beat
-d3 $ slow 1
+-- noise beat (maybe use in P2 NOT here!)
+d3 $ slow 2
   $ ghost
   $ note "4 7 4 [4 5] ~ 4 5 6"
   # s "gw_raw*8" # n "1..8" # octave 7
