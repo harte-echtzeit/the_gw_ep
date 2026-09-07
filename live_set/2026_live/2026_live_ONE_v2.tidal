@@ -75,7 +75,7 @@ d9 $ sometimes ((# squiz "<1 3>") . (# fast 3 (vowel "u i o")) . (# lpf 1200)) $
   # room (rand)
   # legato 12
   # speed (irand 10)
-  # gain (fast 6 $ 0.7 * sine) --NO CHANGES !!!
+  # gain (fast 6 $ 0.8 * sine) --NO CHANGES !!!
   
 
 
@@ -87,7 +87,7 @@ d2 $ slow 1.35 $ n "0" # s "water"
 
 d6 $ s "birds"
   -- # gain 0.5
-  # gain (range 0.1 0.9 $ cF 0.7 (gm "d6"))
+  # gain (range 0.1 0.9 $ cF 0.3(gm "d6"))
  
 
 d8 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
@@ -104,16 +104,16 @@ d8 $ slow 2 $ s "gw_bird_edit!2" # n "[0*2, 5*4]"
 
 
 -- from ji ku kan - FABRIC = slow BASS
-d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.3) )
+d1 $ every 2 ((jux rev) .  (# pan (1.2*sine)) . (# room 0.1) )
   $ slow 2
   $ n "3 3 2 4 1"
   # s "gw_cut"
   # tilt 0.1
   # shape "0.6 0.2 0.4"
   # speed "-0.4 0.3 -0.4"
-  -- # enhance 0.1
+  # enhance 0.1
   -- # vowel "u i a"
-  # room 0.8 # sz 0.7 # dry 0.2
+  -- # room 0.8 # sz 0.7 # dry 0.2
   # gain (range 0.3 0.99 $ cF 0.5 (gm "d1"))
 
 d4 $ sometimes (# vowel "[a|u|e]")
@@ -253,7 +253,7 @@ d1 $ fast 2
   -- # grain 0.0002 1
   -- # tilt 0.01
   # speed "1.4"
-  # shape "0.8" -- !!! adjust GAIN down!
+ # shape "0.8" -- !!! adjust GAIN down!
   --  # hpf "150 300 200 500" -- dont use!
   -- # lpf 1500
   # legato 1
@@ -353,14 +353,14 @@ d5 -- $ off 0.2 ((# speed "-0.5") . (# room 0.4))
   # timescale 6
   # room 0.2 # sz 0.5 # dry 0.3
   -- # djf (slow 4 $ range 0 0.5 $ tri)
-  -- # smear (slow 8 $ range 0 1 $ saw)
+  # smear (slow 8 $ range 0 1 $ saw)
   -- add some texture
   # vowel "a u o"
   # octersub 4
   # octer 2
   # lock 1 # delay 0.7 # delayt (1/8) # delayfb 0.4
-  # gain 0.45
-  -- # gain (range 0.1 0.7 $ cF 0.5 (gm "d4"))
+  -- # gain 0.45
+  # gain (range 0.1 0.85 $ cF 0.5 (gm "d4"))
 
   ---------------------->>>>>>>>>>>> FUCK UP ! <<<<<<<<<<<<<<<---------
 
@@ -372,13 +372,13 @@ d4 $ fast 4 $ (striate 2)
   $ n "4 1 2 4"
   -- $ n pat
   # s "gw_cut"
-  # octave 7
+  # octave 6
   # speed "-1.0 -1 -1.8 -1.5"
   # legato 2.2
   -- # djf "0.6 0.7 0.65 0.5"
-  # comb  "0.6 0.3 0.5 0.9"
-  # krush 0.3
-  # fshift 20
+  -- # comb  "0.6 0.3 0.5 0.9"
+  -- # krush 0.3
+  -- # fshift 20
   -- # room 0.02
   -- START 0.6 MAX gain 1.1
   -- # gain 0.6
@@ -395,7 +395,7 @@ d4 -- $ sometimes (ghost)
   # tilt 0.1
   # fadeTime 0.2
   # waveloss (segment 1 $ irand 30)
-  -- # lpf 500
+  # lpf 500
    -- ! tune for grind and pressure -> gets louder
   # shape 0.4
   # pan (slow 4 $ smooth "0 1")
@@ -408,7 +408,7 @@ d4 -- $ sometimes (ghost)
   -- HERE I definetly want to use new compressor function!!! to change compression on the spot
   -- use pad 2 from intro maybe as a support!
   -- # gain 0.9
-  # gain (range 0.3 0.99 $ cF 0.6 (gm "d4"))
+  # gain (range 0.3 1.1 $ cF 0.6 (gm "d4"))
 
 
 
@@ -456,18 +456,19 @@ d1 $ slow 2
   -- # octer 0.1  -- slowly increase
   # room 0.25 # sz 0.4 # dry 0.8
   # lock 1 # delay 0.6 #delayt (1/8) # delayfb 0.5
-  # gain (range 0.1 0.99 $ cF 0.5 (gm "d1"))
+  # gain (range 0.1 0.85 $ cF 0.5 (gm "d1"))
 
 
   d8 $ slow 2
    $ sometimes (# cut 1)
    $ struct "t(11,16)" $ n  "7" # s "gw_hats"
    # bpf 3800 # bpq 0.8
-   # att 0.05
+   # att 0.01
    # rel (range 0.2 0.8 $ perlin)
    # speed (slow 8 $ range 0.8 1.6 $ sine)
    # djf 0.3
-     # gain (range 0.1 0.99 $ cF 0.5 (gm "d8"))
+   -- # tilt 0.09
+     # gain (range 0.1 1.3 $ cF 0.5 (gm "d8"))
 
 -- RE WORK
   d8 $ slow 2
@@ -593,8 +594,8 @@ d6 $ silence
  # delayfb (slow 16 $ range 0 0.7 $ tri)
   -- use to fade-out = destroy
   -- # enhance 0.2
-  # gain 0.9
-  -- # gain (range 0.4 1.1 $ cF 0.5 (gm "d2"))
+  -- # gain 0.9
+  # gain (range 0.4 0.99 $ cF 0.5 (gm "d4"))
  
 
 
@@ -624,7 +625,7 @@ d1 $ fast 2
   -- # comb 0.02
   -- # vowel "a u [i|e]"
   # squiz "2 3"
-  -- # smear "<0.5 4 0.8 3>"
+  # smear "<0.5 4 0.8 3>"
   -- MAX gain 0.9
   -- # gain 0.7
    # gain (range 0.3 0.99 $ cF 0.85 (gm "d1"))
@@ -771,8 +772,8 @@ d1 $ fast 2
   # octersub 4
   # octer 2
   # lock 1 # delay 0.7 # delayt (1/8) # delayfb 0.4
-  # gain 0.6
-  -- # gain (range 0.1 0.7 $ cF 0.5 (gm "d4"))
+  -- # gain 0.6
+  # gain (range 0.1 0.8 $ cF 0.5 (gm "d4"))
 
 
 -- BEAT 
@@ -825,7 +826,7 @@ d4 $ fast 0.25 $ note (scale "minor" "[5 5 <5 9>, 0 0]") # octave 4
   # room 0.8 # dry 0.2
   # lock 1
   # delay 0.5 # delayt (1/6) # delayfb 0.5
-  # gain (range 0.2 0.9 $ cF 0.7 (gm "d4"))
+  # gain (range 0.2 0.75 $ cF 0.2 (gm "d4"))
 
 
 
@@ -855,6 +856,7 @@ d4 -- $ sometimes (# vowel "[a|u|e]")
   # octer 0.6
   -- # cut 1
   -- # speed "1"
+  # gain (range 0.2 0.75 $ cF 0.2 (gm "d4"))
 
   
 
@@ -931,8 +933,8 @@ d8 $ fast 0.5
   # pan perlin
   # dry 0.6 # room 0.7 # sz 0.8
   -- MAX 0.9
-  # gain 0.75
-  -- # gain (range 0.6 0.9 $ cF 0.5 (gm "d8"))
+  -- # gain 0.75
+  # gain (range 0.6 0.99 $ cF 0.5 (gm "d8"))
 
 
 
@@ -955,7 +957,7 @@ d4 $ sometimes (# vowel "[a|u|e]")
   # djf (range 0.4 0.8 $ tri2)
   -- # cps (130/60/4)
   -- # vowel "a u i"
-  # gain (range 0.2 0.97 $ cF 0.5 (gm "d4"))
+  # gain (range 0.2 0.9 $ cF 0.5 (gm "d4"))
 
 
   d6 $ s "birds" # gain 0.7

@@ -446,14 +446,14 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
     <Index>1</Index>
     <Name>Input gain</Name>
     <Symbol>g_in</Symbol>
-    <Value>1</Value>
+    <Value>2.81837964057922</Value>
    </Parameter>
 
    <Parameter>
     <Index>2</Index>
     <Name>Output gain</Name>
     <Symbol>g_out</Symbol>
-    <Value>1</Value>
+    <Value>0.501188039779663</Value>
    </Parameter>
 
    <Parameter>
@@ -509,7 +509,7 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
     <Index>14</Index>
     <Name>Overdrive protection threshold</Name>
     <Symbol>th</Symbol>
-    <Value>0</Value>
+    <Value>-4.38941383361816</Value>
    </Parameter>
 
    <Parameter>
@@ -544,7 +544,7 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
     <Index>19</Index>
     <Name>Clipper sigmoid threshold</Name>
     <Symbol>ct</Symbol>
-    <Value>1</Value>
+    <Value>0.295339435338974</Value>
    </Parameter>
 
    <Parameter>
@@ -892,22 +892,6 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
 
  <ExternalPatchbay>
   <Connection>
-   <Source>AMS-24 Analog Stereo:capture_FL</Source>
-   <Target>SuperCollider:in_1</Target>
-  </Connection>
-  <Connection>
-   <Source>AMS-24 Analog Stereo:capture_FR</Source>
-   <Target>SuperCollider:in_2</Target>
-  </Connection>
-  <Connection>
-   <Source>SuperCollider:out_1</Source>
-   <Target>Carla:CHOWTapeModel:Audio Input 1</Target>
-  </Connection>
-  <Connection>
-   <Source>SuperCollider:out_2</Source>
-   <Target>Carla:CHOWTapeModel:Audio Input 2</Target>
-  </Connection>
-  <Connection>
    <Source>Carla:CHOWTapeModel:Audio Output 1</Source>
    <Target>Carla:s(M)exoscope:Audio In 1</Target>
   </Connection>
@@ -940,20 +924,20 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
    <Target>AMS-24 Analog Stereo:playback_FR</Target>
   </Connection>
   <Positions>
-   <Position x1="1894" y1="1094">
+   <Position x1="1733" y1="900">
     <Name>Carla</Name>
    </Position>
    <Position x1="1168" y1="1162" x2="2344" y2="1120">
     <Name>AMS-24 Analog Stereo</Name>
    </Position>
-   <Position x1="1088" y1="1306" x2="2306" y2="1328">
-    <Name>Tiger Lake-LP Smart Sound Technology Audio Controller Stereo Microphone</Name>
-   </Position>
-   <Position x1="1624" y1="1152">
+   <Position x1="1427" y1="1108">
     <Name>SuperCollider</Name>
    </Position>
    <Position x1="1550" y1="1712" x2="1174" y2="1572">
     <Name>Midi-Bridge</Name>
+   </Position>
+   <Position x1="1088" y1="1306" x2="2306" y2="1328">
+    <Name>Tiger Lake-LP Smart Sound Technology Audio Controller Stereo Microphone</Name>
    </Position>
   </Positions>
  </ExternalPatchbay>
