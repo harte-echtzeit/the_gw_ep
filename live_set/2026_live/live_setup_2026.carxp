@@ -115,14 +115,14 @@
     <Index>14</Index>
     <Name>Compression Amount</Name>
     <Symbol>compression_amount</Symbol>
-    <Value>0.848000049591064</Value>
+    <Value>0.956000030040741</Value>
    </Parameter>
 
    <Parameter>
     <Index>15</Index>
     <Name>Compression Attack</Name>
     <Symbol>compression_attack</Symbol>
-    <Value>0.113896012306213</Value>
+    <Value>0.0618960112333298</Value>
    </Parameter>
 
    <Parameter>
@@ -143,21 +143,21 @@
     <Index>18</Index>
     <Name>Tape Drive</Name>
     <Symbol>tape_drive</Symbol>
-    <Value>0.607999980449677</Value>
+    <Value>0.73199999332428</Value>
    </Parameter>
 
    <Parameter>
     <Index>19</Index>
     <Name>Tape Saturation</Name>
     <Symbol>tape_saturation</Symbol>
-    <Value>0.636000037193298</Value>
+    <Value>0.632000029087067</Value>
    </Parameter>
 
    <Parameter>
     <Index>20</Index>
     <Name>Tape Bias</Name>
     <Symbol>tape_bias</Symbol>
-    <Value>0.5</Value>
+    <Value>0.587999999523163</Value>
    </Parameter>
 
    <Parameter>
@@ -395,29 +395,8 @@
     <Type>http://lv2plug.in/ns/ext/atom#Chunk</Type>
     <Key>urn:juce:stateBinary</Key>
     <Value>
-VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lvbj0iMi4xMS40Ij48UGFyYW1ldGVycz48UEFSQU0gaWQ9ImNoZXdfZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImNoZXdfZnJlcSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iY2hld192YXIiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlZ19hbXQiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlZ19kZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVnX3ZhciIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRyaXZlIiB2YWx1ZT0iMC42MDc5OTk5ODA0NDk2NzY1Ii8+PFBBUkFNIGlkPSJkcnl3ZXQiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9ImdhcCIgdmFsdWU9IjEuMCIvPjxQQVJBTSBpZD0iaF9iYXNzIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJoX3RyZWJsZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iaW5nYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJtb2RlIiB2YWx1ZT0iMiIvPjxQQVJBTSBpZD0ib3MiIHZhbHVlPSIxIi8+PFBBUkFNIGlkPSJvdXRnYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJyYXRlIiB2YWx1ZT0iMC4zMDAwMDAwMTE5MjA5MjkiLz48UEFSQU0gaWQ9InNhdCIgdmFsdWU9IjAuNjM2MDAwMDM3MTkzMjk4MyIvPjxQQVJBTSBpZD0ic3BhY2luZyIgdmFsdWU9IjAuMTAwMDAwMDAxNDkwMTE2MSIvPjxQQVJBTSBpZD0ic3BlZWQiIHZhbHVlPSIxNS4wMDAwMDA5NTM2NzQzMiIvPjxQQVJBTSBpZD0idGhpY2siIHZhbHVlPSIwLjEwMDAwMDAwMTQ5MDExNjEiLz48UEFSQU0gaWQ9IndpZHRoIiB2YWx1ZT0iMC41Ii8+PFBBUkFNIGlkPSJ3b3dfZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9Indvd19yYXRlIiB2YWx1ZT0iMC4yNSIvPjxQQVJBTSBpZD0icHJlc2V0IiB2YWx1ZT0iMCIvPjxQQVJBTSBpZD0ib3NfZmFjdG9yIiB2YWx1ZT0iMS4wIi8+PFBBUkFNIGlkPSJvc19tb2RlIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJvc19yZW5kZXJfZmFjdG9yIiB2YWx1ZT0iMS4wIi8+PFBBUkFNIGlkPSJvc19yZW5kZXJfbW9kZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0ib3NfcmVuZGVyX2xpa2VfcmVhbHRpbWUiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9Im1peF9ncm91cCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iYXppbXV0aCIvPjxQQVJBTSBpZD0iY2hld19vbm9mZiIvPjxQQVJBTSBpZD0iY29tcF9hbXQiIHZhbHVlPSI2LjkzMDMwOTc3MjQ5MTQ1NSIvPjxQQVJBTSBpZD0iY29tcF9hdHRhY2siIHZhbHVlPSIwLjQxMzYzNjA4ODM3MTI3NjkiLz48UEFSQU0gaWQ9ImNvbXBfb25vZmYiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9ImNvbXBfcmVsZWFzZSIgdmFsdWU9IjE5OS45OTk4OTMxODg0NzY2Ii8+PFBBUkFNIGlkPSJkZWdfZW52Ii8+PFBBUkFNIGlkPSJkZWdfb25vZmYiLz48UEFSQU0gaWQ9ImRlZ19wb2ludDF4Ii8+PFBBUkFNIGlkPSJmbHV0dGVyX29ub2ZmIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJoX3RmcmVxIiB2YWx1ZT0iNTAwLjAwMDAzMDUxNzU3ODEiLz48UEFSQU0gaWQ9Imh5c3Rfb25vZmYiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9ImlmaWx0X2hpZ2giLz48UEFSQU0gaWQ9ImlmaWx0X2xvdyIvPjxQQVJBTSBpZD0iaWZpbHRfbWFrZXVwIi8+PFBBUkFNIGlkPSJpZmlsdF9vbm9mZiIvPjxQQVJBTSBpZD0ibG9zc19vbm9mZiIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0ibWlkX3NpZGUiLz48UEFSQU0gaWQ9InN0ZXJlb19iYWxhbmNlIi8+PFBBUkFNIGlkPSJzdGVyZW9fbWFrZXVwIi8+PFBBUkFNIGlkPSJ0b25lX29ub2ZmIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJ3b3dfZHJpZnQiLz48UEFSQU0gaWQ9Indvd192YXIiLz48cHJvcGVydGllcz48cGx1Z2luIGlzX3N0ZXJlbz0iMSIvPjwvcHJvcGVydGllcz48bGFzdC1zaXplIHdpZHRoPSI3MjAiIGhlaWdodD0iNjIwIi8+PC9QYXJhbWV0ZXJzPjxQcmVzZXRfU3RhdGUgcHJlc2V0X2RpcnR5PSIxIj48UHJlc2V0IG5hbWU9IkRlZmF1bHQiIHBsdWdpbj0iQ0hPV1RhcGVNb2RlbCIgdmVuZG9yPSJDSE9XIiBjYXRlZ29yeT0iIiB2ZXJzaW9uPSIyLjEwLjAiIHByZXNldF9maWxlPSIiPjxQYXJhbWV0ZXJzPjxQQVJBTSBpZD0iY2hld19kZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iY2hld19mcmVxIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJjaGV3X3ZhciIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVnX2FtdCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVnX2RlcHRoIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJkZWdfdmFyIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJkZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZHJpdmUiIHZhbHVlPSIwLjUiLz48UEFSQU0gaWQ9ImRyeXdldCIgdmFsdWU9IjEwMC4wIi8+PFBBUkFNIGlkPSJnYXAiIHZhbHVlPSI5Ljk5OTk5OTk3NDc1MjQyN2UtNyIvPjxQQVJBTSBpZD0iaF9iYXNzIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJoX3RyZWJsZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iaW5nYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJtb2RlIiB2YWx1ZT0iMiIvPjxQQVJBTSBpZD0ib3MiIHZhbHVlPSIxIi8+PFBBUkFNIGlkPSJvdXRnYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJyYXRlIiB2YWx1ZT0iMC4yOTk5OTk5ODIxMTg2MDY2Ii8+PFBBUkFNIGlkPSJzYXQiIHZhbHVlPSIwLjUiLz48UEFSQU0gaWQ9InNwYWNpbmciIHZhbHVlPSI5Ljk5OTk5OTk3NDc1MjQyN2UtNyIvPjxQQVJBTSBpZD0ic3BlZWQiIHZhbHVlPSIxNS4wMDAwMDA5NTM2NzQzMiIvPjxQQVJBTSBpZD0idGhpY2siIHZhbHVlPSI5Ljk5OTk5OTk3NDc1MjQyN2UtNyIvPjxQQVJBTSBpZD0id2lkdGgiIHZhbHVlPSIwLjUiLz48UEFSQU0gaWQ9Indvd19kZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0id293X3JhdGUiIHZhbHVlPSIwLjI1Ii8+PFBBUkFNIGlkPSJwcmVzZXQiIHZhbHVlPSIwIi8+PC9QYXJhbWV0ZXJzPjxleHRyYV9pbmZvLz48L1ByZXNldD48L1ByZXNldF9TdGF0ZT48L3N0YXRlPgA=
+VkMyISUMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lvbj0iMi4xMS40Ij48UGFyYW1ldGVycz48UEFSQU0gaWQ9ImNoZXdfZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImNoZXdfZnJlcSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iY2hld192YXIiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlZ19hbXQiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlZ19kZXB0aCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVnX3ZhciIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRyaXZlIiB2YWx1ZT0iMC43MzE5OTk5OTMzMjQyNzk4Ii8+PFBBUkFNIGlkPSJkcnl3ZXQiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9ImdhcCIgdmFsdWU9IjEuMCIvPjxQQVJBTSBpZD0iaF9iYXNzIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJoX3RyZWJsZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iaW5nYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJtb2RlIiB2YWx1ZT0iMiIvPjxQQVJBTSBpZD0ib3MiIHZhbHVlPSIxIi8+PFBBUkFNIGlkPSJvdXRnYWluIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJyYXRlIiB2YWx1ZT0iMC4zMDAwMDAwMTE5MjA5MjkiLz48UEFSQU0gaWQ9InNhdCIgdmFsdWU9IjAuNjMyMDAwMDI5MDg3MDY2NyIvPjxQQVJBTSBpZD0ic3BhY2luZyIgdmFsdWU9IjAuMTAwMDAwMDAxNDkwMTE2MSIvPjxQQVJBTSBpZD0ic3BlZWQiIHZhbHVlPSIxNS4wMDAwMDA5NTM2NzQzMiIvPjxQQVJBTSBpZD0idGhpY2siIHZhbHVlPSIwLjEwMDAwMDAwMTQ5MDExNjEiLz48UEFSQU0gaWQ9IndpZHRoIiB2YWx1ZT0iMC41ODc5OTk5OTk1MjMxNjI4Ii8+PFBBUkFNIGlkPSJ3b3dfZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9Indvd19yYXRlIiB2YWx1ZT0iMC4yNSIvPjxQQVJBTSBpZD0icHJlc2V0IiB2YWx1ZT0iMCIvPjxQQVJBTSBpZD0ib3NfZmFjdG9yIiB2YWx1ZT0iMS4wIi8+PFBBUkFNIGlkPSJvc19tb2RlIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJvc19yZW5kZXJfZmFjdG9yIiB2YWx1ZT0iMS4wIi8+PFBBUkFNIGlkPSJvc19yZW5kZXJfbW9kZSIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0ib3NfcmVuZGVyX2xpa2VfcmVhbHRpbWUiIHZhbHVlPSIxLjAiLz48UEFSQU0gaWQ9Im1peF9ncm91cCIgdmFsdWU9IjAuMCIvPjxQQVJBTSBpZD0iYXppbXV0aCIvPjxQQVJBTSBpZD0iY2hld19vbm9mZiIvPjxQQVJBTSBpZD0iY29tcF9hbXQiIHZhbHVlPSI4LjM4MDQ4MjY3MzY0NTAyIi8+PFBBUkFNIGlkPSJjb21wX2F0dGFjayIgdmFsdWU9IjAuMTc1NTc4NDE1MzkzODI5MyIvPjxQQVJBTSBpZD0iY29tcF9vbm9mZiIgdmFsdWU9IjEuMCIvPjxQQVJBTSBpZD0iY29tcF9yZWxlYXNlIiB2YWx1ZT0iMTk5Ljk5OTg5MzE4ODQ3NjYiLz48UEFSQU0gaWQ9ImRlZ19lbnYiLz48UEFSQU0gaWQ9ImRlZ19vbm9mZiIvPjxQQVJBTSBpZD0iZGVnX3BvaW50MXgiLz48UEFSQU0gaWQ9ImZsdXR0ZXJfb25vZmYiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImhfdGZyZXEiIHZhbHVlPSI1MDAuMDAwMDMwNTE3NTc4MSIvPjxQQVJBTSBpZD0iaHlzdF9vbm9mZiIgdmFsdWU9IjEuMCIvPjxQQVJBTSBpZD0iaWZpbHRfaGlnaCIvPjxQQVJBTSBpZD0iaWZpbHRfbG93Ii8+PFBBUkFNIGlkPSJpZmlsdF9tYWtldXAiLz48UEFSQU0gaWQ9ImlmaWx0X29ub2ZmIi8+PFBBUkFNIGlkPSJsb3NzX29ub2ZmIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJtaWRfc2lkZSIvPjxQQVJBTSBpZD0ic3RlcmVvX2JhbGFuY2UiLz48UEFSQU0gaWQ9InN0ZXJlb19tYWtldXAiLz48UEFSQU0gaWQ9InRvbmVfb25vZmYiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9Indvd19kcmlmdCIvPjxQQVJBTSBpZD0id293X3ZhciIvPjxwcm9wZXJ0aWVzPjxwbHVnaW4gaXNfc3RlcmVvPSIxIi8+PC9wcm9wZXJ0aWVzPjxsYXN0LXNpemUgd2lkdGg9IjcyMCIgaGVpZ2h0PSI2MjAiLz48L1BhcmFtZXRlcnM+PFByZXNldF9TdGF0ZSBwcmVzZXRfZGlydHk9IjEiPjxQcmVzZXQgbmFtZT0iRGVmYXVsdCIgcGx1Z2luPSJDSE9XVGFwZU1vZGVsIiB2ZW5kb3I9IkNIT1ciIGNhdGVnb3J5PSIiIHZlcnNpb249IjIuMTAuMCIgcHJlc2V0X2ZpbGU9IiI+PFBhcmFtZXRlcnM+PFBBUkFNIGlkPSJjaGV3X2RlcHRoIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJjaGV3X2ZyZXEiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImNoZXdfdmFyIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJkZWdfYW10IiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJkZWdfZGVwdGgiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlZ192YXIiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImRlcHRoIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJkcml2ZSIgdmFsdWU9IjAuNSIvPjxQQVJBTSBpZD0iZHJ5d2V0IiB2YWx1ZT0iMTAwLjAiLz48UEFSQU0gaWQ9ImdhcCIgdmFsdWU9IjkuOTk5OTk5OTc0NzUyNDI3ZS03Ii8+PFBBUkFNIGlkPSJoX2Jhc3MiIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9ImhfdHJlYmxlIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJpbmdhaW4iIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9Im1vZGUiIHZhbHVlPSIyIi8+PFBBUkFNIGlkPSJvcyIgdmFsdWU9IjEiLz48UEFSQU0gaWQ9Im91dGdhaW4iIHZhbHVlPSIwLjAiLz48UEFSQU0gaWQ9InJhdGUiIHZhbHVlPSIwLjI5OTk5OTk4MjExODYwNjYiLz48UEFSQU0gaWQ9InNhdCIgdmFsdWU9IjAuNSIvPjxQQVJBTSBpZD0ic3BhY2luZyIgdmFsdWU9IjkuOTk5OTk5OTc0NzUyNDI3ZS03Ii8+PFBBUkFNIGlkPSJzcGVlZCIgdmFsdWU9IjE1LjAwMDAwMDk1MzY3NDMyIi8+PFBBUkFNIGlkPSJ0aGljayIgdmFsdWU9IjkuOTk5OTk5OTc0NzUyNDI3ZS03Ii8+PFBBUkFNIGlkPSJ3aWR0aCIgdmFsdWU9IjAuNSIvPjxQQVJBTSBpZD0id293X2RlcHRoIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJ3b3dfcmF0ZSIgdmFsdWU9IjAuMjUiLz48UEFSQU0gaWQ9InByZXNldCIgdmFsdWU9IjAiLz48L1BhcmFtZXRlcnM+PGV4dHJhX2luZm8vPjwvUHJlc2V0PjwvUHJlc2V0X1N0YXRlPjwvc3RhdGU+AA==
     </Value>
-   </CustomData>
-  </Data>
- </Plugin>
-
- <!-- s(M)exoscope -->
- <Plugin>
-  <Info>
-   <Type>LV2</Type>
-   <Name>s(M)exoscope</Name>
-   <URI>https://github.com/hollance/sMexoscope/plugins/s_M_exoscope</URI>
-  </Info>
-
-  <Data>
-   <Active>Yes</Active>
-   <ControlChannel>1</ControlChannel>
-   <Options>0x1</Options>
-
-   <CustomData>
-    <Type>http://lv2plug.in/ns/ext/atom#String</Type>
-    <Key>https://github.com/hollance/sMexoscope/plugins/s_M_exoscope:StateString</Key>
-    <Value>40.....+.........vO....+....8C...vO......................</Value>
    </CustomData>
   </Data>
  </Plugin>
@@ -453,7 +432,7 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
     <Index>2</Index>
     <Name>Output gain</Name>
     <Symbol>g_out</Symbol>
-    <Value>0.501188039779663</Value>
+    <Value>1</Value>
    </Parameter>
 
    <Parameter>
@@ -509,7 +488,7 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
     <Index>14</Index>
     <Name>Overdrive protection threshold</Name>
     <Symbol>th</Symbol>
-    <Value>-4.38941383361816</Value>
+    <Value>-8.29111576080322</Value>
    </Parameter>
 
    <Parameter>
@@ -890,51 +869,114 @@ VkMyIRcMAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8c3RhdGUgdmVyc2lv
   </Data>
  </Plugin>
 
+ <!-- s(M)exoscope -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>s(M)exoscope</Name>
+   <URI>https://github.com/hollance/sMexoscope/plugins/s_M_exoscope</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x1</Options>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#String</Type>
+    <Key>https://github.com/hollance/sMexoscope/plugins/s_M_exoscope:StateString</Key>
+    <Value>40.....+.........vO....+....8C...vO......................</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <!-- EBU R128 Meter -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>EBU R128 Meter</Name>
+   <URI>http://gareus.org/oss/lv2/meters#EBUr128</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x0</Options>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Int</Type>
+    <Key>http://gareus.org/oss/lv2/meters#ebu_state</Key>
+    <Value>SQCAPg==</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
  <ExternalPatchbay>
   <Connection>
-   <Source>Carla:CHOWTapeModel:Audio Output 1</Source>
-   <Target>Carla:s(M)exoscope:Audio In 1</Target>
+   <Source>AMS-24 Analog Stereo:capture_FL</Source>
+   <Target>SuperCollider:in_1</Target>
+  </Connection>
+  <Connection>
+   <Source>AMS-24 Analog Stereo:capture_FR</Source>
+   <Target>SuperCollider:in_2</Target>
   </Connection>
   <Connection>
    <Source>Carla:CHOWTapeModel:Audio Output 2</Source>
-   <Target>Carla:s(M)exoscope:Audio In 2</Target>
-  </Connection>
-  <Connection>
-   <Source>Carla:s(M)exoscope:Audio Out 1</Source>
-   <Target>Carla:LSP Clipper Stereo:Input L</Target>
-  </Connection>
-  <Connection>
-   <Source>Carla:s(M)exoscope:Audio Out 2</Source>
    <Target>Carla:LSP Clipper Stereo:Input R</Target>
   </Connection>
   <Connection>
-   <Source>Carla:LSP Clipper Stereo:Output L</Source>
-   <Target>Carla:LSP Limiter Stereo:Input L</Target>
+   <Source>Carla:CHOWTapeModel:Audio Output 1</Source>
+   <Target>Carla:LSP Clipper Stereo:Input L</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:s(M)exoscope:Audio Out 1</Source>
+   <Target>Carla:EBU R128 Meter:InL</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:s(M)exoscope:Audio Out 2</Source>
+   <Target>Carla:EBU R128 Meter:InR</Target>
   </Connection>
   <Connection>
    <Source>Carla:LSP Clipper Stereo:Output R</Source>
    <Target>Carla:LSP Limiter Stereo:Input R</Target>
   </Connection>
   <Connection>
-   <Source>Carla:LSP Limiter Stereo:Output L</Source>
-   <Target>AMS-24 Analog Stereo:playback_FL</Target>
+   <Source>Carla:LSP Clipper Stereo:Output L</Source>
+   <Target>Carla:LSP Limiter Stereo:Input L</Target>
   </Connection>
   <Connection>
    <Source>Carla:LSP Limiter Stereo:Output R</Source>
    <Target>AMS-24 Analog Stereo:playback_FR</Target>
   </Connection>
+  <Connection>
+   <Source>Carla:LSP Limiter Stereo:Output R</Source>
+   <Target>Carla:s(M)exoscope:Audio In 2</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:LSP Limiter Stereo:Output L</Source>
+   <Target>AMS-24 Analog Stereo:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:LSP Limiter Stereo:Output L</Source>
+   <Target>Carla:s(M)exoscope:Audio In 1</Target>
+  </Connection>
+  <Connection>
+   <Source>SuperCollider:out_1</Source>
+   <Target>Carla:CHOWTapeModel:Audio Input 1</Target>
+  </Connection>
+  <Connection>
+   <Source>SuperCollider:out_2</Source>
+   <Target>Carla:CHOWTapeModel:Audio Input 2</Target>
+  </Connection>
   <Positions>
-   <Position x1="1733" y1="900">
+   <Position x1="1783" y1="956">
     <Name>Carla</Name>
-   </Position>
-   <Position x1="1168" y1="1162" x2="2344" y2="1120">
-    <Name>AMS-24 Analog Stereo</Name>
-   </Position>
-   <Position x1="1427" y1="1108">
-    <Name>SuperCollider</Name>
    </Position>
    <Position x1="1550" y1="1712" x2="1174" y2="1572">
     <Name>Midi-Bridge</Name>
+   </Position>
+   <Position x1="1168" y1="1162" x2="2344" y2="1120">
+    <Name>AMS-24 Analog Stereo</Name>
    </Position>
    <Position x1="1088" y1="1306" x2="2306" y2="1328">
     <Name>Tiger Lake-LP Smart Sound Technology Audio Controller Stereo Microphone</Name>
