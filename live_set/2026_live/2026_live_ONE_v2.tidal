@@ -163,7 +163,7 @@ d7 $ fast 2 $ degradeBy 0.0 $ n "1 [3 4]/2 ~ 6" # s "gw_raw"
   # tilt 0.01
   # note "d7"
   # speed "-1.8 -2 -4 -1.3"
-  # gain (range 0.3 1 $ cF 0.5 (gm "d7"))
+  # gain (range 0.3 1 $ cF 0.3 (gm "d7"))
 
 
 ------------------- >>>>>>>>>>>>>>> BRIDGE <<<<<<<<<<<<---------------
@@ -199,7 +199,7 @@ d7 $ every 4 (chop "<2 4>" . (# lpf 800) . (sometimes (# smear 0.3))) $ fast 4 $
   $ n "4 1 2 4"  # s "gw_cut(6,8)" # legato 1
   # speed "1.5"
   # shape "0.68 0.5 0.7" -- !!! adjust GAIN down!
-  -- # hpf "150 300 200 500"
+  # hpf "150 300 200 500"
   -- # djf (slow 4 $ range 0.45 0.75 sine)
   -- # fshift "<-50 90>"
   -- # waveloss "32"
@@ -222,30 +222,30 @@ d1 $ fast 2
   -- $ sometimes (swingBy (1/2) 4)
   $ n "4 1 2 4" # s "gw_cut(6,8)" # legato 1 # squiz "2 3"
   # speed "1.4"
-  # shape "0.8" -- !!! adjust GAIN down!
+  -- # octave 6
+  # shape "0.6" -- !!! adjust GAIN down!
   -- # hpf "150 300 200 500" -- dont use!
   -- # djf (slow 8 $ range 0.45 0.75 sine)
   -- # fshift "<-10 40>"
   -- # waveloss (pat*pat')
-  # pan perlin
-  # comb 0.02
+  -- # pan perlin
+  -- # comb 0.02
   # vowel "a u [i|e]"
-  -- # smear "<0.5 4 0.8 3>"
-  -- MAX gain 0.9
-  -- # gain 0.7
+  # smear "<0.5 4 0.8 3>"
    # gain (range 0.3 0.95 $ cF 0.3 (gm "d1"))
 
    
 -- KICK -> STOP d1 bass/kick when starting! --> DRIVE
-d2 $ slow 2 $ n "1 ~ ~ 1 ~ ~ [1|0]/2 1" # s "gw_cut:1" # grain 0.4 0.1
+d2 $ slow 1 $ n "1 ~ ~ 1 ~ ~ [1|0]/2 1" # s "gw_cut:1" # grain 0.4 0.1
   # speed "-1.2" # tilt 0.01 # shape "0.4 0.2 0.4 0.5"
   -- add some punch over time
   -- # triode 0.8
   -- # enhance 0.1
-  # distort 0.1
+  -- # distort 0.1
   # krush 3
   -- # room 0.1 # sz 0.8 # dry 0.7
-  # gain (range 0.4 1.1 $ cF 0.4 (gm "d2"))
+  # gain ( range 0.4 1.1 $ (cF 0.4 (gm "d2")))
+  -- # lpf 150
 
 -- a BASS line also from FABRIC (slow) - DULLNESS
 d6  $ fast 2.0 $ jux rev $ slice 11 "10 11 ~ 9 6"
@@ -277,17 +277,17 @@ d6  $ fast 2.0 $ jux rev $ slice 11 "10 11 ~ 9 6"
 -- --> EXPRESS
 d3 -- $ echo 4 0.6 0.7
   $ jux rev -- thanks yaxu ;-)
-  $ layer [degradeBy 0.4, scramble 3] -- > for FUCK-UP
+  -- $ layer [degradeBy 0.4, scramble 3] -- > for FUCK-UP
   -- $ sometimes ((jux rev). (# pan (fast 16 $ sine)))
   $ s ("gw_cut:2(5,16)" <> "gw_cut:3(11,16)") # hpf 800
   # speed "[-23 -2 42 43]" 
-  -- # shape "0.8 -0.9 0.4"
+  # shape "0.8 -0.9 0.4"
   # squiz "4 5 3 4"
   # room 0.1 # sz 0.4
   -- # waveloss "5 .. 65"
   -- # krush "2 1 3"
   -- # djf rand
-  -- # comb "0.3 0.5 0.5"
+  # comb "0.3 0.5 0.5"
   # gain (range 0.1 0.5 $ cF 0.5 (gm "d3"))
 
 -- GW chrirps for irregular MIDS (needs EQ!) (instead of d2 from intro) EXPRESS
@@ -306,7 +306,7 @@ d3 -- $ echo 4 0.6 0.7
  # delaytime 0.5
  # delayfb (slow 16 $ range 0 0.7 $ tri)
   -- use to fade-out = destroy
-  # enhance 0.2
+  -- # enhance 0.2
  -- # gain 0.99
   # gain (range 0.4 1.1 $ cF 0.5 (gm "d2"))
 
@@ -378,7 +378,7 @@ d4 -- $ somvvetimes (ghost)
   -- add some uncanny motion here start with lpfbus and change to bpfbus later (get a bit lighter)
   -- # lpfbus 1 (segment 128 $ fast 1 $ smooth "200 2000")
   -- ! adds grind (nice in combination with "shape" to add pressure
-  # octersub 3
+  # octersub 6
   -- # enhance 0.3
   -- HERE I definetly want to use new compressor function!!! to change compression on the spot
   -- use pad 2 from intro maybe as a support!
@@ -428,13 +428,12 @@ d3 $ slow 2
   # shape 0.2
   # squiz 2
   # coarse 2
-  # vowel "o a u"
-  # djf 0.75 -- slowly inccreas
-  --- # tsdelay " 20 30 40"
-  # bpf 1400 # bpq "10"
-  -- # delay 0.35
-  -- # gain 0.7
-   # gain (range 0.1 0.95 $ cF 0.1 (gm "d3"))
+  -- # vowel "o a u"
+  # djf 0.85 -- slowly inccreas
+  -- # tsdelay " 20 30 40"
+  -- # bpf 1400 # bpq "10"
+  # delay 0.15
+  # gain (range 0.1 0.95 $ cF 0.1 (gm "d3"))
 
 
 -- pad 2 => use mild eq here and make sure levels are high enough
@@ -454,19 +453,19 @@ d6 $ slow 4 $ n "2" # s "gw_stretch"
 d5 $ slow 1
   $ n "<[1 ~ ~ ~ 1 ~ 1 ~ 1~ ~ ~ 1 ~ 1 ~] [1 ~ ~ ~ 1 ~ ~ 1 ~ ~ 1 ~ 1 ~ ~ ~]>"
   # s "gw_kick:9"
-  # lpf 400
-  -- # room 0.05 # dry 0.8
- # shape 0.6
-  -- # triode 0.2
+  -- # lpf 400
+  # room 0.05 # dry 0.8
+  # shape 0.8
+  # triode 0.2
   # gain (range 0.1 1.1 $ cF 0.3 (gm "d5"))
 
   -- EXPRESS
 d1 $ slow 1
 -- $ sometimes (echo 2 "-0.125" 0.7)
   $ struct "<t(5,8, 2) t(7,8, 2)>" $ n "2 1 2 4"  # octave "4" # s "gw_snare gw_synth"
-  # octer 0.6  -- slowly increase
-  # room 0.65 # sz 0.7 # dry 0.8
-  # lock 1 # delay 0.8 #delayt (2/8) # delayfb 0.9
+  # octer "0.5 0.6 0.7 0.8"  -- slowly increase
+  # room 0.65 # sz 0.7 # dry 0.2
+  # lock 1 # delay 0.8 #delayt (3/8) # delayfb 0.6
   # gain (range 0.1 0.85 $ cF 0.2 (gm "d1"))
 
 
@@ -485,13 +484,12 @@ d2 $ jux rev
   # speed "1 1.3 0.8 2"
   # timescale 2
   # fadeTime 0.6
-  -- #  accelerate (slow 4 $ range 0 4 $ cosine)
+  #  accelerate (slow 4 $ range 0 4 $ cosine)
   -- # legato 0.07
   # pan "<[0 1] [0.25 0.75] [0.45 0.55]>"
   # note "<a c a c g h>"
   # vowel "u a o" --PLAY
-  -- # bpf 900 # bpq 8
-  -- # gain 0.8
+ # bpf 900 # bpq 8
   # gain (range 0.2 1 $ cF 0.5 (gm "d2"))
 
 
@@ -546,10 +544,10 @@ d6
 
 -- BASS
 -- EXPRESS
-d1 $ fast 2
+d1 $ fast 4
   $ degradeBy 0.0
   $ slice 6 "6 4 1 0"
-  -- $ sometimes (swingBy (1/2) 4)
+  $ sometimes (swingBy (1/2) 4)
   $ n "4 1 2 4"
   # s "gw_cut(6,8)"
   # hpf 200
@@ -561,13 +559,13 @@ d1 $ fast 2
   -- # lpf 1500
   # legato 1
   -- # djf (slow 8 $ range 0.45 0.75 sine)
-  # fshift "<-10 60>"
+  -- # fshift "<-10 60>"
   -- # waveloss (pat*pat')
-  -- # pan perlin
-  -- # comb 0.02
-  # vowel "a u [i|e]"
+  # pan perlin
+ --  # comb 0.02
+  -- # vowel "a u [i|e]"
   # squiz "2 3"
-  # smear "<0.5 4 0.8 3>"
+  -- # smear "<0.5 4 0.8 3>"
   -- MAX gain 0.9
   -- # gain 0.7
    # gain (range 0.3 0.99 $ cF 0.85 (gm "d1"))
@@ -604,7 +602,7 @@ d4 -- $ sometimes (ghost)
   # panbus 1 (segment 128 $ fast 4 $ smooth "-1 1")
   -- add some uncanny motion here start with lpfbus and change to bpfbus later (get a bit lighter)
 -- ! adds grind (nice in combination with "shape" to add pressure
-  # octersub 4
+  # octersub "4 6 7 "
   # gain (range 0.3 0.99 $ cF 0.6 (gm "d4"))
 
 
@@ -622,12 +620,12 @@ d7 $ degradeBy 0
  $ n "2 ~ [2|1] ~ ~ [4|6|2] 4 ~" # s "gw_cut"
  # grain 0.3 0.2
  # speed "-1.1"
- -- # coarse 4
- # lpf 2000
+ -- # coarse "4 8 6 9"
+ -- # lpf 200
  # shape 0.6
  -- # comb 0.2
   -- # room 0.3 # sz 0.6 # dry 0.8
-  -- # tilt 0.01
+  # tilt 0.01
   -- MAX 1.5
  # gain (range 0.3 1 $ cF 0.1 (gm "d7"))
  -- # gain 0.7
@@ -653,26 +651,27 @@ d8 $ silence
 d1 $ fast 2
   $ degradeBy 0.0
   $ slice 6 "6 4 1 0"
-  $ sometimes (swingBy (1/2) 4)
+  -- $ sometimes (swingBy (1/2) 4)
   $ n "4 1 2 4"
   # s "gw_cut(6,8)"
+  # octave "5"
   -- # grain 0.0002 1
   -- # tilt 0.01
   # speed "1.4"
   #  shape "0.8" -- !!! adjust GAIN down!
   --  # hpf "150 300 200 500" -- dont use!
-  # lpf 1500
+  -- # lpf 1500
   # legato 1
-  # djf (slow 8 $ range 0.45 0.75 sine)
-  -- # fshift "<-10 40>"
+  -- # djf (slow 8 $ range 0.45 0.75 sine)
+  # fshift "<-10 40 -300>"
   -- # waveloss (pat*pat')
-  -- # pan perlin
+  # pan perlin
   -- # comb 0.02
   -- # vowel "a u [i|e]"
   # squiz "2 3" --CAUTION GAIN
-  -- # bpf 300
-  -- # smear "<0.5 4 0.8 3>"
-   # gain (range 0.3 0.95 $ cF 0.3 (gm "d1"))
+  -- # bpf 1300
+  # smear "<0.5 4 0.8 3>"
+  # gain (range 0.3 0.95 $ cF 0.3 (gm "d1"))
 
 
 --- BACKGROUND
@@ -702,7 +701,7 @@ d1 $ fast 2
 
 
 -- BEAT -> EXPRESSION
-d2 $ fast 0.5 -- play
+d2 $ fast 1 -- play
   $ jux rev -- thanks yaxu!"
   $ sometimes ((# vowel "i u"))
   $ superimpose ((# krush "<2 4>") . (# shape 0.7))
@@ -712,12 +711,12 @@ d2 $ fast 0.5 -- play
   # grain 0.5 "0.01..0.05"
   -- Playe here with and without hpf
   -- # hpf (pat* (range 100 450 sine))
-  # djf 0.7
+  # djf 0.8
   # shape "0.5 0.6 0.8"
-  # dry 0.01 # room 0.18 # sz 0.6
+  # dry 0.01 # room 0.18 # sz 0.7
   -- # distort 0.1
   # lock 1
-  # delay 0.7 # delaytime (3/6) # delayfb 0.6
+  # delay 0.8 # delaytime ("<1 3 5>"/6) # delayfb 0.8
   -- # lpfbus 2 (segment 128 $ fast 6 $ range 100 2000 $ sine )
   # gain (range 0.3 0.8 $ cF 0.5 (gm "d2"))
 
@@ -732,7 +731,7 @@ d3 $ slow 2
   -- # Cut 1
   # speed "-1.3 -1 -0.8 -1.5"  -- play with range here live 
   # shape 0.2
-  -- # squiz 2
+  # squiz 2
   -- # coarse 2
   -- # vowel "o a u"
   # djf 0.85 -- slowly inccreas
@@ -802,7 +801,7 @@ d4 -- $ sometimes (# vowel "[a|u|e]")
 
   -- loud, harsh on top of something = AVANT
 once $ fast 0.25 $ ghost
-  -- $ striate 1
+  $ striate 1
   $ stut 5 0.2 0.8
   $ slice 20 "5 7 8" $ n "2" # s "gw_cut"
   # speed "1.2 0.5 1 1.4"
